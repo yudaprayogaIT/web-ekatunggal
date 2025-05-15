@@ -5,37 +5,6 @@ import React from "react";
 export default function SliderComponent() {
     return (
         <section className="leading-0">
-            {/* <div>
-            <Image src="/img/hero.png" alt="gedung_etm" width={1920} height={849} className="w-full h-130" />
-            <div className="content" style={{ fontFamily: "montserrat" }}>
-                <h2 >APAPUN KEBUTUHANMU, SOLUSINYA, #EKATUNGGAL</h2>
-                <a href="https://wa.me/085788837057" className="wa">
-                  <div className="button-text p-1">Tanya <span>Vika</span></div>
-                  <img src="img/wa.png" alt="logo_wa" />
-                </a>
-            </div>
-        </div>
-        <div className='hidden'>
-            <Image src="/img/hero.png" alt="gedung_etm" width={1920} height={849} className="w-full h-130" />
-            <div className="content" style={{ fontFamily: "montserrat" }}>
-                <h2 >APAPUN KEBUTUHANMU, SOLUSINYA, #EKATUNGGAL</h2>
-                <a href="https://wa.me/085788837057" className="wa">
-                  <div className="button-text p-1">Tanya <span>Vika</span></div>
-                  <img src="img/wa.png" alt="logo_wa" />
-                </a>
-            </div>
-        </div>
-<div className='hidden'>
-            <Image src="/img/hero.png" alt="gedung_etm" width={1920} height={849} className="w-full h-130" />
-            <div className="content" style={{ fontFamily: "montserrat" }}>
-                <h2 >APAPUN KEBUTUHANMU, SOLUSINYA, #EKATUNGGAL</h2>
-                <a href="https://wa.me/085788837057" className="wa">
-                  <div className="button-text p-1">Tanya <span>Vika</span></div>
-                  <img src="img/wa.png" alt="logo_wa" />
-                </a>
-            </div>
-        </div> */}
-
             <div className="carousel w-full h-[82vh]" >
                 <div className="absolute bottom-[13vh] flex w-full transform justify-center z-20">
                     <a href="#item1" className="btn btn-square w-5 h-1 mx-1"></a>
