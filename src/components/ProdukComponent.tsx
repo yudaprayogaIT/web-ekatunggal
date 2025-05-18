@@ -64,19 +64,19 @@ export const ProdukComponents = () => {
   return (
     <div className="container mx-auto px-4 my-14">
       {/* Judul */}
-      <div className="text-end my-8 text-3xl font-bold uppercase ">
-        <h2 className="text-3xl uppercase font-[montserrat]">
-          Produk Unggulan
-        </h2>
+      <div className=" relative text-end my-8 text-xl md:text-2xl font-bold uppercase ">
+        <h2 className="font-[montserrat]">Produk Unggulan</h2>
         <h2 className="text-[var(--colorRed)]">Ekatunggal</h2>
+        {/* Garis horizontal kuning di bawah gambar */}
+        <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 -mt-20 mx-auto md:hidden w-[50%] h-1 bg-[var(--colorYellow)]" />
       </div>
 
       {/* Gambar kategori */}
-      <div className="relative grid grid-cols-2 justify-items-center">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-y-8 justify-items-center">
         {/* Garis vertikal kuning samping kiri */}
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
+        <div className="absolute hidden md:block left-0 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
         {/* Garis vertikal kuning samping kanan */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
+        <div className="absolute hidden md:block right-0 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
         <div className="relative">
           <Image
             src={produkBahanBaku[0].src}

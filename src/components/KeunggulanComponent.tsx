@@ -4,109 +4,11 @@ import Image from "next/image";
 export const KeunggulanComponent = () => {
   return (
     <section className="my-14">
-      <h2 className="uppercase font-[montserrat] text-3xl font-bold text-center">
+      <h2 className="uppercase font-[montserrat] text-xl md:text-2xl font-bold text-center">
         Keunggulan <span className="text-[var(--colorRed)]">Ekatunggal</span>
       </h2>
-      <div className="container mx-auto flex justify-center gap-x-10 my-8">
-        {/* <div className="card bg-base-100 w-48 shadow-xl border border-transparent rounded-lg">
-          <figure>
-            <Image
-              src="/img/keunggulan/mutu.png"
-              alt="mutu"
-              width="133"
-              height="133"
-              className="w-18"
-            />
-          </figure>
-          <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase">
-              Mutu
-            </h2>
-            <p className="text-sm mt-2 -mx-3">
-              Setiap Produk Terjaga Kualitasnya
-            </p>
-          </div>
-        </div>
-
-        <div className="card bg-base-100 w-48 shadow-xl border border-transparent rounded-lg">
-          <figure>
-            <Image
-              src="/img/keunggulan/murah.png"
-              alt="mutu"
-              width="133"
-              height="133"
-              className="w-18"
-            />
-          </figure>
-          <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase">
-              Murah
-            </h2>
-            <p className="text-sm mt-2 -mx-3">
-              Menawarkan Produk dengan Harga Terbaik
-            </p>
-          </div>
-        </div>
-
-        <div className="card bg-base-100 w-48 shadow-xl border border-transparent rounded-lg">
-          <figure>
-            <Image
-              src="/img/keunggulan/non-stop.png"
-              alt="mutu"
-              width="133"
-              height="133"
-              className="w-18"
-            />
-          </figure>
-          <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase">
-              Non stop
-            </h2>
-            <p className="text-sm mt-2 -mx-3">
-              Pelayanan 6 Hari Dalam Seminggu
-            </p>
-          </div>
-        </div>
-
-        <div className="card bg-base-100 w-52 shadow-xl border border-transparent rounded-lg">
-          <figure>
-            <Image
-              src="/img/keunggulan/terlengkap.png"
-              alt="mutu"
-              width="133"
-              height="133"
-              className="w-18"
-            />
-          </figure>
-          <div className="card-body text-center -mt-4">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase">
-              terlengkap
-            </h2>
-            <p className="text-sm mt-2 -mx-3">
-              Produk Selalu Lengkap Sesuai Kebutuhan Konsumen
-            </p>
-          </div>
-        </div> */}
-
-        {/* <div className="card bg-base-100 w-48 shadow-xl border border-transparent rounded-lg">
-          <figure>
-            <Image
-              src="/img/keunggulan/layanan-cs.png"
-              alt="mutu"
-              width="133"
-              height="133"
-              className="w-18"
-            />
-          </figure>
-          <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase">
-              Layanan cs
-            </h2>
-            <p className="text-sm mt-2 -mx-3">Sales Aktif dan Komunikatif</p>
-          </div>
-        </div> */}
-
-        <div className="card group bg-base-100 w-48 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+      <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start md:justify-center gap-y-10 md:gap-x-10 my-8">
+        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -135,7 +37,7 @@ export const KeunggulanComponent = () => {
           </div>
         </div>
 
-        <div className="card group bg-base-100 w-48 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -164,7 +66,7 @@ export const KeunggulanComponent = () => {
           </div>
         </div>
 
-        <div className="card group bg-base-100 w-48 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -193,7 +95,7 @@ export const KeunggulanComponent = () => {
           </div>
         </div>
 
-        <div className="card group bg-base-100 w-48 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -222,7 +124,7 @@ export const KeunggulanComponent = () => {
           </div>
         </div>
 
-        <div className="card group bg-base-100 w-48 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image

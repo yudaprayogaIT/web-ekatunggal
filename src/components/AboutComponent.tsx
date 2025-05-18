@@ -8,14 +8,14 @@ export const AboutComponent = () => {
         {/* Kiri: Teks */}
         <div className="relative flex-1 mt-4 space-y-8 justify-items-end">
           {/* Garis vertikal kuning kiri atas */}
-          <div className="absolute left-14.5 top-5 h-[32%] w-1 bg-[var(--colorYellow)]" />
+          <div className="absolute right-0 md:left-14.5 top-5 h-[32%] w-1 bg-[var(--colorYellow)]" />
 
           {/* Teks atas */}
-          <div className="pl-4 w-[90%]">
-            <h2 className="uppercase text-[var(--colorRed)] font-[montserrat] text-2xl font-bold mb-2">
+          <div className="px-2 md:pl-4 md:w-[90%]">
+            <h2 className="uppercase text-[var(--colorRed)] font-[montserrat] text-xl md:text-2xl font-bold mb-2">
               Ekatunggal
             </h2>
-            <p className="text-[var(--colorGrey)] text-lg leading-7">
+            <p className="text-[var(--colorGrey)] text-base md:text-lg leading-7">
               Perusahaan distributor bahan baku material springbed dan sofa,
               serta barang jadi. Didirikan oleh Alm. Bapak Gapo Suseno pada
               tahun 1997. Ekatunggal berkomitmen untuk menghadirkan produk dan
@@ -25,11 +25,11 @@ export const AboutComponent = () => {
           </div>
 
           {/* Teks bawah */}
-          <div className="relative pr-6 text-right w-[90%]">
-            <h2 className="uppercase text-[var(--colorBlack)] font-[montserrat] text-2xl font-bold mb-2">
+          <div className="relative px-2 md:pr-6 text-right md:w-[90%]">
+            <h2 className="uppercase text-[var(--colorBlack)] font-[montserrat] text-xl md:text-2xl font-bold mb-2">
               Lebih dari 2 dekade berdiri
             </h2>
-            <p className="text-lg leading-7">
+            <p className="text-base md:text-lg leading-7">
               Ekatunggal terus berinovasi untuk memberikan solusi terbaik bagi
               pelanggan, sekaligus membangun hubungan jangka panjang berdasarkan
               kepercayaan, integritas, dan profesionalisme. Didukung oleh tim
@@ -37,12 +37,12 @@ export const AboutComponent = () => {
               mitra terpercaya untuk masa depan yang lebih baik.
             </p>
             {/* Garis vertikal kuning kanan bawah */}
-            <div className="absolute right-0 bottom-4 h-[80%] w-1 bg-[var(--colorYellow)]" />
+            <div className="absolute left-0 md:right-0 bottom-4 h-[80%] w-1 bg-[var(--colorYellow)]" />
           </div>
         </div>
 
         {/* Kanan: Gambar */}
-        <div className="relative flex-1 w-full">
+        <div className="relative flex-1 w-full -mt-12 md:mt-0">
           <Image
             src="/img/about.png"
             width={1920}
@@ -53,7 +53,7 @@ export const AboutComponent = () => {
         </div>
       </div>
       {/* Garis horizontal kuning di bawah gambar */}
-      <div className="-mt-10 mx-auto w-[40%] h-1 bg-[var(--colorYellow)]" />
+      <div className="-mt-20 md:-mt-10 mx-auto w-[60%] md:w-[40%] h-1 bg-[var(--colorYellow)]" />
     </section>
   );
 };

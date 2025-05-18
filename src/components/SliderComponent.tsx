@@ -2,13 +2,16 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 const slides = [
   {
     id: "item1",
     image: "/img/hero.png",
     alt: "gedung_etm",
-    title: "APAPUN KEBUTUHANMU, SOLUSINYA, #EKATUNGGAL",
+    title: "APAPUN KEBUTUHANMU, SOLUSINYA, ",
+    hashtag: "#EKATUNGGAL",
     button: {
       label: "TANYA VIKA",
       link: "https://wa.me/085788837057",
@@ -18,7 +21,8 @@ const slides = [
     id: "item2",
     image: "/img/hero2.png",
     alt: "gedung_etm_2",
-    title: "SOLUSI CEPAT UNTUK BERBAGAI KEBUTUHAN INDUSTRI, #EKATUNGGAL",
+    title: "SOLUSI CEPAT UNTUK KEBUTUHAN INDUSTRI, ",
+    hashtag: "#EKATUNGGAL",
     button: {
       label: "TANYA VIKA",
       link: "https://wa.me/085788837057",
@@ -28,7 +32,8 @@ const slides = [
     id: "item3",
     image: "/img/hero3.png",
     alt: "gedung_etm_3",
-    title: "LAYANAN TERBAIK DENGAN TEKNOLOGI TERKINI, #EKATUNGGAL",
+    title: "LAYANAN TERBAIK DENGAN TEKNOLOGI TERKINI, ",
+    hashtag: "#EKATUNGGAL",
     button: {
       label: "TANYA VIKA",
       link: "https://wa.me/085788837057",
@@ -36,18 +41,55 @@ const slides = [
   },
 ];
 
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.07,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1, // reverse order
+    },
+  },
+};
+
+const letterVariant = {
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: 10 },
+};
+
 export default function SliderComponent() {
   const [current, setCurrent] = useState(0);
+  const [animatedKey, setAnimatedKey] = useState(0);
 
-  // Auto-slide effect
+  // Auto slide every 15 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 15000); // change every 5 seconds
+    }, 15000);
     return () => clearInterval(timer);
   }, []);
 
-  // Handle button click without scroll
+  // Reset animation when slide changes
+  useEffect(() => {
+    setAnimatedKey((prev) => prev + 1);
+  }, [current]);
+
+  // Also reset animation every 5 seconds (loop on same slide)
+  useEffect(() => {
+    const resetInterval = setInterval(() => {
+      setAnimatedKey((prev) => prev + 1);
+    }, 5000); // reset every 5s
+    return () => clearInterval(resetInterval);
+  }, []);
+
   const handleDotClick = (index: number) => {
     setCurrent(index);
   };
@@ -62,16 +104,39 @@ export default function SliderComponent() {
               index === current ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            <Image
+            <motion.img
+              key={slide.id}
               src={slide.image}
               alt={slide.alt}
-              width={1920}
-              height={849}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8 }}
               className="w-full h-full object-cover"
             />
-            <div className="content w-full md:w-[50%] text-[var(--colorWhite)] font-[montserrat] font-bold absolute top-[45%] left-[6%] z-20">
-              <h2 className="text-2xl leading-7">{slide.title}</h2>
-              <a
+
+            <div className="content w-[90%] md:w-[50%] text-[var(--colorWhite)] font-[montserrat] font-bold absolute top-[45%] left-[6%] z-20">
+              <h2 className="text-lg md:text-2xl leading-6 md:leading-7 flex flex-wrap items-center">
+                {slide.title}
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={animatedKey}
+                    className="flex ml-2"
+                    variants={containerVariant}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                  >
+                    {slide.hashtag.split("").map((char, i) => (
+                      <motion.span key={i} variants={letterVariant}>
+                        {char}
+                      </motion.span>
+                    ))}
+                  </motion.span>
+                </AnimatePresence>
+              </h2>
+
+              <Link
                 href={slide.button.link}
                 className="wa mt-[0.5vw] p-[0.6vw] flex justify-center items-center bg-[var(--colorYellow)] w-[7.6rem] h-[2rem] rounded-2xl uppercase text-[0.7rem] text-black"
               >
@@ -88,7 +153,7 @@ export default function SliderComponent() {
                   alt="logo_wa"
                   className="w-5 h-5"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         ))}
@@ -110,7 +175,7 @@ export default function SliderComponent() {
       </div>
 
       {/* Floating WA Button */}
-      <div className="fixed h-25 bottom-20 right-4 z-50 hidden md:flex flex-col">
+      <div className="fixed h-8 md:h-25 bottom-30 md:bottom-20 right-4 z-50 md:flex flex-col">
         <a href="https://wa.me/085788837057">
           <img src="/img/floating-icon.png" alt="tanya_vika" />
         </a>
@@ -118,7 +183,7 @@ export default function SliderComponent() {
 
       {/* Red Bottom Section */}
       <section className="h-[11vh] flex bg-[var(--colorRed)]">
-        <div className="flex w-full items-center justify-center text-base font-bold text-white font-[montserrat]">
+        <div className="flex w-full items-center justify-center content-center text-sm md:text-base font-bold text-white font-[montserrat]">
           BEKERJA DAN MELAYANI DENGAN SEJUTA HATI
         </div>
       </section>

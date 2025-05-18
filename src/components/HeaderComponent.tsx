@@ -44,7 +44,7 @@ function HeaderComponent() {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-md shadow-lg mt-3 p-4 w-[95vw] z-[999] text-base uppercase font-bold font-[montserrat]"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-md shadow-lg mt-1 -mr-4 p-4 w-[100vw] z-[999] text-base uppercase font-bold font-[montserrat]"
             >
               <li>
                 <Link href="#">Tentang Kami</Link>
@@ -77,7 +77,7 @@ function HeaderComponent() {
               <li>
                 <details>
                   <summary>Produk</summary>
-                  <ul className="p-1 bg-base-100 w-40 mt-10 rounded-t-none">
+                  <ul className="p-1 bg-base-100 w-35 mt-4 rounded-t-none">
                     <li>
                       <Link href="#">Bahan Baku</Link>
                     </li>
