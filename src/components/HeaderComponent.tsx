@@ -3,63 +3,61 @@ import Link from "next/link";
 
 function HeaderComponent() {
   return (
-    <nav className="h-[8vh]">
-      {/* <nav className='w-full h-[50px] flex justify-between items-center'>
-            <Image src="/img/logo_etm.png" alt="etm-logo" width={50} height={50} className='w-auto px-4 h-[41px]' />
-            <ul className='pr-6 flex space-x-16 font-bold text-[0.9em]' style={{ fontFamily: "montserrat" }}>
-                <li><Link href="#">TENTANG KAMI</Link></li>
-                <li><Link href="#">PRODUK</Link></li>
-                <li><Link href="#">KARIR</Link></li>
-            </ul>
-        </nav> */}
+    <nav className="sticky top-0 z-50 bg-base-100 shadow-sm">
+      <div className="h-[8vh] flex items-center w-full px-4">
+        {/* Navbar Start */}
+        <div className="flex items-center justify-between w-full">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Image
+              src="/img/logo_etm.png"
+              alt="etm-logo"
+              width={80}
+              height={60}
+              className="h-[6vh] w-auto"
+            />
+          </div>
 
-      <div className="navbar h-full bg-base-100 shadow-sm w-full">
-        <div className="navbar-start">
-          <Image
-            src="/img/logo_etm.png"
-            alt="etm-logo"
-            width={80}
-            height={60}
-            className="w-auto px-4 h-[5vh]"
-          />
-        </div>
-        <div className="navbar-end uppercase font-bold font-[montserrat]">
-          {/* versi mobile */}
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                  d="M4 6h16M4 12h8m-8 6h14"
+                />
+                {/* <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                /> */}
               </svg>
-            </div>
+            </label>
             <ul
               tabIndex={0}
-              className=" menu menu-sm dropdown-content bg-white rounded-md z-50 mt-2 p-4 shadow-lg right-0 mx-1"
-              style={{ width: "95vw" }}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-md shadow-lg mt-3 p-4 w-[95vw] z-[999] text-base uppercase font-bold font-[montserrat]"
             >
               <li>
-                <Link href="#">tentang kami</Link>
+                <Link href="#">Tentang Kami</Link>
               </li>
               <li>
                 <details>
-                  <summary>produk</summary>
-                  <ul className="bg-base-100 rounded-t-none p-1 w-40">
+                  <summary>Produk</summary>
+                  <ul className="p-2 bg-base-100 w-40 rounded-t-none">
                     <li>
-                      <Link href="#">bahan baku</Link>
+                      <Link href="#">Bahan Baku</Link>
                     </li>
                     <li>
-                      <Link href="#">barang jadi</Link>
+                      <Link href="#">Barang Jadi</Link>
                     </li>
                   </ul>
                 </details>
@@ -70,21 +68,21 @@ function HeaderComponent() {
             </ul>
           </div>
 
-          {/* versi laptop */}
+          {/* Desktop Menu */}
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 pr-6 space-x-10 text-[0.8vw]">
+            <ul className="menu menu-horizontal space-x-8 uppercase font-bold font-[montserrat] text-xs">
               <li>
-                <Link href="#">tentang kami</Link>
+                <Link href="#">Tentang Kami</Link>
               </li>
               <li>
                 <details>
-                  <summary>produk</summary>
-                  <ul className="bg-base-100 rounded-t-none p-1 w-40">
+                  <summary>Produk</summary>
+                  <ul className="p-1 bg-base-100 w-40 mt-10 rounded-t-none">
                     <li>
-                      <Link href="#">bahan baku</Link>
+                      <Link href="#">Bahan Baku</Link>
                     </li>
                     <li>
-                      <Link href="#">barang jadi</Link>
+                      <Link href="#">Barang Jadi</Link>
                     </li>
                   </ul>
                 </details>
