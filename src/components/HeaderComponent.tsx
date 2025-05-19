@@ -70,14 +70,14 @@ function HeaderComponent() {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal space-x-8 uppercase font-bold font-[montserrat] text-xs">
+            <ul className="menu menu-horizontal space-x-8 uppercase font-bold font-[montserrat] text-sm">
               <li>
                 <Link href="#">Tentang Kami</Link>
               </li>
               <li>
                 <details>
                   <summary>Produk</summary>
-                  <ul className="p-1 bg-base-100 w-35 mt-4 rounded-t-none">
+                  <ul className="p-1 bg-base-100 w-40 rounded-t-none">
                     <li>
                       <Link href="#">Bahan Baku</Link>
                     </li>

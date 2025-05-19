@@ -95,7 +95,7 @@ export default function SliderComponent() {
   };
 
   return (
-    <section className="leading-0">
+    <section className="leading-0 ">
       <div className="relative w-full h-[82vh] overflow-hidden">
         {slides.map((slide, index) => (
           <div
@@ -115,13 +115,13 @@ export default function SliderComponent() {
               className="w-full h-full object-cover"
             />
 
-            <div className="content w-[90%] md:w-[50%] text-[var(--colorWhite)] font-[montserrat] font-bold absolute top-[45%] left-[6%] z-20">
-              <h2 className="text-lg md:text-2xl leading-6 md:leading-7 flex flex-wrap items-center">
+            <div className="content w-[90%] md:w-[50%] 2xl:w-[45%] text-[var(--colorWhite)] font-[montserrat] font-bold absolute top-[45%] left-[6%] z-20">
+              <h2 className="text-lg md:text-3xl 2xl:text-4xl leading-6 md:leading-9 flex flex-wrap items-center">
                 {slide.title}
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={animatedKey}
-                    className="flex ml-2"
+                    className="flex ml-5"
                     variants={containerVariant}
                     initial="hidden"
                     animate="visible"
@@ -138,7 +138,7 @@ export default function SliderComponent() {
 
               <Link
                 href={slide.button.link}
-                className="wa mt-[0.5vw] p-[0.6vw] flex justify-center items-center bg-[var(--colorYellow)] w-[7.6rem] h-[2rem] rounded-2xl uppercase text-[0.7rem] text-black"
+                className="wa mt-1 p-2 flex justify-center items-center bg-[var(--colorYellow)] w-30 md:w-35 h-10 md:h-11 rounded-2xl uppercase text-[0.7rem] md:text-sm text-black"
               >
                 <div className="button-text p-1">
                   {slide.button.label.split(" ")[0]}{" "}
@@ -175,15 +175,21 @@ export default function SliderComponent() {
       </div>
 
       {/* Floating WA Button */}
-      <div className="fixed h-8 md:h-25 bottom-30 md:bottom-20 right-4 z-50 md:flex flex-col">
-        <a href="https://wa.me/085788837057">
-          <img src="/img/floating-icon.png" alt="tanya_vika" />
-        </a>
+      <div className="fixed bottom-8 md:bottom-16 2xl:bottom-23 right-4 z-50 md:flex flex-col">
+        <Link href="https://wa.me/085788837057">
+          <Image
+            src="/img/floating-icon.png"
+            alt="tanya_vika"
+            width={205}
+            height={205}
+            className="h-20 w-auto md:h-28"
+          />
+        </Link>
       </div>
 
       {/* Red Bottom Section */}
-      <section className="h-[11vh] flex bg-[var(--colorRed)]">
-        <div className="flex w-full items-center justify-center content-center text-sm md:text-base font-bold text-white font-[montserrat]">
+      <section className="h-10 md:h-16 2xl:h-25 flex bg-[var(--colorRed)]">
+        <div className="flex w-full items-center justify-center content-center text-sm md:text-base 2xl:text-xl font-bold text-white font-[montserrat]">
           BEKERJA DAN MELAYANI DENGAN SEJUTA HATI
         </div>
       </section>

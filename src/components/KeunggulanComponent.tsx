@@ -4,11 +4,11 @@ import Image from "next/image";
 export const KeunggulanComponent = () => {
   return (
     <section className="my-14">
-      <h2 className="uppercase font-[montserrat] text-xl md:text-2xl font-bold text-center">
+      <h2 className="uppercase font-[montserrat] text-[var(--colorBlack)] text-xl md:text-2xl 2xl:text-3xl font-bold text-center">
         Keunggulan <span className="text-[var(--colorRed)]">Ekatunggal</span>
       </h2>
       <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start md:justify-center gap-y-10 md:gap-x-10 my-8">
-        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-[var(--colorWhite)] w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -28,7 +28,7 @@ export const KeunggulanComponent = () => {
             />
           </figure>
           <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
+            <h2 className="card-title mx-auto text-[var(--colorBlack)] text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
               mutu
             </h2>
             <p className="text-sm mt-2 -mx-3 font-bold text-[var(--colorGrey)] transition-all duration-300 group-hover:text-[var(--colorBlack)]">
@@ -37,7 +37,7 @@ export const KeunggulanComponent = () => {
           </div>
         </div>
 
-        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-[var(--colorWhite)] w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -57,7 +57,7 @@ export const KeunggulanComponent = () => {
             />
           </figure>
           <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
+            <h2 className="card-title mx-auto text-[var(--colorBlack)] text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
               murah
             </h2>
             <p className="text-sm mt-2 -mx-3 font-bold text-[var(--colorGrey)] transition-all duration-300 group-hover:text-[var(--colorBlack)]">
@@ -66,7 +66,7 @@ export const KeunggulanComponent = () => {
           </div>
         </div>
 
-        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-[var(--colorWhite)] w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -86,7 +86,7 @@ export const KeunggulanComponent = () => {
             />
           </figure>
           <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
+            <h2 className="card-title mx-auto text-[var(--colorBlack)] text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
               Non stop
             </h2>
             <p className="text-sm mt-2 -mx-3 font-bold text-[var(--colorGrey)] transition-all duration-300 group-hover:text-[var(--colorBlack)]">
@@ -95,7 +95,7 @@ export const KeunggulanComponent = () => {
           </div>
         </div>
 
-        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-[var(--colorWhite)] w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -115,7 +115,7 @@ export const KeunggulanComponent = () => {
             />
           </figure>
           <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
+            <h2 className="card-title mx-auto text-[var(--colorBlack)] text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
               terlengkap
             </h2>
             <p className="text-sm mt-1 -mx-3 font-bold text-[var(--colorGrey)] transition-all duration-300 group-hover:text-[var(--colorBlack)]">
@@ -124,7 +124,7 @@ export const KeunggulanComponent = () => {
           </div>
         </div>
 
-        <div className="card group bg-base-100 w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
+        <div className="card group bg-[var(--colorWhite)] w-48 h-50 shadow-lg hover:shadow-2xl border border-transparent rounded-lg transition-all duration-300">
           <figure className="relative">
             {/* Normal image */}
             <Image
@@ -144,7 +144,7 @@ export const KeunggulanComponent = () => {
             />
           </figure>
           <div className="card-body text-center -mt-5">
-            <h2 className="card-title mx-auto text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
+            <h2 className="card-title mx-auto text-[var(--colorBlack)] text-base font-[montserrat] uppercase transition-all duration-300 group-hover:text-[var(--colorRed)]">
               Layanan cs
             </h2>
             <p className="text-sm mt-2 -mx-3 font-bold text-[var(--colorGrey)] transition-all duration-300 group-hover:text-[var(--colorBlack)]">

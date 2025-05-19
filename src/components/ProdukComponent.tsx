@@ -64,8 +64,10 @@ export const ProdukComponents = () => {
   return (
     <div className="container mx-auto px-4 my-14">
       {/* Judul */}
-      <div className=" relative text-end my-8 text-xl md:text-2xl font-bold uppercase ">
-        <h2 className="font-[montserrat]">Produk Unggulan</h2>
+      <div className=" relative text-end my-8 text-xl md:text-2xl 2xl:text-3xl font-bold uppercase ">
+        <h2 className="font-[montserrat] text-[var(--colorBlack)]">
+          Produk Unggulan
+        </h2>
         <h2 className="text-[var(--colorRed)]">Ekatunggal</h2>
         {/* Garis horizontal kuning di bawah gambar */}
         <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 -mt-20 mx-auto md:hidden w-[50%] h-1 bg-[var(--colorYellow)]" />
@@ -83,9 +85,23 @@ export const ProdukComponents = () => {
             alt="BahanBaku"
             width={540}
             height={540}
-            className="rounded-lg w-100"
+            className="rounded-lg w-100 2xl:w-115"
           />
-          <div className="absolute inset-0 bg-base-100 flex flex-col items-center justify-center m-auto opacity-0 hover:opacity-75 transition duration-500 ease-in-out w-[95%] h-[95%] rounded-lg">
+          {/* muncul sebelum hover */}
+          <div className="absolute inset-0 bg-transparent-100 flex flex-col items-center justify-center m-auto opacity-75 transition duration-500 ease-in-out w-[95%] h-[95%]">
+            <div className="text-transparent text-lg font-bold">Bahan Baku</div>
+            <button className="relative">
+              <Image
+                src="/img/produk/search.png"
+                alt="search icon"
+                width={40}
+                height={40}
+                className="block group-hover:hidden"
+              />
+            </button>
+          </div>
+          {/* akhir muncul sebelum hover */}
+          <div className="absolute inset-0 bg-base-100 flex flex-col items-center justify-center m-auto opacity-0 hover:opacity-75 transition duration-500 ease-in-out w-[100%] h-[100%] ">
             <div className="text-black text-lg font-bold">Bahan Baku</div>
             <button
               onClick={() => bukaModal("BahanBaku", 0)}
@@ -115,9 +131,9 @@ export const ProdukComponents = () => {
             alt="BarangJadi"
             width={540}
             height={540}
-            className="rounded-lg w-100"
+            className="rounded-lg w-100 2xl:w-115"
           />
-          <div className="absolute inset-0 bg-base-100 flex flex-col items-center justify-center m-auto opacity-0 hover:opacity-75 transition duration-500 ease-in-out w-[95%] h-[95%] rounded-lg">
+          <div className="absolute inset-0 bg-base-100 flex flex-col items-center justify-center m-auto opacity-0 hover:opacity-75 transition duration-500 ease-in-out w-[100%] h-[100%]">
             <div className="text-black text-lg font-bold">Barang Jadi</div>
             <button
               onClick={() => bukaModal("BarangJadi", 0)}
@@ -202,7 +218,7 @@ export const ProdukComponents = () => {
             {/* Tombol Tutup */}
             <button
               onClick={tutupModal}
-              className="absolute top-4 right-4 text-white text-xl font-bold"
+              className="absolute top-4 right-4 text-black text-xl font-bold"
             >
               ✕
             </button>
