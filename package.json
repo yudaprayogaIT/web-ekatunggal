@@ -12,7 +12,6 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.1.0",
-    "daisyui": "^5.0.35",
     "framer-motion": "^12.12.1",
     "motion": "^12.12.1",
     "mui": "^0.0.1",

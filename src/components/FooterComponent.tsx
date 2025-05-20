@@ -17,7 +17,7 @@ export const FooterComponent = () => {
           width={75}
           height={75}
           alt="logo_etm"
-          className="mx-8 w-10 md:w-32 h-auto  "
+          className="mx-8 w-10 md:w-32 h-10 md:h-32"
         />
         {/* garis vertical abu */}
         <div className="absolute hidden md:block md:left-123 md:top-6 h-28 w-[1px] ml-0 bg-[var(--colorGrey)] opacity-25" />
