@@ -98,12 +98,12 @@ export const FooterComponent = () => {
           <h2 className="font-[montserrat] text-md md:text-2xl my-1 md:my-2 ">
             Informasi Seputar Karir Ekatunggal
           </h2>
-          <button className="p-1 w-20 md:w-25 text-xs md:text-sm bg-[var(--colorYellow)] rounded-full">
+          <button className="p-1 w-20  md:w-25 text-xs md:text-sm bg-[var(--colorYellow)] rounded-full">
             Learn More
           </button>
         </div>
       </div>
-      <div className="mx-auto mt-4 md:mt-0 font-bold text-[10px] md:text-sm text-[var(--colorBlack)]">
+      <div className="text-center mt-16 md:mt-0 font-bold text-[10px] md:text-sm text-[var(--colorBlack)]">
         © ETM GROUP. All Rights Reserved PT. Ekatunggal Tunas Mandiri
       </div>
     </section>

@@ -10,7 +10,7 @@ function HeaderComponent() {
   const [isProductOpen, setIsProductOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-[9999] bg-white shadow-sm">
+    <nav className="sticky top-0 z-[9999] bg-[#ffffffe0] shadow-sm">
       <div className="h-[8vh] flex items-center justify-between px-4">
         {/* Logo */}
         <div className="flex items-center">
@@ -131,7 +131,7 @@ function HeaderComponent() {
                   : "max-h-0 opacity-0"
               }`}
             >
-              <div className="absolute left-6 md:hidden bottom-[41px] h-[25%] w-[1px] bg-[var(--colorGrey)] opacity-25" />
+              <div className="absolute left-6 md:hidden bottom-16 h-[24%] w-[1px] bg-[var(--colorGrey)] opacity-25" />
               <div className="relative ml-6 space-y-1 font-bolt text-xs">
                 <Link href="#" className="block">
                   Bahan Baku
