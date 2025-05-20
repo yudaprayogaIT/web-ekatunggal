@@ -36,7 +36,7 @@ export const AboutComponent = () => {
   }, [isInViewRight]);
 
   return (
-    <section className="my-10 overflow-x-hidden">
+    <section className="my-10 w-full overflow-hidden">
       <div className="relative container max-w-full my-14 mx-auto flex flex-col md:flex-row items-start gap-8 px-4 md:px-12">
         {/* Kiri: Teks */}
         <div className="relative flex-1 -mt-14 md:mt-4 space-y-4 md:space-y-8">

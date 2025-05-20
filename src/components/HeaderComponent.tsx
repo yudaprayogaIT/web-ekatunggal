@@ -1,105 +1,3 @@
-// import Image from "next/image";
-// import Link from "next/link";
-
-// function HeaderComponent() {
-//   return (
-//     <nav className="sticky top-0 z-[9999] bg-[var(--colorWhite)] shadow-sm">
-//       <div className="h-[8vh] flex items-center w-full px-4">
-//         {/* Navbar Start */}
-//         <div className="flex items-center justify-between w-full">
-//           {/* Logo */}
-//           <div className="flex items-center">
-//             <Image
-//               src="/img/logo_etm.png"
-//               alt="etm-logo"
-//               width={80}
-//               height={60}
-//               className="h-[6vh] w-auto"
-//             />
-//           </div>
-
-//           {/* Mobile Menu Button */}
-//           <div className="lg:hidden dropdown dropdown-end">
-//             <label tabIndex={0} className="btn btn-ghost">
-//               <svg
-//                 xmlns="http://www.w3.org/2000/svg"
-//                 className="h-6 w-6"
-//                 fill="none"
-//                 viewBox="0 0 24 24"
-//                 stroke="currentColor"
-//               >
-//                 <path
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                   strokeWidth="2"
-//                   d="M4 6h16M4 12h8m-8 6h14"
-//                 />
-//                 {/* <path
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                   strokeWidth="2"
-//                   d="M4 6h16M4 12h16M4 18h16"
-//                 /> */}
-//               </svg>
-//             </label>
-//             <ul
-//               tabIndex={0}
-//               className="menu menu-sm dropdown-content bg-base-100 rounded-md shadow-lg mt-1 -mr-4 p-4 w-[100vw] z-[999] text-base uppercase font-bold font-[montserrat]"
-//             >
-//               <li>
-//                 <Link href="#">Tentang Kami</Link>
-//               </li>
-//               <li>
-//                 <details>
-//                   <summary>Produk</summary>
-//                   <ul className="p-2 bg-base-100 w-40 rounded-t-none">
-//                     <li>
-//                       <Link href="#">Bahan Baku</Link>
-//                     </li>
-//                     <li>
-//                       <Link href="#">Barang Jadi</Link>
-//                     </li>
-//                   </ul>
-//                 </details>
-//               </li>
-//               <li>
-//                 <Link href="#">Karir</Link>
-//               </li>
-//             </ul>
-//           </div>
-
-//           {/* Desktop Menu */}
-//           <div className="hidden lg:flex">
-//             <ul className="menu menu-horizontal space-x-8 uppercase font-bold font-[montserrat] text-sm">
-//               <li>
-//                 <Link href="#">Tentang Kami</Link>
-//               </li>
-//               <li>
-//                 <details>
-//                   <summary>Produk</summary>
-//                   <ul className="p-1 bg-base-100 w-40 rounded-t-none">
-//                     <li>
-//                       <Link href="#">Bahan Baku</Link>
-//                     </li>
-//                     <li>
-//                       <Link href="#">Barang Jadi</Link>
-//                     </li>
-//                   </ul>
-//                 </details>
-//               </li>
-//               <li>
-//                 <Link href="#">Karir</Link>
-//               </li>
-//             </ul>
-//           </div>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default HeaderComponent;
-
 "use client";
 
 import Image from "next/image";
@@ -128,12 +26,12 @@ function HeaderComponent() {
         {/* Mobile menu button */}
         <div className="lg:hidden">
           <button
+            className="lg:hidden transition-transform duration-200"
             onClick={() => setIsOpen(!isOpen)}
-            className="focus:outline-none"
-            aria-label="Toggle menu"
+            aria-label="Toggle Menu"
           >
             <svg
-              className="w-6 h-6 text-black"
+              className={"w-6 h-6 text-black"}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -191,17 +89,21 @@ function HeaderComponent() {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {isOpen && (
-        <div className="lg:hidden bg-white px-4 py-2 shadow-md border-t border-gray-100 space-y-2 uppercase font-bold text-[var(--colorBlack)] text-xs font-[montserrat]">
+      <div
+        className={`lg:hidden absolute top-[8vh] left-0 w-full bg-white z-[9998] transition-all duration-500 ease-in-out ${
+          isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="bg-white px-4 py-4 shadow-md border-t border-gray-100 space-y-2 uppercase font-bold text-[var(--colorBlack)] text-xs font-[montserrat]">
           <Link href="#" className="block">
             Tentang Kami
           </Link>
 
-          {/* Produk Dropdown */}
+          {/* Produk Submenu */}
           <div>
             <button
               onClick={() => setIsProductOpen(!isProductOpen)}
-              className="flex items-center justify-between w-full cursor-pointer uppercase relative"
+              className="flex items-center justify-between w-full cursor-pointer uppercase"
             >
               <span>Produk</span>
               <svg
@@ -221,29 +123,35 @@ function HeaderComponent() {
               </svg>
             </button>
 
-            {isProductOpen && (
-              <>
-                <div className="absolute left-5 md:hidden bottom-8 h-[20%] w-[1px] bg-[var(--colorGrey)] opacity-25" />
-                <div className="ml-4 mt-2 space-y-1 text-[var(--colorBlack)] font-[montserrat] font-bold">
-                  <Link href="#" className="block">
-                    Bahan Baku
-                  </Link>
-                  <Link href="#" className="block">
-                    Barang Jadi
-                  </Link>
-                </div>
-              </>
-            )}
+            {/* Submenu Items */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                isProductOpen
+                  ? "max-h-40 opacity-100 mt-2"
+                  : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="absolute left-6 md:hidden bottom-[41px] h-[25%] w-[1px] bg-[var(--colorGrey)] opacity-25" />
+              <div className="relative ml-6 space-y-1 font-bolt text-xs">
+                <Link href="#" className="block">
+                  Bahan Baku
+                </Link>
+                <Link href="#" className="block">
+                  Barang Jadi
+                </Link>
+              </div>
+            </div>
           </div>
 
           <Link href="#" className="block">
             Karir
           </Link>
+
           <Link href="#" className="block">
-            Kontak kami
+            Tentang Kami
           </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
