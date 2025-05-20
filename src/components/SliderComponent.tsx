@@ -95,7 +95,7 @@ export default function SliderComponent() {
   };
 
   return (
-    <section className="leading-0 ">
+    <section className="leading-0">
       <div className="relative w-full h-[82vh] overflow-hidden">
         {slides.map((slide, index) => (
           <div

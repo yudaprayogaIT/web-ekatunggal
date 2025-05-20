@@ -16,10 +16,20 @@ body {
   margin: 0;
   padding: 0;
   background-color: #fff;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
 }
 
 body {
   font-size: 14px;
   font-family: "Lato", sans-serif;
+}
+
+/* global.css atau tailwind base */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE & Edge */
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }

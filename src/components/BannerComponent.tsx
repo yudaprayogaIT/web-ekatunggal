@@ -3,13 +3,13 @@ import Image from "next/image";
 
 export const BannerComponent = () => {
   return (
-    <section className="my-6 h-20 md:h-70 w-full rounded-full bg-[var(--colorRed)] flex">
-      <div className="">
+    <section className="my-6 h-20 md:h-60 w-full rounded-full bg-[var(--colorRed)] flex">
+      <div>
         <Image
           src="/img/character.png"
           width={340}
           height={410}
-          className="h-20 md:h-70 w-auto pl-5 md:pl-45 pb-[0.8px]"
+          className="h-20 md:h-60 w-auto pl-5 md:pl-45 pb-[0.8px]"
           alt="character_etm"
         ></Image>
       </div>

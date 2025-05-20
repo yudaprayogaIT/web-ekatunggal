@@ -62,7 +62,7 @@ export const ProdukComponents = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 my-14">
+    <div className="container mx-auto px-4 my-14 ">
       {/* Judul */}
       <div className=" relative text-end my-8 text-xl md:text-2xl 2xl:text-3xl font-bold uppercase ">
         <h2 className="font-[montserrat] text-[var(--colorBlack)]">
@@ -85,7 +85,7 @@ export const ProdukComponents = () => {
             alt="BahanBaku"
             width={540}
             height={540}
-            className="rounded-lg w-100 2xl:w-115"
+            className="w-100 2xl:w-115"
           />
           {/* muncul sebelum hover */}
           <div className="absolute inset-0 bg-transparent-100 flex flex-col items-center justify-center m-auto opacity-75 transition duration-500 ease-in-out w-[95%] h-[95%]">
@@ -101,7 +101,7 @@ export const ProdukComponents = () => {
             </button>
           </div>
           {/* akhir muncul sebelum hover */}
-          <div className="absolute inset-0 bg-base-100 flex flex-col items-center justify-center m-auto opacity-0 hover:opacity-75 transition duration-500 ease-in-out w-[100%] h-[100%] ">
+          <div className="absolute inset-0 bg-[var(--colorWhite)] flex flex-col items-center justify-center m-auto opacity-0 hover:opacity-75 transition duration-500 ease-in-out w-[100%] h-[100%] ">
             <div className="text-black text-lg font-bold">Bahan Baku</div>
             <button
               onClick={() => bukaModal("BahanBaku", 0)}
@@ -131,9 +131,9 @@ export const ProdukComponents = () => {
             alt="BarangJadi"
             width={540}
             height={540}
-            className="rounded-lg w-100 2xl:w-115"
+            className="w-100 2xl:w-115"
           />
-          <div className="absolute inset-0 bg-base-100 flex flex-col items-center justify-center m-auto opacity-0 hover:opacity-75 transition duration-500 ease-in-out w-[100%] h-[100%]">
+          <div className="absolute inset-0 bg-[var(--colorWhite)] flex flex-col items-center justify-center m-auto opacity-0 hover:opacity-75 transition duration-500 ease-in-out w-[100%] h-[100%]">
             <div className="text-black text-lg font-bold">Barang Jadi</div>
             <button
               onClick={() => bukaModal("BarangJadi", 0)}

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const KeunggulanComponent = () => {
   return (
-    <section className="my-14">
+    <section className="my-10 ">
       <h2 className="uppercase font-[montserrat] text-[var(--colorBlack)] text-xl md:text-2xl 2xl:text-3xl font-bold text-center">
         Keunggulan <span className="text-[var(--colorRed)]">Ekatunggal</span>
       </h2>
