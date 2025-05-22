@@ -116,12 +116,12 @@ export default function SliderComponent() {
             />
 
             <div className="content w-[90%] md:w-[50%] 2xl:w-[45%] text-[var(--colorWhite)] font-[montserrat] font-bold absolute top-[45%] left-[6%] z-20">
-              <h2 className="text-lg md:text-3xl 2xl:text-4xl leading-6 md:leading-9 flex flex-wrap items-center">
+              <h2 className="text-lg md:text-3xl 2xl:text-4xl leading-6 md:leading-9">
                 {slide.title}
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={animatedKey}
-                    className="flex ml-5"
+                    className=""
                     variants={containerVariant}
                     initial="hidden"
                     animate="visible"

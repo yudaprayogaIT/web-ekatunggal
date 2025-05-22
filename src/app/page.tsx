@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import HeaderComponent from "@/components/HeaderComponent";
-import SliderComponent from "@/components/SliderComponent";
-import { AboutComponent } from "@/components/AboutComponent";
-import { KeunggulanComponent } from "@/components/KeunggulanComponent";
-import { ProdukComponents } from "@/components/ProdukComponent";
-import { BannerComponent } from "@/components/BannerComponent";
-import { FooterComponent } from "@/components/FooterComponent";
+import HeaderComponent from "@/components/home/HeaderComponent";
+import SliderComponent from "@/components/home/SliderComponent";
+import { AboutComponent } from "@/components/home/AboutComponent";
+import { KeunggulanComponent } from "@/components/home/KeunggulanComponent";
+import { ProdukComponents } from "@/components/home/ProdukComponent";
+import { BannerComponent } from "@/components/home/BannerComponent";
+import { FooterComponent } from "@/components/home/FooterComponent";
 
 export default function Home() {
   return (

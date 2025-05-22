@@ -208,22 +208,20 @@ export const KeunggulanComponent = () => {
         {items.map(({ key, label, desc, img, imgHover }) => (
           <div
             key={key}
-            className="group bg-[var(--colorWhite)] w-50 py-5 h-52 shadow-lg hover:shadow-2xl border border-transparent rounded-2xl transition-shadow duration-300 overflow-hidden"
+            className="group bg-[var(--colorWhite)] w-50 py-5 h-52 shadow-lg hover:shadow-2xl rounded-2xl transition-shadow duration-300 overflow-hidden"
           >
             <div className="relative w-full h-20">
               <Image
                 src={img}
                 alt={key}
-                layout="fill"
-                objectFit="contain"
-                className="block group-hover:hidden transition-all duration-300"
+                fill
+                className="block group-hover:hidden transition-all duration-300 object-contain"
               />
               <Image
                 src={imgHover}
                 alt={`${key}-hover`}
-                layout="fill"
-                objectFit="contain"
-                className="hidden group-hover:block transition-all duration-300"
+                fill
+                className="hidden group-hover:block transition-all duration-300 object-contain"
               />
             </div>
             <div className="p-4 font-bold text-center mt-2">
