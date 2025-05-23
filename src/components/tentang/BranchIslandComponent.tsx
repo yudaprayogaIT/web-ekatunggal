@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { branches, Branch } from "@/data/branches";
+import { branches } from "@/data/branches";
 
 const islands = [
   "sumatera",

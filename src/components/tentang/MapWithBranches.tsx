@@ -155,6 +155,7 @@ import type { LatLngBoundsExpression } from "leaflet";
 import L from "leaflet";
 import { branches } from "@/data/branches";
 import Link from "next/link";
+import Image from "next/image";
 
 // Hapus default _getIconUrl dan set ikon custom
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -328,10 +329,12 @@ export default function MapWithBranches() {
                 onClick={() => setSelected(null)}
                 className="text-gray-500 hover:text-gray-800 h-10 flex items-center justify-center"
               >
-                <img
+                <Image
                   src="/icons/left.png"
                   alt="arrow"
                   className="w-auto h-17"
+                  width={60}
+                  height={60}
                 />
               </button>
             </div>
