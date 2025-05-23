@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 
 export const BudayaComponent = () => {
   const budaya = [
@@ -37,24 +37,25 @@ export const BudayaComponent = () => {
   ];
 
   return (
-    <section className="my-15">
+    <section className="my-8 md:my-15">
       <div className="title">
-        <h2 className="font-[montserrat] font-bold text-3xl text-[var(--colorBlack)] text-center uppercase">
+        <h2 className="font-[montserrat] font-bold text-lg md:text-3xl text-[var(--colorBlack)] text-center uppercase">
           Budaya kerja{" "}
           <span className="text-[var(--colorChilli)]">ekatunggal</span>
         </h2>
-        <h3 className="font-[montserrat] font-bold text-2xl text-[var(--colorWhite)] text-center uppercase w-260 py-4 mt-4 bg-[var(--colorRed)] mx-auto rounded-2xl">
-          Bekerja dan melayani dengan sejuta hati
+        <h3 className="font-[montserrat] font-bold text-xs md:text-2xl text-[var(--colorWhite)] text-center uppercase w-80 md:w-260 py-2 md:py-4 mt-1 md:mt-3 bg-[var(--colorRed)] mx-auto rounded-lg md:rounded-2xl">
+          Bekerja dan melayani dengan{" "}
+          <span className="text-[var(--colorYellow)]">sejuta hati</span>
         </h3>
       </div>
 
-      <div className="container mx-auto px-4 mt-8 flex flex-row justify-center items-center gap-20 flex-wrap">
+      <div className="container mx-auto px-4 mt-8 flex flex-row justify-center items-center gap-8 md:gap-20 flex-wrap">
         {budaya.map(({ key, label, img, imgHover }) => (
           <div
             key={key}
-            className="group bg-[#FDD10026] hover:shadow-2xl w-110 h-100 py-5 overflow-hidden transition-shadow duration-300 ease-in-out rounded-4xl"
+            className="group bg-[#FDD10026] hover:shadow-2xl w-80 h-70 md:w-110 md:h-100 py-3 md:py-5 overflow-hidden transition-shadow duration-300 ease-in-out rounded-4xl"
           >
-            <div className="relative h-70 w-full">
+            <div className="relative h-50 md:h-70 w-auto">
               <Image
                 src={img}
                 alt={`${key}`}
@@ -69,14 +70,14 @@ export const BudayaComponent = () => {
               />
             </div>
 
-            <div className="p-4 mt-3 font-bold text-center text-3xl uppercase text-black group-hover:text-[var(--colorRed)] transition-all duration-300 ease-in-out">
+            <div className="p-2 md:p-4 mt-3 font-bold text-center text-2xl md:text-3xl uppercase text-black group-hover:text-[var(--colorRed)] transition-all duration-300 ease-in-out">
               <h3>{label}</h3>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-10 mx-auto w-[33%] h-1 bg-[var(--colorYellow)]" />
+      <div className="mt-10 mx-auto w-[70%] md:w-[33%] h-1 bg-[var(--colorYellow)]" />
     </section>
   );
 };

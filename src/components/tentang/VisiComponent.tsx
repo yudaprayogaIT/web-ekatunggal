@@ -33,9 +33,9 @@ export default function VisiMisi() {
   };
 
   return (
-    <section className="my-15 h-70">
+    <section className="my-8 h-65 md:h-70">
       {/* Tab Buttons */}
-      <div className="bg-[#fdd3007c] w-50 h-15 mx-auto rounded-3xl font-[montserrat] text-[var(--colorBlack)] font-bold uppercase text-2xl flex items-center justify-center ">
+      <div className="bg-[#fdd3007c] w-42 h-13 md:w-50 md:h-15 mx-auto rounded-3xl font-[montserrat] text-[var(--colorBlack)] font-bold uppercase text-lg md:text-2xl flex items-center justify-center ">
         {(["visi", "misi"] as Tab[]).map((tab) => {
           const isActive = activeTab === tab;
           return (
@@ -43,7 +43,7 @@ export default function VisiMisi() {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`
-                relative font-montserrat font-bold transition-colors duration-200 px-4 py-1 rounded-3xl font-montserrat cursor-pointer
+                relative font-[montserrat] font-bold transition-colors duration-200 px-4 py-1 rounded-3xl cursor-pointer
                 ${
                   isActive
                     ? "bg-[var(--colorYellow)] text-[var(--colorBlack)]"
@@ -65,7 +65,7 @@ export default function VisiMisi() {
       </div>
 
       {/* Content */}
-      <div className="mt-6 max-w-3xl mx-auto text-center font-lato text-xl text-[var(--colorBlack)] leading-8">
+      <div className="mt-4 md:mt-6 w-[95%] md:max-w-3xl mx-auto text-center font-lato text-sm md:text-xl text-[var(--colorBlack)] leading-4 md:leading-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}

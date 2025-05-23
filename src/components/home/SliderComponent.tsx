@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import FloatingIconComponent from "../FloatingIconComponent";
 
 const slides = [
   {
@@ -175,7 +176,7 @@ export default function SliderComponent() {
       </div>
 
       {/* Floating WA Button */}
-      <div className="fixed bottom-8 md:bottom-16 2xl:bottom-23 right-4 z-50 md:flex flex-col">
+      {/* <div className="fixed bottom-8 md:bottom-16 2xl:bottom-23 right-4 z-50 md:flex flex-col border-none">
         <Link href="https://wa.me/085788837057">
           <Image
             src="/img/floating-icon.png"
@@ -185,7 +186,8 @@ export default function SliderComponent() {
             className="h-20 w-auto md:h-28"
           />
         </Link>
-      </div>
+      </div> */}
+      <FloatingIconComponent />
 
       {/* Red Bottom Section */}
       <section className="h-10 md:h-16 2xl:h-25 flex bg-[var(--colorRed)]">

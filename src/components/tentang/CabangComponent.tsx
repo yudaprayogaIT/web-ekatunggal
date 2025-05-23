@@ -115,14 +115,17 @@ import React from "react";
 import BranchByIsland from "./BranchIslandComponent";
 
 // Leaflet harus di-render di client-side
-const MapWithBranches = dynamic(() => import("@/components/MapWithBranches"), {
-  ssr: false,
-});
+const MapWithBranches = dynamic(
+  () => import("@/components/tentang/MapWithBranches"),
+  {
+    ssr: false,
+  }
+);
 
 export default function CabangComponent() {
   return (
-    <section className="my-15">
-      <h1 className="text-3xl font-bold font-[montserrat] mt-13 mb-4 uppercase text-center">
+    <section className="my-13 md:my-15 overflow-x-hidden">
+      <h1 className="text-xl md:text-3xl font-bold font-[montserrat] mt-12 md:mt-13 mb-4 uppercase text-center">
         Cabang <span className="text-[var(--colorChilli)]">Ekatunggal</span>
       </h1>
       <MapWithBranches />

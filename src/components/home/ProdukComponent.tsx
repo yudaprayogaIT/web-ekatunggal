@@ -399,7 +399,7 @@ export const ProdukComponents = () => {
                 className="w-100 2xl:w-115"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-transparent group-hover:bg-[#ffffffad] transition duration-300 ease-in-out">
-                <div className="text-black text-lg font-bold group-hover:hidden">
+                <div className="text-black text-lg md:text-lg font-bold group-hover:hidden">
                   Klik Disini
                 </div>
                 <div className="hidden group-hover:block text-black text-lg font-bold">
@@ -448,7 +448,7 @@ export const ProdukComponents = () => {
               width={700}
               height={500}
               className={clsx(
-                "mt-10 w-[95%] h-auto rounded-lg transition-all duration-700 ease-in-out",
+                "mt-10 mx-auto w-[95%] h-auto rounded-lg transition-all duration-700 ease-in-out",
                 transisiAktif
                   ? animasiArah === "kanan"
                     ? "opacity-0 translate-x-10"
@@ -464,7 +464,7 @@ export const ProdukComponents = () => {
               type="button"
               onClick={prevGambar}
               className={clsx(
-                "absolute top-1/2 -left-2.5 transform -translate-y-1/2 active:scale-90 transition-transform opacity-65 active:opacity-40 focus:outline-none",
+                "absolute top-1/2 -translate-y-0 left-0 transform cursor-pointer active:scale-90 transition-transform opacity-65 active:opacity-40 focus:outline-none",
                 panahAktif === "kiri" && "scale-110"
               )}
             >
@@ -480,7 +480,7 @@ export const ProdukComponents = () => {
               type="button"
               onClick={nextGambar}
               className={clsx(
-                "absolute top-1/2 right-5 transform -translate-y-1/2 active:scale-90 transition-transform opacity-65 active:opacity-40 focus:outline-none",
+                "absolute top-1/2 -translate-y-0 right-0 transform cursor-pointer active:scale-90 transition-transform opacity-65 active:opacity-40 focus:outline-none",
                 panahAktif === "kanan" && "scale-110"
               )}
             >
@@ -495,7 +495,7 @@ export const ProdukComponents = () => {
             <button
               type="button"
               onClick={tutupModal}
-              className="absolute top-12 right-10 text-black text-xl font-bold focus:outline-none"
+              className="absolute top-12 right-5 md:right-7 text-black text-xl cursor-pointer font-bold focus:outline-none"
             >
               ✕
             </button>

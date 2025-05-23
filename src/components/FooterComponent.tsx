@@ -6,13 +6,6 @@ export const FooterComponent = () => {
   return (
     <section className="footer ">
       <div className="relative text mx-auto container flex flex-col md:flex-row w-full font-bold -mb-10 gap-y-5 text-[var(--colorBlack)]">
-        {/* <div className="flex-1 w-full">
-          <h4 className="text-center mb-2 text-lg 2xl:text-xl">Kantor Pusat</h4>
-          <p className="text-center md:text-start">
-          Jl. Pahlawan No. 29A RT. 003/RW. 005, Ds. Sanja, Kec. Citeureup,
-          Kab. Bogor, Jawa Barat 16810
-          </p>
-          </div> */}
         <Image
           src="/img/logo_etm.png"
           width={75}
@@ -30,20 +23,20 @@ export const FooterComponent = () => {
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/footer/telepon.png"
-              width={18}
-              height={18}
+              width={20}
+              height={20}
               alt="telepon"
-              className="mr-1 h-5 w-auto md:h-6"
+              className="mr-1 h-5 w-auto"
             />
-            <p>0828111115365</p>
+            <p>0828111115355</p>
           </Link>
           <Link href="#" className="flex my-2 items-center mx-4 ">
             <Image
               src="/icons/footer/email.png"
-              width={18}
-              height={18}
+              width={20}
+              height={20}
               alt="email"
-              className="mr-1 h-6 w-auto md:h-full"
+              className="mr-1 h-5 w-auto"
             />
             <p>ekatunggalofficial@gmail.com</p>
           </Link>
@@ -55,8 +48,8 @@ export const FooterComponent = () => {
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/footer/ig.png"
-              width={18}
-              height={18}
+              width={20}
+              height={20}
               alt="ig"
               className="mr-1"
             />
@@ -65,8 +58,8 @@ export const FooterComponent = () => {
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/footer/ig.png"
-              width={18}
-              height={18}
+              width={20}
+              height={20}
               alt="ig"
               className="mr-1"
             />
@@ -75,8 +68,8 @@ export const FooterComponent = () => {
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/footer/fb.png"
-              width={18}
-              height={18}
+              width={20}
+              height={20}
               alt="fb"
               className="mr-1"
             />
@@ -85,8 +78,8 @@ export const FooterComponent = () => {
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/footer/tiktok.png"
-              width={18}
-              height={18}
+              width={20}
+              height={20}
               alt="tiktok"
               className="mr-1"
             />
