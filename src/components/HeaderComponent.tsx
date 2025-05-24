@@ -277,7 +277,7 @@ export default function HeaderComponent() {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`lg:hidden absolute top-[8vh] left-0 w-full bg-white z-[9998] transition-all duration-500 ease-in-out ${
+        className={`lg:hidden overflow-hidden absolute top-[8vh] left-0 w-full bg-white z-[9998] transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >

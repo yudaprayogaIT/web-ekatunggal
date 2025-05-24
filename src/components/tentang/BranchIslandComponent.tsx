@@ -18,7 +18,7 @@ export default function BranchByIsland() {
     : [];
 
   return (
-    <div className="mt-4 p-4 max-w-5xl mx-auto">
+    <div className="mt-4 p-4 max-w-5xl h-145 md:h-105 mx-auto">
       <h2 className="text-center text-md md:text-2xl font-bold mb-4">
         PILIH WILAYAH UNTUK MELIHAT CABANG EKATUNGGAL
       </h2>
