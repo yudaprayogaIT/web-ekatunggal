@@ -35,7 +35,7 @@ export default function JobList({
                 <p className="text-xs md:text-sm text-gray-600 font-semibold">
                   {job.location}
                 </p>
-                <p className="text-md md:text-lg font-semibold text-gray-700 mt-13 md:mt-10 line-clamp-3 ">
+                <p className="text-md md:text-lg font-normal text-gray-700 mt-13 md:mt-10 line-clamp-3 ">
                   {job.about}
                 </p>
               </div>
@@ -65,7 +65,7 @@ export default function JobList({
                     onClick={() => openDetail(job)}
                     className={`${
                       i % 2 === 1 ? "bg-[#1E1E1E1A]" : ""
-                    } cursor-pointer font-bold`}
+                    } cursor-pointer font-bold hover:bg-[#1E1E1E66]`}
                   >
                     <td className="py-2 px-3">{job.title}</td>
                     <td className="py-2 px-6">{job.location}</td>

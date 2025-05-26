@@ -1028,7 +1028,6 @@
 //   );
 // }
 
-// src/components/HeroKarirComponent.tsx
 "use client";
 
 import React, { useState, useEffect, ChangeEvent } from "react";
@@ -1090,9 +1089,9 @@ export default function HeroKarirComponent() {
 
   // otherwise render overlay search + list di atas hero
   return (
-    <main className="mr-0">
+    <main className="mb-150 md:mb-115">
       {/* Hero container */}
-      <div className="relative w-100 h-50 md:w-auto md:h-190 mb-150 md:mb-115">
+      <div className="relative w-full h-50 md:w-auto md:h-190">
         {/* Background image */}
         <Image
           src="/img/heroKarir.png"
@@ -1102,7 +1101,7 @@ export default function HeroKarirComponent() {
           priority
         />
         {/* (Optional) overlay gelap agar teks lebih terbaca */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* <div className="absolute inset-0 bg-black/30" /> */}
 
         {/* Search & Filter (overlay) */}
         <div className="absolute inset-x-0 top-38 md:top-150 w-[90%] md:w-[86%] h-12 container mx-auto z-20">
@@ -1121,7 +1120,7 @@ export default function HeroKarirComponent() {
                 value={searchTerm}
                 onChange={onSearchChange}
                 placeholder="Ketik posisi impianmu disini (Contoh: Sales, ...)"
-                className="-ml-4 md:ml-1 w-full outline-none md:text-xl font-normal md:font-bold"
+                className="-ml-4 md:ml-1 w-full outline-none md:text-xl font-normal md:font-normal"
               />
             </div>
             {/* Dropdown Lokasi */}

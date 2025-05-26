@@ -64,7 +64,7 @@ export default function JobDetail({ job, onClose }: JobDetailProps) {
             className="object-cover object-[60%_30%] h-90 rounded-3xl"
           />
           {/* Gradient overlay, di atas Image */}
-          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-transparent to-red-400 opacity-80 z-10 rounded-3xl" />
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-transparent to-red-400 opacity-80 z-10 rounded-3xl" /> */}
           {/* Title di atas gradient */}
           <div className="absolute bottom-4 left-6 text-white z-20">
             <h1 className="text-2xl md:text-3xl font-bold">{job.title}</h1>
