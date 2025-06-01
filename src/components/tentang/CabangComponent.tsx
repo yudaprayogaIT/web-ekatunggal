@@ -124,8 +124,8 @@ const MapWithBranches = dynamic(
 
 export default function CabangComponent() {
   return (
-    <section className="my-0 md:my-15 overflow-x-hidden">
-      <h1 className="text-xl md:text-3xl font-bold font-[montserrat] mt-12 md:mt-13 mb-4 uppercase text-center">
+    <section className="my-0 md:my-4 overflow-x-hidden">
+      <h1 className="text-xl md:text-3xl font-bold font-[montserrat] mt-7 md:mt-7 uppercase text-center">
         Cabang <span className="text-[var(--colorChilli)]">Ekatunggal</span>
       </h1>
       <MapWithBranches />

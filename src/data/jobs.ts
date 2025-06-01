@@ -13,16 +13,21 @@ export const Jobs: Job[] = [
     id: 1,
     title: "Staff Marketing",
     location: "Bogor",
-    about: "Bertanggung jawab atas strategi pemasaran produk.",
+    about:
+      "Staff Marketing adalah posisi yang berperan penting dalam mendukung strategi pemasaran perusahaan, baik dari sisi perencanaan, pelaksanaan, hingga evaluasi kegiatan pemasaran. Staff Marketing bertugas untuk membantu menarik perhatian pasar, memperkuat citra merek, serta meningkatkan penjualan produk atau layanan melalui berbagai saluran pemasaran, baik online maupun offline.",
     responsibilities: [
-      "Membuat planning campaign",
-      "Analisis pasar",
-      "Koordinasi dengan tim sales",
+      "Melaksanakan strategi pemasaran yang telah ditetapkan oleh manajemen untuk meningkatkan brand awareness dan penjualan produk",
+      "Menjalin dan membina hubungan baik dengan pelanggan, baik dari sektor industri maupun retail.",
+      "Mengidentifikasi peluang pasar dan potensi pelanggan baru, termasuk melakukan pendekatan prospektif.",
+      "Menyusun dan mengelola materi promosi seperti brosur, katalog, presentasi, dan konten digital.",
+      "Mengelola data dan laporan penjualan, serta menganalisis hasil pemasaran untuk evaluasi dan pengembangan strategi",
     ],
     qualifications: [
-      "Pendidikan minimal S1 Marketing",
-      "Pengalaman 1-2 tahun",
-      "Menguasai digital marketing",
+      "Pendidikan minimal D3/S1 di bidang Marketing, Komunikasi, Manajemen, atau jurusan relevan lainnya.",
+      "Pengalaman kerja minimal 1 tahun di bidang marketing atau sales (fresh graduate dipertimbangkan jika memiliki kemampuan komunikasi yang baik).",
+      "Memahami dasar-dasar pemasaran, termasuk strategi promosi, branding, dan riset pasar.",
+      "Mampu berkomunikasi dengan baik, lisan maupun tulisan, serta memiliki kemampuan negosiasi yang kuat.",
+      "Berpenampilan profesional dan percaya diri, terutama dalam berinteraksi dengan pelanggan dan mitra bisnis."
     ],
   },
   {
@@ -89,7 +94,6 @@ export const Jobs: Job[] = [
       "Pendidikan minimal D3",
       "Teliti",
       "Pengalaman di procurement menjadi nilai plus",
-  
     ],
   },
   {

@@ -321,13 +321,14 @@ export const ProdukComponents = () => {
   }, [modalIndex, dataAktif.length]);
 
   return (
-    <div className="container mx-auto px-4 my-14">
+    <div className="container mx-auto px-4 my-10">
       {/* Judul */}
-      <div className="relative text-end my-8 text-xl md:text-2xl 2xl:text-3xl font-bold uppercase">
+      <div className="relative text-center my-8 text-md md:text-2xl 2xl:text-3xl font-bold uppercase">
         <h2 className="font-[montserrat] text-[var(--colorBlack)]">
-          Produk Unggulan
+          Produk Unggulan{" "}
+          <span className="text-[var(--colorRed)]">Ekatunggal</span>
         </h2>
-        <h2 className="text-[var(--colorRed)]">Ekatunggal</h2>
+
         <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 -mt-20 mx-auto md:hidden w-[50%] h-1 bg-[var(--colorYellow)]" />
       </div>
 
@@ -351,7 +352,7 @@ export const ProdukComponents = () => {
                 className="w-100 2xl:w-115"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-transparent group-hover:bg-[#ffffffad] transition duration-300 ease-in-out">
-                <div className="text-black text-lg md:text-lg font-bold group-hover:hidden">
+                <div className="text-black text-md md:text-lg font-bold group-hover:hidden">
                   Klik Disini
                 </div>
                 <div className="hidden group-hover:block text-black text-lg font-bold">

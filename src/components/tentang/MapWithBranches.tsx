@@ -85,7 +85,7 @@ export default function MapWithBranches() {
   }, [selected, map]);
 
   return (
-    <div className="relative mx-auto w-[90%] h-[430px] overflow-hidden">
+    <div className="relative mt-6 mx-auto w-[90%] h-[430px] overflow-hidden">
       <MapContainer
         bounds={indonesiaBounds}
         maxBounds={indonesiaBounds}

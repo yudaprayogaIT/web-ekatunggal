@@ -6,7 +6,7 @@ const islands = [
   "jawa",
   "sulawesi",
   "kalimantan",
-  "timur",
+  "nusa tenggara",
 ] as const;
 type Island = (typeof islands)[number];
 
@@ -18,8 +18,8 @@ export default function BranchByIsland() {
     : [];
 
   return (
-    <div className="mt-4 p-4 max-w-5xl h-145 md:h-105 mx-auto">
-      <h2 className="text-center text-md md:text-2xl font-bold mb-4">
+    <div className="mt-4 p-4 max-w-5xl h-130 md:h-105 mx-auto">
+      <h2 className="text-center text-md md:text-2xl font-bold mb-2 md:mb-4">
         PILIH WILAYAH UNTUK MELIHAT CABANG EKATUNGGAL
       </h2>
 
@@ -29,7 +29,7 @@ export default function BranchByIsland() {
           <button
             key={island}
             onClick={() => setSelectedIsland(island)}
-            className={`py-2 px-2 md:px-4 font-semibold ${
+            className={`py-2 px-2 md:px-4 text-xs md:text-base font-semibold capitalize ${
               selectedIsland === island
                 ? "border-b-2 border-[var(--colorRed)] text-black"
                 : "text-gray-500 hover:text-black"

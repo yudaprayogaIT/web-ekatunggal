@@ -102,7 +102,7 @@ export const branches: Branch[] = [
     address: 'Komplek Pergudangan Tenau Indah, Jl. Yos Sudarso Blok B-2, Alak, Kota Kupang, Nusa Tenggara Timur 85224',
     lat: -10.18674965244798,  
     lng: 123.54397170310894,
-    pulau: 'timur',
+    pulau: 'nusa tenggara',
   },
   // → Tambah objek branch baru di array ini saja
 ];

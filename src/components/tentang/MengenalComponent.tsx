@@ -5,7 +5,7 @@ import React from "react";
 
 const MengenalComponent = () => {
   return (
-    <section className="my-4 md:my-10 mx-5 flex flex-col md:flex-row items-center gap-x-40">
+    <section className="my-4 md:my-10 mx-5 flex flex-col md:flex-row items-center gap-x-40 overflow-x-hidden">
       <motion.div
         initial={{ x: -200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}

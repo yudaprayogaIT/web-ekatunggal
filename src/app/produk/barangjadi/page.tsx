@@ -1,0 +1,76 @@
+import Link from "next/link";
+
+interface Produk {
+  kategori: string;
+}
+
+interface ApiResponse {
+  data: Produk[];
+  message: string;
+  status: string;
+}
+
+export default async function AllBarangJadiPage() {
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
+  const TOKEN = process.env.ERP_TOKEN!;
+
+  const res = await fetch(
+    `${API_BASE}/api/resource/Produk%20Company%20Profile`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      next: { revalidate: 60 },
+    }
+  );
+
+  if (!res.ok) {
+    return (
+      <div className="p-12 text-center">
+        <h1 className="text-2xl font-semibold">Error {res.status}</h1>
+        <p className="mt-2 text-gray-600">
+          Gagal mengambil kategori Barang Jadi.
+        </p>
+      </div>
+    );
+  }
+
+  const json: ApiResponse = await res.json();
+  const semuaProduk: Produk[] = json.data;
+
+  const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
+
+  const barangJadiSet = new Set<string>();
+  semuaProduk.forEach((p) => {
+    const slug = p.kategori.toLowerCase().replace(/\s+/g, "-");
+    if (kategoriBarangJadiList.includes(slug)) {
+      barangJadiSet.add(slug);
+    }
+  });
+  const semuaKategori = Array.from(barangJadiSet);
+
+  return (
+    <section className="px-6 md:px-12 lg:px-24 py-12">
+      <h1 className="text-4xl font-bold mb-8">Semua Kategori Barang Jadi</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {semuaKategori.map((slug) => {
+          const label = slug
+            .split("-")
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ");
+          return (
+            <Link
+              key={slug}
+              href={`/produk/barangjadi/${slug}`}
+              className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-xl transition-shadow duration-300"
+            >
+              <p className="text-xl font-medium capitalize">{label}</p>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

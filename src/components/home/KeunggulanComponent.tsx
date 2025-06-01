@@ -201,16 +201,16 @@ export const KeunggulanComponent = () => {
 
   return (
     <section className="my-10">
-      <h2 className="uppercase font-[montserrat] text-[var(--colorBlack)] text-xl md:text-2xl 2xl:text-3xl font-bold text-center">
+      <h2 className="uppercase font-[montserrat] text-[var(--colorBlack)] text-md md:text-2xl 2xl:text-3xl font-bold text-center">
         Keunggulan <span className="text-[var(--colorRed)]">Ekatunggal</span>
       </h2>
-      <div className="container mx-auto px-4 mt-8 flex flex-col md:flex-row flex-wrap justify-center items-center gap-8">
+      <div className="container mx-auto px-4 mt-4 flex flex-row flex-wrap justify-center items-center gap-8 md:gap-15">
         {items.map(({ key, label, desc, img, imgHover }) => (
           <div
             key={key}
-            className="group bg-[var(--colorWhite)] w-50 py-5 h-52 shadow-lg hover:shadow-2xl rounded-2xl transition-shadow duration-300 overflow-hidden"
+            className="group bg-[var(--colorWhite)] py-2 md:py-5 w-40 h-42 md:w-50 md:h-52 shadow-lg hover:shadow-2xl rounded-2xl transition-shadow duration-300 overflow-hidden"
           >
-            <div className="relative w-full h-20">
+            <div className="relative w-full h-18 md:h-20">
               <Image
                 src={img}
                 alt={key}
@@ -224,11 +224,11 @@ export const KeunggulanComponent = () => {
                 className="hidden group-hover:block transition-all duration-300 object-contain"
               />
             </div>
-            <div className="p-4 font-bold text-center mt-2">
-              <h3 className="text-base uppercase font-[montserrat] text-[var(--colorBlack)] mb-2 transition-colors duration-300 group-hover:text-[var(--colorRed)]">
+            <div className="p-2 md:p-4 font-bold text-center md:mt-2">
+              <h3 className="text-base uppercase font-[montserrat] text-[var(--colorBlack)] mb-1 md:mb-2 transition-colors duration-300 group-hover:text-[var(--colorRed)]">
                 {label}
               </h3>
-              <p className="text-xs font-bold text-[var(--colorGrey)] transition-colors duration-300 group-hover:text-[var(--colorBlack)]">
+              <p className="text-[10px] md:text-xs font-bold text-[var(--colorGrey)] transition-colors duration-300 group-hover:text-[var(--colorBlack)]">
                 {desc}
               </p>
             </div>
