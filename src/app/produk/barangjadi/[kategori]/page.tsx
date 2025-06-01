@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import ProductCard from "@/components/produk/ProductCard";
-import { buildImageUrl } from "@/utils/images";
 
 interface ProdukRaw {
   _id: string;
@@ -8,29 +7,44 @@ interface ProdukRaw {
   nama: string;
   deskripsi: string;
   kategori: string;
-  images?: string[];
   image?: string;
+  images?: string[];
 }
 
-interface ApiResponse {
+interface FileEntry {
+  _id: string;
+  file_name: string;
+}
+
+interface ProdukDetail {
+  name: string;
+  kategori: string;
+  image?: string;
+  images?: string[];
+  nama: string;
+  deskripsi: string;
+  _id: string;
+}
+
+interface ApiResponseList {
   data: ProdukRaw[];
   message: string;
   status: string;
 }
 
-interface FileRaw {
-  file_url: string;
-  name: string;
-}
-
-interface FileResponse {
-  data: FileRaw[];
+interface ApiResponseDetail {
+  data: ProdukDetail;
+  files?: FileEntry[];
   message: string;
-  status: string;
+  status: number;
 }
 
 interface Params {
   kategori: string;
+}
+
+function slugify(text: string) {
+  return text.toLowerCase().replace(/\s+/g, "-");
 }
 
 export async function generateMetadata({
@@ -55,12 +69,11 @@ export default async function KategoriBarangJadiPage({
   params: Params;
 }) {
   const { kategori } = await params;
-
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
   const TOKEN = process.env.ERP_TOKEN!;
 
-  // a) Fetch semua produk
-  const res = await fetch(
+  // 1) Fetch list semua produk (ISR 60 detik)
+  const resList = await fetch(
     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
     {
       method: "GET",
@@ -68,33 +81,32 @@ export default async function KategoriBarangJadiPage({
         Authorization: `Bearer ${TOKEN}`,
         "Content-Type": "application/json",
       },
-      next: { revalidate: 60 },
+      next: { revalidate: 60 }, // ← halaman akan di-refresh tiap 60 detik jika ada request
     }
   );
-
-  if (!res.ok) {
+  if (!resList.ok) {
     return (
       <div className="p-12 text-center">
-        <h1 className="text-2xl font-semibold">Error {res.status}</h1>
+        <h1 className="text-2xl font-semibold">Error {resList.status}</h1>
         <p className="mt-2 text-gray-600">
           Gagal mengambil data produk kategori "{kategori}".
         </p>
       </div>
     );
   }
+  const jsonList: ApiResponseList = await resList.json();
+  const semuaProdukRaw: ProdukRaw[] = jsonList.data;
 
-  const json: ApiResponse = await res.json();
-  const semuaProdukRaw: ProdukRaw[] = json.data;
-
-  // b) Daftar slug "Barang Jadi"
+  // 2) Daftar kategori “Barang Jadi”
   const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
 
-  // c) Filter produk yang slug‐nya sama dengan kategori && termasuk di kategoriBarangJadiList
+  // 3) Filter produk yang cocok
   const filteredProdukRaw = semuaProdukRaw.filter((p) => {
-    const slugP = p.kategori.toLowerCase().replace(/\s+/g, "-");
+    const slugP = slugify(p.kategori);
     return slugP === kategori && kategoriBarangJadiList.includes(slugP);
   });
 
+  // 3.a) Jika kosong
   if (filteredProdukRaw.length === 0) {
     const label = kategori
       .split("-")
@@ -108,36 +120,51 @@ export default async function KategoriBarangJadiPage({
     );
   }
 
-  // d) Fetch lampiran untuk tiap produk
-  type Produk = {
+  // 4) Fetch detail tiap produk untuk lampiran
+  type ProdukGabungan = {
     _id: string;
     nama: string;
     deskripsi: string;
     kategori: string;
-    images: string[];
+    images: string[]; // gabungan p.images + p.image + "/public/files/<file_name>"
   };
 
-  const semuaProduk: Produk[] = await Promise.all(
+  let semuaProduk: ProdukGabungan[] = await Promise.all(
     filteredProdukRaw.map(async (p) => {
       const docname = p.name;
-      const fileRes = await fetch(
-        `${API_BASE}/api/resource/File?fields=["file_url"]&filters=[["File","attached_to_doctype","=","Produk Company Profile"],["File","attached_to_name","=","${docname}"]]`,
+      const detailRes = await fetch(
+        `${API_BASE}/api/resource/Produk%20Company%20Profile/${encodeURIComponent(
+          docname
+        )}`,
         {
           method: "GET",
           headers: {
             Authorization: `Bearer ${TOKEN}`,
             "Content-Type": "application/json",
           },
-          next: { revalidate: 60 },
+          next: { revalidate: 60 }, // ISR 60 detik juga untuk detail
         }
       );
+      if (!detailRes.ok) {
+        return {
+          _id: p._id,
+          nama: p.nama,
+          deskripsi: p.deskripsi,
+          kategori: p.kategori,
+          images: [],
+        };
+      }
+      const jsonDetail: ApiResponseDetail = await detailRes.json();
 
-      let fileUrls: string[] = [];
-      if (fileRes.ok) {
-        const jsonFile: FileResponse = await fileRes.json();
-        fileUrls = (jsonFile.data ?? []).map((f) => f.file_url);
+      // 4.b) Ambil lampiran di root jsonDetail.files, kecualikan duplikat p.image
+      let filePaths: string[] = [];
+      if (Array.isArray(jsonDetail.files)) {
+        filePaths = jsonDetail.files
+          .filter((f) => f.file_name !== p.image)
+          .map((f) => `/public/files/${f.file_name}`);
       }
 
+      // 4.c) Ambil p.images (custom multi-image) atau p.image (single)
       const rawImgs: string[] = [];
       if (Array.isArray(p.images) && p.images.length > 0) {
         rawImgs.push(...p.images);
@@ -145,8 +172,8 @@ export default async function KategoriBarangJadiPage({
         rawImgs.push(p.image);
       }
 
-      const mergedImgs = [...rawImgs, ...fileUrls];
-
+      // 4.d) Gabungkan
+      const mergedImgs = [...rawImgs, ...filePaths];
       return {
         _id: p._id,
         nama: p.nama,
@@ -157,6 +184,10 @@ export default async function KategoriBarangJadiPage({
     })
   );
 
+  // 4.e) Sort alfabet berdasarkan nama sebelum render
+  semuaProduk.sort((a, b) => a.nama.localeCompare(b.nama));
+
+  // 5) Render grid
   return (
     <section className="px-6 md:px-12 lg:px-24 py-12">
       <h1 className="text-4xl font-bold mb-8">
@@ -166,8 +197,7 @@ export default async function KategoriBarangJadiPage({
           .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
           .join(" ")}
       </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {semuaProduk.map((prod) => (
           <ProductCard key={prod._id} prod={prod} />
         ))}

@@ -14,6 +14,7 @@ export default async function AllBarangJadiPage() {
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
   const TOKEN = process.env.ERP_TOKEN!;
 
+  // Ambil semua produk
   const res = await fetch(
     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
     {
@@ -22,7 +23,7 @@ export default async function AllBarangJadiPage() {
         Authorization: `Bearer ${TOKEN}`,
         "Content-Type": "application/json",
       },
-      next: { revalidate: 60 },
+      next: { revalidate: 60 }, // ISR 60 detik
     }
   );
 
@@ -42,6 +43,7 @@ export default async function AllBarangJadiPage() {
 
   const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
 
+  // Kumpulkan slug unik untuk kategori barang jadi
   const barangJadiSet = new Set<string>();
   semuaProduk.forEach((p) => {
     const slug = p.kategori.toLowerCase().replace(/\s+/g, "-");
@@ -49,7 +51,19 @@ export default async function AllBarangJadiPage() {
       barangJadiSet.add(slug);
     }
   });
-  const semuaKategori = Array.from(barangJadiSet);
+
+  // Sort alfabet berdasarkan label (mis. "kasur"→"Kasur")
+  const semuaKategori = Array.from(barangJadiSet).sort((a, b) => {
+    const labelA = a
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+    const labelB = b
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+    return labelA.localeCompare(labelB);
+  });
 
   return (
     <section className="px-6 md:px-12 lg:px-24 py-12">
@@ -66,7 +80,7 @@ export default async function AllBarangJadiPage() {
               href={`/produk/barangjadi/${slug}`}
               className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-xl transition-shadow duration-300"
             >
-              <p className="text-xl font-medium capitalize">{label}</p>
+              <p className="text-xl font-medium">{label}</p>
             </Link>
           );
         })}

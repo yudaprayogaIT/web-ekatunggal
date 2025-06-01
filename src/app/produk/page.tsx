@@ -21,6 +21,7 @@ export default async function ProdukPage() {
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
   const TOKEN = process.env.ERP_TOKEN!;
 
+  // 1) Fetch semua produk
   const res = await fetch(
     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
     {
@@ -48,9 +49,10 @@ export default async function ProdukPage() {
   const json: ApiResponse = await res.json();
   const semuaProduk: Produk[] = json.data;
 
-  // Tabel kategori Barang Jadi (bisa ditambah sesuai kebutuhan)
+  // Daftar kategori Barang Jadi (hardcode)
   const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
 
+  // Pisahkan slug kategori ke dua set
   const barangJadiSet = new Set<string>();
   const bahanBakuSet = new Set<string>();
 
@@ -63,9 +65,32 @@ export default async function ProdukPage() {
     }
   });
 
-  const semuaBarangJadi = Array.from(barangJadiSet);
-  const semuaBahanBaku = Array.from(bahanBakuSet);
+  // Ubah Set ke Array dan sort alfabet sesuai label
+  const semuaBarangJadi = Array.from(barangJadiSet).sort((a, b) => {
+    const labelA = a
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+    const labelB = b
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+    return labelA.localeCompare(labelB);
+  });
 
+  const semuaBahanBaku = Array.from(bahanBakuSet).sort((a, b) => {
+    const labelA = a
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+    const labelB = b
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+    return labelA.localeCompare(labelB);
+  });
+
+  // Ambil 3 preview pertama per kategori
   const previewBarangJadi = semuaBarangJadi.slice(0, 3).map((slug) => {
     const found = semuaProduk.find(
       (p) => p.kategori.toLowerCase().replace(/\s+/g, "-") === slug
@@ -94,7 +119,7 @@ export default async function ProdukPage() {
     <main className="space-y-16 px-6 md:px-12 lg:px-24">
       <ProdukHero />
 
-      {/* Section “Barang Jadi” dengan padding lebih besar */}
+      {/* Section “Barang Jadi” */}
       <div>
         <BarangJadiComponent
           kategoriUtama={previewBarangJadi}
