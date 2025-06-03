@@ -420,6 +420,8 @@
 //   );
 // }
 
+// src/app/produk/bahanbaku/[kategori]/page.tsx
+
 import { Metadata } from "next";
 import ProductCard from "@/components/produk/ProductCard";
 import HeaderComponent from "@/components/HeaderComponent";
@@ -477,6 +479,7 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
+  // Gunakan params langsung, tanpa await
   const { kategori } = params;
   const label = kategori
     .split("-")
@@ -509,6 +512,7 @@ export default async function KategoriBahanBakuPage({
       next: { revalidate: 60 },
     }
   );
+
   if (!resList.ok) {
     return (
       <div className="p-12 text-center">
@@ -519,6 +523,7 @@ export default async function KategoriBahanBakuPage({
       </div>
     );
   }
+
   const jsonList: ApiResponseList = await resList.json();
   const semuaProdukRaw: ProdukRaw[] = jsonList.data;
 
@@ -575,6 +580,7 @@ export default async function KategoriBahanBakuPage({
           next: { revalidate: 60 },
         }
       );
+
       if (!detailRes.ok) {
         return {
           _id: p._id,
@@ -584,6 +590,7 @@ export default async function KategoriBahanBakuPage({
           images: [],
         };
       }
+
       const jsonDetail: ApiResponseDetail = await detailRes.json();
 
       // 5.b) Ambil semua file_name dari jsonDetail.files (root), kecualikan p.image
@@ -594,7 +601,7 @@ export default async function KategoriBahanBakuPage({
           .map((f) => `/public/files/${f.file_name}`);
       }
 
-      // 5.c) Ambil p.images (jika custom) atau p.image
+      // 5.c) Ambil p.images (jika ada) atau p.image
       const rawImgs: string[] = [];
       if (Array.isArray(p.images) && p.images.length > 0) {
         rawImgs.push(...p.images);
