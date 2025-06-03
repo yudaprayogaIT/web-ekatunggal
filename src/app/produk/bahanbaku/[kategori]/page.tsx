@@ -490,11 +490,9 @@ export async function generateMetadata({
   };
 }
 
-// eslint-disable agar searchParams yang tidak dipakai tidak memicu error
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default async function KategoriBahanBakuPage({
   params,
-  searchParams,
+  searchParams: _searchParams, // alias dengan underscore untuk menghindari lint unused‐vars
 }: {
   params: Params;
   searchParams: Record<string, unknown>;
@@ -558,7 +556,7 @@ export default async function KategoriBahanBakuPage({
     );
   }
 
-  // 5) Fetch detail per-produk untuk mendapatkan lampiran (files)
+  // 5) Fetch detail per‐produk untuk mendapatkan lampiran (files)
   type ProdukGabungan = {
     _id: string;
     nama: string;
@@ -596,7 +594,7 @@ export default async function KategoriBahanBakuPage({
 
       const jsonDetail: ApiResponseDetail = await detailRes.json();
 
-      // 5.b) Ambil semua file_name dari jsonDetail.files (root), kecualikan p.image
+      // 5.b) Ambil semua id file dari jsonDetail.files (root), kecualikan p.image
       let filePaths: string[] = [];
       if (Array.isArray(jsonDetail.files)) {
         filePaths = jsonDetail.files
