@@ -420,13 +420,10 @@
 //   );
 // }
 
-// src/app/produk/bahanbaku/[kategori]/page.tsx
-
 import { Metadata } from "next";
 import ProductCard from "@/components/produk/ProductCard";
 import HeaderComponent from "@/components/HeaderComponent";
 import { FooterComponent } from "@/components/FooterComponent";
-import { buildImageUrl } from "@/utils/images";
 
 interface ProdukRaw {
   _id: string;
@@ -493,10 +490,8 @@ export async function generateMetadata({
 
 export default async function KategoriBahanBakuPage({
   params,
-  searchParams,
 }: {
   params: Params;
-  searchParams: any;
 }) {
   const { kategori } = params;
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
