@@ -3,8 +3,8 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { buildImageUrl } from "@/utils/images";
-import HeaderComponent from "../HeaderComponent";
-import { FooterComponent } from "../FooterComponent";
+// import HeaderComponent from "../HeaderComponent";
+// import { FooterComponent } from "../FooterComponent";
 
 interface ProdukTujuan {
   _id: string;

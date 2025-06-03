@@ -20,6 +20,7 @@ export const AboutComponent = () => {
   const controlRight = useAnimation();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (isInViewLeft) {
       controlLeft.start({ opacity: 1, x: 0 });
     } else {
@@ -28,6 +29,7 @@ export const AboutComponent = () => {
   }, [isInViewLeft]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (isInViewRight) {
       controlRight.start({ opacity: 1, x: 0 });
     } else {

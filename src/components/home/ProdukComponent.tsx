@@ -303,6 +303,7 @@ export const ProdukComponents = () => {
 
   // keyboard & scroll lock
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleKeyDown = (e: KeyboardEvent) => {
       if (modalIndex !== null) {
         if (e.key === "ArrowRight") nextGambar();
