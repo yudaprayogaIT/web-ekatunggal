@@ -479,7 +479,6 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  // Gunakan params langsung, tanpa await
   const { kategori } = params;
   const label = kategori
     .split("-")
@@ -493,8 +492,10 @@ export async function generateMetadata({
 
 export default async function KategoriBahanBakuPage({
   params,
+  searchParams: _searchParams, // <-- alias di sini
 }: {
   params: Params;
+  searchParams: Record<string, unknown>;
 }) {
   const { kategori } = params;
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
@@ -601,7 +602,7 @@ export default async function KategoriBahanBakuPage({
           .map((f) => `/public/files/${f.file_name}`);
       }
 
-      // 5.c) Ambil p.images (jika ada) atau p.image
+      // 5.c) Ambil p.images (jika custom) atau p.image (jika satu)
       const rawImgs: string[] = [];
       if (Array.isArray(p.images) && p.images.length > 0) {
         rawImgs.push(...p.images);
