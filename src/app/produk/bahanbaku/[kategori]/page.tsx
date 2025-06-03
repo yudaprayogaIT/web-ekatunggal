@@ -421,10 +421,12 @@
 // }
 
 // src/app/produk/bahanbaku/[kategori]/page.tsx
+
 import { Metadata } from "next";
 import ProductCard from "@/components/produk/ProductCard";
 import HeaderComponent from "@/components/HeaderComponent";
 import { FooterComponent } from "@/components/FooterComponent";
+import { buildImageUrl } from "@/utils/images";
 
 interface ProdukRaw {
   _id: string;
@@ -434,6 +436,7 @@ interface ProdukRaw {
   kategori: string;
   image?: string;
   images?: string[];
+  createdAt: string;
 }
 
 interface FileEntry {
@@ -468,7 +471,6 @@ interface Params {
   kategori: string;
 }
 
-// Helper untuk mengubah teks menjadi slug (lowercase + ganti spasi jadi "-")
 function slugify(text: string) {
   return text.toLowerCase().replace(/\s+/g, "-");
 }
@@ -478,7 +480,6 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  // Tidak pakai "await params" karena params sudah objek biasa
   const { kategori } = params;
   const label = kategori
     .split("-")
@@ -492,15 +493,16 @@ export async function generateMetadata({
 
 export default async function KategoriBahanBakuPage({
   params,
+  searchParams,
 }: {
   params: Params;
+  searchParams: any;
 }) {
-  // Cukup destructure langsung tanpa await
   const { kategori } = params;
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
   const TOKEN = process.env.ERP_TOKEN!;
 
-  // 1) Fetch semua produk (ISR 60 detik)
+  // 1) Fetch list semua produk (ISR 60 detik)
   const resList = await fetch(
     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
     {
@@ -512,7 +514,6 @@ export default async function KategoriBahanBakuPage({
       next: { revalidate: 60 },
     }
   );
-
   if (!resList.ok) {
     return (
       <div className="p-12 text-center">
@@ -523,20 +524,24 @@ export default async function KategoriBahanBakuPage({
       </div>
     );
   }
-
   const jsonList: ApiResponseList = await resList.json();
   const semuaProdukRaw: ProdukRaw[] = jsonList.data;
 
-  // 2) Daftar slug kategori “Barang Jadi”
+  // 2) Urutkan semuaProdukRaw berdasarkan createdAt descending (terbaru di depan)
+  semuaProdukRaw.sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+
+  // 3) Daftar slug kategori “Barang Jadi” (hardcode)
   const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
 
-  // 3) Filter: slug(p.kategori) === kategori & tidak termasuk kategoriBarangJadiList
+  // 4) Filter hanya produk yang slug(p.kategori) === kategori & TIDAK termasuk kategoriBarangJadiList
   const filteredProdukRaw = semuaProdukRaw.filter((p) => {
     const slugP = slugify(p.kategori);
     return slugP === kategori && !kategoriBarangJadiList.includes(slugP);
   });
 
-  // 3.a) Jika tidak ada produk dalam kategori tersebut
+  // 4.a) Jika kosong
   if (filteredProdukRaw.length === 0) {
     const label = kategori
       .split("-")
@@ -550,7 +555,7 @@ export default async function KategoriBahanBakuPage({
     );
   }
 
-  // 4) Fetch detail setiap produk agar kita dapat daftar lampiran (files)
+  // 5) Fetch detail per-produk untuk mendapatkan lampiran (files)
   type ProdukGabungan = {
     _id: string;
     nama: string;
@@ -575,7 +580,6 @@ export default async function KategoriBahanBakuPage({
           next: { revalidate: 60 },
         }
       );
-
       if (!detailRes.ok) {
         return {
           _id: p._id,
@@ -585,10 +589,9 @@ export default async function KategoriBahanBakuPage({
           images: [],
         };
       }
-
       const jsonDetail: ApiResponseDetail = await detailRes.json();
 
-      // Kumpulkan file Paths, kecualikan yang sama dengan p.image
+      // 5.b) Ambil semua file_name dari jsonDetail.files (root), kecualikan p.image
       let filePaths: string[] = [];
       if (Array.isArray(jsonDetail.files)) {
         filePaths = jsonDetail.files
@@ -596,7 +599,7 @@ export default async function KategoriBahanBakuPage({
           .map((f) => `/public/files/${f.file_name}`);
       }
 
-      // Ambil p.images atau p.image
+      // 5.c) Ambil p.images (jika custom) atau p.image
       const rawImgs: string[] = [];
       if (Array.isArray(p.images) && p.images.length > 0) {
         rawImgs.push(...p.images);
@@ -604,6 +607,7 @@ export default async function KategoriBahanBakuPage({
         rawImgs.push(p.image);
       }
 
+      // 5.d) Gabungkan
       const mergedImgs = [...rawImgs, ...filePaths];
       return {
         _id: p._id,
@@ -615,10 +619,10 @@ export default async function KategoriBahanBakuPage({
     })
   );
 
-  // 4.e) Urutkan alfabet berdasarkan nama
+  // 5.e) Sort alfabet berdasarkan nama sebelum render
   semuaProduk.sort((a, b) => a.nama.localeCompare(b.nama));
 
-  // 5) Render halaman
+  // 6) Render grid
   return (
     <>
       <HeaderComponent />
@@ -630,7 +634,7 @@ export default async function KategoriBahanBakuPage({
             .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
             .join(" ")}
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {semuaProduk.map((prod) => (
             <ProductCard key={prod._id} prod={prod} />
           ))}
