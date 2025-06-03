@@ -203,29 +203,37 @@
 
 // src/components/tentang/MapWithBranches.tsx
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import type { LatLngBoundsExpression } from "leaflet";
 import L from "leaflet";
 import { branches } from "@/data/branches";
 import Link from "next/link";
-// import hook untuk media query
+// hook untuk media query
 import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
 
-// Fokus Maps Indonesia (lat, lng)
+// 1) Pindahkan konstanta ini ke luar komponen, supaya useEffect dapat
+//    menggunakan nama konstanta yang stabil (referensinya tidak berubah tiap render).
+const initialCenter: [number, number] = [-2.5, 118];
+const initialZoom = 5;
+const mobileCenter: [number, number] = [-2.5, 118];
+const mobileZoom = 3;
+
+// Batas wilayah Indonesia
 const indonesiaBounds: LatLngBoundsExpression = [
-  [-11.0, 95.0], // southwest corner
-  [5, 141.0], // northeast corner
+  [-11.0, 95.0],
+  [5, 141.0],
 ];
 
-// Buat dua icon: desktop & mobile
+// Icon untuk desktop dan mobile
 const desktopIcon = new L.Icon({
   iconUrl: "/icons/pin-2x.png",
   iconRetinaUrl: "/icons/pin.png",
   shadowUrl: "/leaflet/images/marker-shadow.png",
-  iconSize: [24, 28], // ukuran pin desktop
-  iconAnchor: [12, 27], // position pin desktop
+  iconSize: [24, 28],
+  iconAnchor: [12, 27],
   shadowSize: [40, 40],
   shadowAnchor: [12, 40],
 });
@@ -234,13 +242,13 @@ const mobileIcon = new L.Icon({
   iconUrl: "/icons/pin-2x.png",
   iconRetinaUrl: "/icons/pin.png",
   shadowUrl: "/leaflet/images/marker-shadow.png",
-  iconSize: [80, 60], // ukuran pin mobile
-  iconAnchor: [41, 40], // position pin mobile
+  iconSize: [80, 60],
+  iconAnchor: [41, 40],
   shadowSize: [30, 30],
   shadowAnchor: [9, 30],
 });
 
-// Komponen internal untuk handle map & click
+// Komponen internal: me-*mount* map dan menangani klik.
 function MapEventHandler({
   onMapReady,
   onMapClick,
@@ -252,28 +260,24 @@ function MapEventHandler({
   useEffect(() => {
     onMapReady(map);
     map.on("click", onMapClick);
-    return () => void map.off("click", onMapClick);
+    return () => {
+      map.off("click", onMapClick);
+    };
   }, [map, onMapReady, onMapClick]);
   return null;
 }
 
 export default function MapWithBranches() {
-  // Maps Awal Desktop
-  const initialCenter: [number, number] = [-2.5, 118];
-  const initialZoom = 5;
-
-  // Maps Awal Mobile
-  const mobileCenter: [number, number] = [-2.5, 118];
-  const mobileZoom = 3;
-
   const [map, setMap] = useState<L.Map | null>(null);
   const [selected, setSelected] = useState<(typeof branches)[0] | null>(null);
 
-  // detect mobile dengan breakpoint 768px
+  // Detect apakah layar mobile (<= 768px)
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  // Reset view saat panel ditutup
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // 2) Reset view ketika panel info ditutup (selected == null).
+  //    Karena initialCenter, initialZoom, mobileCenter, mobileZoom
+  //    sekarang sudah dipindahkan ke luar komponen, kita cukup menaruh
+  //    [selected, map, isMobile] di dependency array.
   useEffect(() => {
     if (!selected && map) {
       map.flyTo(
@@ -283,7 +287,7 @@ export default function MapWithBranches() {
       );
       setTimeout(() => map.invalidateSize(), 300);
     }
-  }, [selected, map]);
+  }, [selected, map, isMobile]);
 
   return (
     <div className="relative mt-6 mx-auto w-[90%] h-[430px] overflow-hidden">
@@ -318,7 +322,7 @@ export default function MapWithBranches() {
 
                 const targetZoom = 10;
                 if (isMobile) {
-                  // MOBILE: flyTo center + zoom
+                  // MOBILE: sedikit geser Y agar panel tidak menutupi marker
                   const pointMobile = map.project(
                     [b.lat, b.lng],
                     map.getZoom()
@@ -330,7 +334,7 @@ export default function MapWithBranches() {
                   );
                   map.flyTo(offsetLatLngMobile, targetZoom, { duration: 0.7 });
                 } else {
-                  // DESKTOP: offset + flyTo(zoom=10)
+                  // DESKTOP: geser X agar tidak tertutup panel
                   const point = map.project([b.lat, b.lng], map.getZoom());
                   point.x += 5;
                   const offsetLatLng = map.unproject(point, map.getZoom());
@@ -345,7 +349,7 @@ export default function MapWithBranches() {
         ))}
       </MapContainer>
 
-      {/* bottom-sheet di mobile, sidebar di desktop */}
+      {/* Bottom-sheet / Sidebar */}
       <div
         className={`
           absolute top-55 md:top-0 right-0 h-[50%] w-auto md:h-full md:w-120
@@ -362,7 +366,6 @@ export default function MapWithBranches() {
               <h3 className="text-white font-[montserrat] text-md md:text-2xl py-2">
                 Cabang ETM Group
               </h3>
-
               <button
                 onClick={() => setSelected(null)}
                 className="text-gray-500 hover:text-gray-800 h-10 flex items-center justify-center"

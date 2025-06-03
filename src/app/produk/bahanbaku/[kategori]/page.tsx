@@ -468,9 +468,7 @@ interface Params {
   kategori: string;
 }
 
-/**
- * Helper untuk mengubah teks menjadi slug (lowercase, ganti spasi jadi "-")
- */
+// Helper untuk mengubah teks menjadi slug (lowercase + ganti spasi jadi "-")
 function slugify(text: string) {
   return text.toLowerCase().replace(/\s+/g, "-");
 }
@@ -480,7 +478,7 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  // Tidak perlu await di sini—params sudah objek plain
+  // Tidak pakai "await params" karena params sudah objek biasa
   const { kategori } = params;
   const label = kategori
     .split("-")
@@ -497,12 +495,12 @@ export default async function KategoriBahanBakuPage({
 }: {
   params: Params;
 }) {
-  // Hapus "await" di sini
+  // Cukup destructure langsung tanpa await
   const { kategori } = params;
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
   const TOKEN = process.env.ERP_TOKEN!;
 
-  // 1) Fetch list semua produk (ISR 60 detik)
+  // 1) Fetch semua produk (ISR 60 detik)
   const resList = await fetch(
     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
     {
@@ -514,6 +512,7 @@ export default async function KategoriBahanBakuPage({
       next: { revalidate: 60 },
     }
   );
+
   if (!resList.ok) {
     return (
       <div className="p-12 text-center">
@@ -524,6 +523,7 @@ export default async function KategoriBahanBakuPage({
       </div>
     );
   }
+
   const jsonList: ApiResponseList = await resList.json();
   const semuaProdukRaw: ProdukRaw[] = jsonList.data;
 
@@ -536,7 +536,7 @@ export default async function KategoriBahanBakuPage({
     return slugP === kategori && !kategoriBarangJadiList.includes(slugP);
   });
 
-  // 3.a) Jika kosong
+  // 3.a) Jika tidak ada produk dalam kategori tersebut
   if (filteredProdukRaw.length === 0) {
     const label = kategori
       .split("-")
@@ -550,7 +550,7 @@ export default async function KategoriBahanBakuPage({
     );
   }
 
-  // 4) Fetch detail per-produk untuk dapat lampiran (files)
+  // 4) Fetch detail setiap produk agar kita dapat daftar lampiran (files)
   type ProdukGabungan = {
     _id: string;
     nama: string;
@@ -575,6 +575,7 @@ export default async function KategoriBahanBakuPage({
           next: { revalidate: 60 },
         }
       );
+
       if (!detailRes.ok) {
         return {
           _id: p._id,
@@ -584,9 +585,10 @@ export default async function KategoriBahanBakuPage({
           images: [],
         };
       }
+
       const jsonDetail: ApiResponseDetail = await detailRes.json();
 
-      // Ambil lampiran, kecualikan yang sama dengan p.image
+      // Kumpulkan file Paths, kecualikan yang sama dengan p.image
       let filePaths: string[] = [];
       if (Array.isArray(jsonDetail.files)) {
         filePaths = jsonDetail.files
@@ -602,7 +604,6 @@ export default async function KategoriBahanBakuPage({
         rawImgs.push(p.image);
       }
 
-      // Gabungkan
       const mergedImgs = [...rawImgs, ...filePaths];
       return {
         _id: p._id,
@@ -614,10 +615,10 @@ export default async function KategoriBahanBakuPage({
     })
   );
 
-  // 4.e) Sort alfabet berdasarkan nama sebelum render
+  // 4.e) Urutkan alfabet berdasarkan nama
   semuaProduk.sort((a, b) => a.nama.localeCompare(b.nama));
 
-  // 5) Render grid
+  // 5) Render halaman
   return (
     <>
       <HeaderComponent />
