@@ -490,9 +490,11 @@ export async function generateMetadata({
   };
 }
 
+// eslint-disable agar searchParams yang tidak dipakai tidak memicu error
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default async function KategoriBahanBakuPage({
   params,
-  searchParams: _searchParams, // <-- alias di sini
+  searchParams,
 }: {
   params: Params;
   searchParams: Record<string, unknown>;
