@@ -60,7 +60,8 @@ export default async function ProdukHero() {
         alt="produk"
         width={1920}
         height={1080}
-        className="w-[95%] h-auto mx-auto mt-6 rounded-lg shadow-md"
+        className="w-full h-auto mx-auto mt-6 shadow-md rounded-4xl"
+        priority // ← gambar hero di‐prioritaskan
       />
     );
   }
@@ -83,6 +84,7 @@ export default async function ProdukHero() {
         width={1920}
         height={1080}
         className="w-[95%] h-auto mx-auto rounded-lg shadow-lg"
+        priority // ← gambar hero di‐prioritaskan
       />
     </main>
   );

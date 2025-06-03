@@ -1,7 +1,14 @@
+import HeaderComponent from "@/components/HeaderComponent";
 import Link from "next/link";
+import Image from "next/image";
+import { buildImageUrl } from "@/utils/images";
+import { FooterComponent } from "@/components/FooterComponent";
 
 interface Produk {
+  _id: string;
   kategori: string;
+  image: string; // nama file gambar (misal "1748749385780-…unsplash.jpg")
+  createdAt: string; // tanggal pembuatan, untuk menentukan produk terbaru
 }
 
 interface ApiResponse {
@@ -14,7 +21,7 @@ export default async function AllBahanBakuPage() {
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
   const TOKEN = process.env.ERP_TOKEN!;
 
-  // Ambil semua produk
+  // 1) Ambil semua produk
   const res = await fetch(
     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
     {
@@ -41,9 +48,15 @@ export default async function AllBahanBakuPage() {
   const json: ApiResponse = await res.json();
   const semuaProduk: Produk[] = json.data;
 
+  // 2) Urutkan semuaProduk berdasarkan createdAt descending (terbaru di depan)
+  semuaProduk.sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+
+  // 3) Daftar kategori “Barang Jadi” yang kita perlukan
   const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
 
-  // Kumpulkan slug unik untuk kategori bahan baku
+  // 4) Kumpulkan slug unik untuk kategori barang jadi
   const bahanBakuSet = new Set<string>();
   semuaProduk.forEach((p) => {
     const slug = p.kategori.toLowerCase().replace(/\s+/g, "-");
@@ -52,7 +65,7 @@ export default async function AllBahanBakuPage() {
     }
   });
 
-  // Sort alfabet berdasarkan label
+  // 5) Sort alfabet berdasarkan label (mis. "kasur" → "Kasur")
   const semuaKategori = Array.from(bahanBakuSet).sort((a, b) => {
     const labelA = a
       .split("-")
@@ -66,25 +79,67 @@ export default async function AllBahanBakuPage() {
   });
 
   return (
-    <section className="px-6 md:px-12 lg:px-24 py-12">
-      <h1 className="text-4xl font-bold mb-8">Semua Kategori Bahan Baku</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {semuaKategori.map((slug) => {
-          const label = slug
-            .split("-")
-            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-            .join(" ");
-          return (
-            <Link
-              key={slug}
-              href={`/produk/bahanbaku/${slug}`}
-              className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-xl transition-shadow duration-300"
-            >
-              <p className="text-xl font-medium">{label}</p>
-            </Link>
-          );
-        })}
-      </div>
-    </section>
+    <>
+      <HeaderComponent />
+      <section className="mb-12">
+        <Image
+          src="/img/heroBahanBaku.png"
+          alt="herobahanbaku"
+          width={1920}
+          height={1080}
+          className="w-full h-[95vh]"
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-300 mx-auto mt-8">
+          {/* {semuaKategori.map((slug) => {
+            const label = slug
+              .split("-")
+              .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+              .join(" "); */}
+          {semuaKategori.map((slug) => {
+            // 6) Cari produk terbaru pada kategori ini
+            const found = semuaProduk.find(
+              (p) => p.kategori.toLowerCase().replace(/\s+/g, "-") === slug
+            );
+
+            // Jika tidak ditemukan, gunakan placeholder
+            const imageUrl = found
+              ? buildImageUrl(found.image)
+              : "/img/produk/BarangJadi/produk3.png";
+
+            // Bangun label dari slug (mis. "kasur" → "Kasur")
+            const label = slug
+              .split("-")
+              .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+              .join(" ");
+            return (
+              <Link
+                key={slug}
+                href={`/produk/barangjadi/${slug}`}
+                className="group border border-gray-200 h-90 rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              >
+                {/* <Image
+                  src="/img/produk/BarangJadi/produk3.png"
+                  alt="img"
+                  width={600}
+                  height={600}
+                  className="object-fit h-70"
+                /> */}
+                <Image
+                  src={imageUrl}
+                  alt={label}
+                  width={600}
+                  height={600}
+                  className="object-fit h-70 group-hover:scale-105 transition-transform duration-300"
+                />
+                <p className="text-3xl mt-2 font-[montserrat] font-bold">
+                  {label}
+                </p>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+      <FooterComponent />
+    </>
   );
 }

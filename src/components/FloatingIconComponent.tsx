@@ -9,8 +9,8 @@ const FloatingIconComponent = () => {
         <Image
           src="/img/floating-icon.png"
           alt="tanya_vika"
-          width={205}
-          height={205}
+          width={1920}
+          height={1920}
           className="h-20 w-auto md:h-28"
         />
       </Link>
