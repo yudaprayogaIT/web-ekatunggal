@@ -167,8 +167,11 @@ interface ApiResponse {
 
 export default async function AllBahanBakuPage() {
   // Ambil variabel lingkungan
-  const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
-  const TOKEN = process.env.ERP_TOKEN;
+  const API_BASE = "https://api-ekatalog.ekatunggal.com";
+  const TOKEN =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzA5ZDg0ODIyNmVhNDRkZjZkN2QyMmMiLCJuYW1lIjoiQWRtaW5pc3RyYXRvciIsImVtYWlsIjoicmFtZGhhbmlpdEBnbWFpbC5jb20iLCJpbWciOiJyYW1kaGFuaWl0QGdtYWlsLmNvbS5qcGVnIiwidXNlcm5hbWUiOiJhZG1pbmlzdHJhdG9yIiwic3RhdHVzIjoiMSIsImlhdCI6MTc0ODc1MTQ1MX0.BXQO3Ju77IYmyEWP2CYuPvSg7g3zway759KvPJZuLsU";
+  // const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+  // const TOKEN = process.env.ERP_TOKEN;
 
   // Pengecekan variabel lingkungan
   if (!API_BASE) {
