@@ -476,6 +476,7 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
+  // Tidak perlu 'await params' karena params sudah langsung tersedia
   const { kategori } = params;
   const label = kategori
     .split("-")
@@ -487,12 +488,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function KategoriBahanBakuPage({
-  params,
-}: {
-  params: Params;
-}) {
-  const { kategori } = params;
+export default async function KategoriBahanBakuPage(props: { params: Params }) {
+  // Ambil kategori dari props.params
+  const { kategori } = props.params;
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
   const TOKEN = process.env.ERP_TOKEN!;
 
