@@ -307,7 +307,7 @@ export default async function KategoriBahanBakuPage({
       <div className="p-12 text-center">
         <h1 className="text-2xl font-semibold">Error {resList.status}</h1>
         <p className="mt-2 text-gray-600">
-          Gagal mengambil data produk kategori "{kategori}".
+          Gagal mengambil data produk kategori &quot;{kategori}&quot;.
         </p>
       </div>
     );
