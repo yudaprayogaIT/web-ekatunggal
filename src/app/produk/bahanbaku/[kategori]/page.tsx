@@ -476,7 +476,6 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  // Langsung pakai params (tanpa 'await')
   const { kategori } = params;
   const label = kategori
     .split("-")
@@ -490,11 +489,8 @@ export async function generateMetadata({
 
 export default async function KategoriBahanBakuPage({
   params,
-  // Sertakan searchParams (walau tidak terpakai) agar PageProps terpenuhi
-  searchParams,
 }: {
   params: Params;
-  searchParams: Record<string, string | string[] | undefined>;
 }) {
   const { kategori } = params;
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
