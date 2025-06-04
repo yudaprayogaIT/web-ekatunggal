@@ -476,6 +476,7 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
+  // Langsung pakai params (tanpa 'await')
   const { kategori } = params;
   const label = kategori
     .split("-")
