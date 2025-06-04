@@ -1,210 +1,210 @@
-// // import { Metadata } from "next";
-// // import ProductCard from "@/components/produk/ProductCard";
+// import { Metadata } from "next";
+// import ProductCard from "@/components/produk/ProductCard";
 
-// // interface ProdukRaw {
-// //   _id: string;
-// //   name: string;
-// //   nama: string;
-// //   deskripsi: string;
-// //   kategori: string;
-// //   image?: string;
-// //   images?: string[];
-// // }
+// interface ProdukRaw {
+//   _id: string;
+//   name: string;
+//   nama: string;
+//   deskripsi: string;
+//   kategori: string;
+//   image?: string;
+//   images?: string[];
+// }
 
-// // interface FileEntry {
-// //   _id: string;
-// //   file_name: string;
-// // }
+// interface FileEntry {
+//   _id: string;
+//   file_name: string;
+// }
 
-// // interface ProdukDetail {
-// //   name: string;
-// //   kategori: string;
-// //   image?: string;
-// //   images?: string[];
-// //   nama: string;
-// //   deskripsi: string;
-// //   _id: string;
-// // }
+// interface ProdukDetail {
+//   name: string;
+//   kategori: string;
+//   image?: string;
+//   images?: string[];
+//   nama: string;
+//   deskripsi: string;
+//   _id: string;
+// }
 
-// // interface ApiResponseList {
-// //   data: ProdukRaw[];
-// //   message: string;
-// //   status: string;
-// // }
+// interface ApiResponseList {
+//   data: ProdukRaw[];
+//   message: string;
+//   status: string;
+// }
 
-// // interface ApiResponseDetail {
-// //   data: ProdukDetail;
-// //   files?: FileEntry[];
-// //   message: string;
-// //   status: number;
-// // }
+// interface ApiResponseDetail {
+//   data: ProdukDetail;
+//   files?: FileEntry[];
+//   message: string;
+//   status: number;
+// }
 
-// // interface Params {
-// //   kategori: string;
-// // }
+// interface Params {
+//   kategori: string;
+// }
 
-// // function slugify(text: string) {
-// //   return text.toLowerCase().replace(/\s+/g, "-");
-// // }
+// function slugify(text: string) {
+//   return text.toLowerCase().replace(/\s+/g, "-");
+// }
 
-// // export async function generateMetadata({
-// //   params,
-// // }: {
-// //   params: Params;
-// // }): Promise<Metadata> {
-// //   const { kategori } = await params;
-// //   const label = kategori
-// //     .split("-")
-// //     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-// //     .join(" ");
-// //   return {
-// //     title: `Kategori: ${label}`,
-// //     description: `Daftar produk kategori ${label}`,
-// //   };
-// // }
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: Params;
+// }): Promise<Metadata> {
+//   const { kategori } = await params;
+//   const label = kategori
+//     .split("-")
+//     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+//     .join(" ");
+//   return {
+//     title: `Kategori: ${label}`,
+//     description: `Daftar produk kategori ${label}`,
+//   };
+// }
 
-// // export default async function KategoriBahanBakuPage({
-// //   params,
-// // }: {
-// //   params: Params;
-// // }) {
-// //   const { kategori } = await params;
-// //   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
-// //   const TOKEN = process.env.ERP_TOKEN!;
+// export default async function KategoriBahanBakuPage({
+//   params,
+// }: {
+//   params: Params;
+// }) {
+//   const { kategori } = await params;
+//   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
+//   const TOKEN = process.env.ERP_TOKEN!;
 
-// //   // 1) Fetch list semua produk (ISR 60 detik)
-// //   const resList = await fetch(
-// //     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
-// //     {
-// //       method: "GET",
-// //       headers: {
-// //         Authorization: `Bearer ${TOKEN}`,
-// //         "Content-Type": "application/json",
-// //       },
-// //       next: { revalidate: 60 },
-// //     }
-// //   );
-// //   if (!resList.ok) {
-// //     return (
-// //       <div className="p-12 text-center">
-// //         <h1 className="text-2xl font-semibold">Error {resList.status}</h1>
-// //         <p className="mt-2 text-gray-600">
-// //           Gagal mengambil data produk kategori "{kategori}".
-// //         </p>
-// //       </div>
-// //     );
-// //   }
-// //   const jsonList: ApiResponseList = await resList.json();
-// //   const semuaProdukRaw: ProdukRaw[] = jsonList.data;
+//   // 1) Fetch list semua produk (ISR 60 detik)
+//   const resList = await fetch(
+//     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
+//     {
+//       method: "GET",
+//       headers: {
+//         Authorization: `Bearer ${TOKEN}`,
+//         "Content-Type": "application/json",
+//       },
+//       next: { revalidate: 60 },
+//     }
+//   );
+//   if (!resList.ok) {
+//     return (
+//       <div className="p-12 text-center">
+//         <h1 className="text-2xl font-semibold">Error {resList.status}</h1>
+//         <p className="mt-2 text-gray-600">
+//           Gagal mengambil data produk kategori "{kategori}".
+//         </p>
+//       </div>
+//     );
+//   }
+//   const jsonList: ApiResponseList = await resList.json();
+//   const semuaProdukRaw: ProdukRaw[] = jsonList.data;
 
-// //   // 2) Daftar slug kategori “Barang Jadi”
-// //   const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
+//   // 2) Daftar slug kategori “Barang Jadi”
+//   const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
 
-// //   // 3) Filter: slug(p.kategori) === kategori & TIDAK termasuk kategoriBarangJadiList
-// //   const filteredProdukRaw = semuaProdukRaw.filter((p) => {
-// //     const slugP = slugify(p.kategori);
-// //     return slugP === kategori && !kategoriBarangJadiList.includes(slugP);
-// //   });
+//   // 3) Filter: slug(p.kategori) === kategori & TIDAK termasuk kategoriBarangJadiList
+//   const filteredProdukRaw = semuaProdukRaw.filter((p) => {
+//     const slugP = slugify(p.kategori);
+//     return slugP === kategori && !kategoriBarangJadiList.includes(slugP);
+//   });
 
-// //   // 3.a) Jika kosong
-// //   if (filteredProdukRaw.length === 0) {
-// //     const label = kategori
-// //       .split("-")
-// //       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-// //       .join(" ");
-// //     return (
-// //       <section className="px-6 md:px-12 lg:px-24 py-12">
-// //         <h1 className="text-4xl font-bold mb-6">Kategori: {label}</h1>
-// //         <p className="text-gray-600">Belum ada produk di kategori ini.</p>
-// //       </section>
-// //     );
-// //   }
+//   // 3.a) Jika kosong
+//   if (filteredProdukRaw.length === 0) {
+//     const label = kategori
+//       .split("-")
+//       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+//       .join(" ");
+//     return (
+//       <section className="px-6 md:px-12 lg:px-24 py-12">
+//         <h1 className="text-4xl font-bold mb-6">Kategori: {label}</h1>
+//         <p className="text-gray-600">Belum ada produk di kategori ini.</p>
+//       </section>
+//     );
+//   }
 
-// //   // 4) Fetch detail per-produk untuk dapat lampiran (files)
-// //   type ProdukGabungan = {
-// //     _id: string;
-// //     nama: string;
-// //     deskripsi: string;
-// //     kategori: string;
-// //     images: string[];
-// //   };
+//   // 4) Fetch detail per-produk untuk dapat lampiran (files)
+//   type ProdukGabungan = {
+//     _id: string;
+//     nama: string;
+//     deskripsi: string;
+//     kategori: string;
+//     images: string[];
+//   };
 
-// //   let semuaProduk: ProdukGabungan[] = await Promise.all(
-// //     filteredProdukRaw.map(async (p) => {
-// //       const docname = p.name;
-// //       const detailRes = await fetch(
-// //         `${API_BASE}/api/resource/Produk%20Company%20Profile/${encodeURIComponent(
-// //           docname
-// //         )}`,
-// //         {
-// //           method: "GET",
-// //           headers: {
-// //             Authorization: `Bearer ${TOKEN}`,
-// //             "Content-Type": "application/json",
-// //           },
-// //           next: { revalidate: 60 },
-// //         }
-// //       );
-// //       if (!detailRes.ok) {
-// //         return {
-// //           _id: p._id,
-// //           nama: p.nama,
-// //           deskripsi: p.deskripsi,
-// //           kategori: p.kategori,
-// //           images: [],
-// //         };
-// //       }
-// //       const jsonDetail: ApiResponseDetail = await detailRes.json();
+//   let semuaProduk: ProdukGabungan[] = await Promise.all(
+//     filteredProdukRaw.map(async (p) => {
+//       const docname = p.name;
+//       const detailRes = await fetch(
+//         `${API_BASE}/api/resource/Produk%20Company%20Profile/${encodeURIComponent(
+//           docname
+//         )}`,
+//         {
+//           method: "GET",
+//           headers: {
+//             Authorization: `Bearer ${TOKEN}`,
+//             "Content-Type": "application/json",
+//           },
+//           next: { revalidate: 60 },
+//         }
+//       );
+//       if (!detailRes.ok) {
+//         return {
+//           _id: p._id,
+//           nama: p.nama,
+//           deskripsi: p.deskripsi,
+//           kategori: p.kategori,
+//           images: [],
+//         };
+//       }
+//       const jsonDetail: ApiResponseDetail = await detailRes.json();
 
-// //       // Ambil lampiran, kecualikan yang sama dengan p.image
-// //       let filePaths: string[] = [];
-// //       if (Array.isArray(jsonDetail.files)) {
-// //         filePaths = jsonDetail.files
-// //           .filter((f) => f.file_name !== p.image)
-// //           .map((f) => `/public/files/${f.file_name}`);
-// //       }
+//       // Ambil lampiran, kecualikan yang sama dengan p.image
+//       let filePaths: string[] = [];
+//       if (Array.isArray(jsonDetail.files)) {
+//         filePaths = jsonDetail.files
+//           .filter((f) => f.file_name !== p.image)
+//           .map((f) => `/public/files/${f.file_name}`);
+//       }
 
-// //       // Ambil p.images atau p.image
-// //       const rawImgs: string[] = [];
-// //       if (Array.isArray(p.images) && p.images.length > 0) {
-// //         rawImgs.push(...p.images);
-// //       } else if (typeof p.image === "string" && p.image.trim() !== "") {
-// //         rawImgs.push(p.image);
-// //       }
+//       // Ambil p.images atau p.image
+//       const rawImgs: string[] = [];
+//       if (Array.isArray(p.images) && p.images.length > 0) {
+//         rawImgs.push(...p.images);
+//       } else if (typeof p.image === "string" && p.image.trim() !== "") {
+//         rawImgs.push(p.image);
+//       }
 
-// //       // Gabungkan
-// //       const mergedImgs = [...rawImgs, ...filePaths];
-// //       return {
-// //         _id: p._id,
-// //         nama: p.nama,
-// //         deskripsi: p.deskripsi,
-// //         kategori: p.kategori,
-// //         images: mergedImgs,
-// //       };
-// //     })
-// //   );
+//       // Gabungkan
+//       const mergedImgs = [...rawImgs, ...filePaths];
+//       return {
+//         _id: p._id,
+//         nama: p.nama,
+//         deskripsi: p.deskripsi,
+//         kategori: p.kategori,
+//         images: mergedImgs,
+//       };
+//     })
+//   );
 
-// //   // 4.e) Sort alfabet berdasarkan nama sebelum render
-// //   semuaProduk.sort((a, b) => a.nama.localeCompare(b.nama));
+//   // 4.e) Sort alfabet berdasarkan nama sebelum render
+//   semuaProduk.sort((a, b) => a.nama.localeCompare(b.nama));
 
-// //   // 5) Render grid
-// //   return (
-// //     <section className="px-6 md:px-12 lg:px-24 py-12">
-// //       <h1 className="text-4xl font-bold mb-8">
-// //         Kategori:{" "}
-// //         {kategori
-// //           .split("-")
-// //           .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-// //           .join(" ")}
-// //       </h1>
-// //       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
-// //         {semuaProduk.map((prod) => (
-// //           <ProductCard key={prod._id} prod={prod} />
-// //         ))}
-// //       </div>
-// //     </section>
-// //   );
-// // }
+//   // 5) Render grid
+//   return (
+//     <section className="px-6 md:px-12 lg:px-24 py-12">
+//       <h1 className="text-4xl font-bold mb-8">
+//         Kategori:{" "}
+//         {kategori
+//           .split("-")
+//           .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+//           .join(" ")}
+//       </h1>
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
+//         {semuaProduk.map((prod) => (
+//           <ProductCard key={prod._id} prod={prod} />
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
 
 // import { Metadata } from "next";
 // import ProductCard from "@/components/produk/ProductCard";
@@ -420,8 +420,6 @@
 //   );
 // }
 
-// src/app/produk/bahanbaku/[kategori]/page.tsx
-
 import { Metadata } from "next";
 import ProductCard from "@/components/produk/ProductCard";
 import HeaderComponent from "@/components/HeaderComponent";
@@ -435,7 +433,6 @@ interface ProdukRaw {
   kategori: string;
   image?: string;
   images?: string[];
-  createdAt: string;
 }
 
 interface FileEntry {
@@ -492,16 +489,14 @@ export async function generateMetadata({
 
 export default async function KategoriBahanBakuPage({
   params,
-  searchParams: _searchParams, // alias dengan underscore untuk menghindari lint unused‐vars
 }: {
   params: Params;
-  searchParams: Record<string, unknown>;
 }) {
   const { kategori } = params;
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
   const TOKEN = process.env.ERP_TOKEN!;
 
-  // 1) Fetch list semua produk (ISR 60 detik)
+  // 1) Fetch daftar semua produk (ISR 60 detik)
   const resList = await fetch(
     `${API_BASE}/api/resource/Produk%20Company%20Profile`,
     {
@@ -528,21 +523,16 @@ export default async function KategoriBahanBakuPage({
   const jsonList: ApiResponseList = await resList.json();
   const semuaProdukRaw: ProdukRaw[] = jsonList.data;
 
-  // 2) Urutkan semuaProdukRaw berdasarkan createdAt descending (terbaru di depan)
-  semuaProdukRaw.sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  );
-
-  // 3) Daftar slug kategori “Barang Jadi” (hardcode)
+  // 2) Daftar slug kategori “Barang Jadi”
   const kategoriBarangJadiList = ["kasur", "rak", "kursi", "meja", "lemari"];
 
-  // 4) Filter hanya produk yang slug(p.kategori) === kategori & TIDAK termasuk kategoriBarangJadiList
+  // 3) Filter: slug(p.kategori) === kategori & TIDAK termasuk kategoriBarangJadiList
   const filteredProdukRaw = semuaProdukRaw.filter((p) => {
     const slugP = slugify(p.kategori);
     return slugP === kategori && !kategoriBarangJadiList.includes(slugP);
   });
 
-  // 4.a) Jika kosong
+  // 3.a) Jika kosong → tampilkan pesan “Belum ada produk”
   if (filteredProdukRaw.length === 0) {
     const label = kategori
       .split("-")
@@ -556,7 +546,7 @@ export default async function KategoriBahanBakuPage({
     );
   }
 
-  // 5) Fetch detail per‐produk untuk mendapatkan lampiran (files)
+  // 4) Fetch detail per-produk untuk dapat lampiran (files)
   type ProdukGabungan = {
     _id: string;
     nama: string;
@@ -583,6 +573,7 @@ export default async function KategoriBahanBakuPage({
       );
 
       if (!detailRes.ok) {
+        // Jika gagal fetch detail, kembalikan data minimal tanpa lampiran
         return {
           _id: p._id,
           nama: p.nama,
@@ -594,7 +585,7 @@ export default async function KategoriBahanBakuPage({
 
       const jsonDetail: ApiResponseDetail = await detailRes.json();
 
-      // 5.b) Ambil semua id file dari jsonDetail.files (root), kecualikan p.image
+      // Ambil lampiran (files), kecualikan yang sama dengan p.image
       let filePaths: string[] = [];
       if (Array.isArray(jsonDetail.files)) {
         filePaths = jsonDetail.files
@@ -602,7 +593,7 @@ export default async function KategoriBahanBakuPage({
           .map((f) => `/public/files/${f.file_name}`);
       }
 
-      // 5.c) Ambil p.images (jika custom) atau p.image (jika satu)
+      // Ambil p.images atau p.image
       const rawImgs: string[] = [];
       if (Array.isArray(p.images) && p.images.length > 0) {
         rawImgs.push(...p.images);
@@ -610,8 +601,9 @@ export default async function KategoriBahanBakuPage({
         rawImgs.push(p.image);
       }
 
-      // 5.d) Gabungkan
+      // Gabungkan keduanya → mergedImgs
       const mergedImgs = [...rawImgs, ...filePaths];
+
       return {
         _id: p._id,
         nama: p.nama,
@@ -622,10 +614,10 @@ export default async function KategoriBahanBakuPage({
     })
   );
 
-  // 5.e) Sort alfabet berdasarkan nama sebelum render
+  // 4.e) Sort alfabet berdasarkan nama sebelum render
   semuaProduk.sort((a, b) => a.nama.localeCompare(b.nama));
 
-  // 6) Render grid
+  // 5) Render grid
   return (
     <>
       <HeaderComponent />
@@ -637,7 +629,7 @@ export default async function KategoriBahanBakuPage({
             .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
             .join(" ")}
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
           {semuaProduk.map((prod) => (
             <ProductCard key={prod._id} prod={prod} />
           ))}
