@@ -260,7 +260,7 @@ function slugify(text: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
   const { kategori } = await params;
   const label = kategori
@@ -276,7 +276,7 @@ export async function generateMetadata({
 export default async function KategoriBarangJadiPage({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }) {
   const { kategori } = await params;
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
