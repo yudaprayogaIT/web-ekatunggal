@@ -308,6 +308,7 @@
 // //   );
 // // }
 
+// src/component/karir/JobList.tsx
 "use client";
 
 import React from "react";
