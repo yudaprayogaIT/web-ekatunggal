@@ -1,19 +1,5 @@
 import Image from "next/image";
 
-interface ProdukRaw {
-  _id: string;
-  nama: string;
-  kategori: string;
-  image?: string;
-  images?: string[];
-}
-
-// interface ApiResponse {
-//   data: ProdukRaw[];
-//   message: string;
-//   status: string;
-// }
-
 export default async function ProdukHero() {
   return (
     <main className="mb-12">
