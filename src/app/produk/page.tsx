@@ -18,26 +18,6 @@ export default async function ProdukPage() {
         <section className="mb-8">
           <ProductComponent />
         </section>
-        {/* Collapsible “Barang Jadi” */}
-        {/* <CollapsibleSection
-            title="Barang Jadi"
-            lihatSemuaHref="/produk/barangjadi"
-          > */}
-        {/* <BarangJadiComponent
-              kategoriUtama={previewBarangJadi}
-              lihatSemuaHref="/produk/barangjadi"
-            /> */}
-        {/* </CollapsibleSection> */}
-        {/* Collapsible “Bahan Baku” */}
-        {/* <CollapsibleSection
-            title="Bahan Baku"
-            lihatSemuaHref="/produk/bahanbaku"
-          >
-            <BahanBakuComponent
-              kategoriUtama={previewBahanBaku}
-              lihatSemuaHref="/produk/bahanbaku"
-            /> */}
-        {/* </CollapsibleSection> */}
       </main>
 
       <FooterComponent />

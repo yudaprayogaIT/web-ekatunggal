@@ -14,32 +14,11 @@ export default function CollapsibleSection({
   lihatSemuaHref,
   children,
 }: CollapsibleSectionProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggle = () => setIsOpen((prev) => !prev);
 
   return (
-    // <section className="rounded-lg overflow-hidden shadow-sm mb-8">
-    //   <div
-    //     className="flex justify-between items-center px-4 py-2 bg-gray-100 cursor-pointer font-[montserrat] font-bold"
-    //     onClick={toggle}
-    //   >
-    //     <h2 className="text-lg text-gray-800">{title}</h2>
-    //     <div className="flex items-center space-x-4">
-    //       {lihatSemuaHref && (
-    //         <Link
-    //           href={lihatSemuaHref}
-    //           className="text-md text-gray-400 hover:text-gray-800 hover:underline"
-    //           onClick={(e) => e.stopPropagation()}
-    //         >
-    //           Lihat Semua
-    //         </Link>
-    //       )}
-    //       <span className="text-xl text-gray-600">{isOpen ? "−" : "+"}</span>
-    //     </div>
-    //   </div>
-    //   {isOpen && <div className="p-4 bg-white">{children}</div>}
-    // </section>
     <section className="rounded-lg overflow-hidden shadow-sm mb-8">
       <div
         className="flex justify-between items-center px-4 py-2 bg-gray-100 cursor-pointer font-[montserrat] font-bold"

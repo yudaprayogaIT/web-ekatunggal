@@ -1,3 +1,4 @@
+import FloatingIconComponent from "@/components/FloatingIconComponent";
 import { FooterComponent } from "@/components/FooterComponent";
 import HeaderComponent from "@/components/HeaderComponent";
 import HeroKarirComponent from "@/components/karir/HeroKarirComponent";
@@ -7,6 +8,7 @@ const page = () => {
   return (
     <>
       <HeaderComponent />
+      <FloatingIconComponent />
       <HeroKarirComponent />
       <FooterComponent />
     </>

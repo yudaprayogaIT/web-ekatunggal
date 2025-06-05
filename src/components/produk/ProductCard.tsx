@@ -1,9 +1,9 @@
-// src/components/produk/ProductCard.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FileHook, IFile } from "@/app/hooks/FileHook";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ProductData {
   image: string;
@@ -31,9 +31,10 @@ export default function ProductCard({ data }: ProductCardProps) {
     }
   };
 
+  // 1) Ambil daftar file (thumbnails) ketika `data.nama` berubah
   useEffect(() => {
     getFile();
-  }, [data]);
+  }, [data.nama]);
 
   const getFile = async () => {
     try {
@@ -41,29 +42,75 @@ export default function ProductCard({ data }: ProductCardProps) {
         limit: 0,
         filters: [
           ["attached_to_doctype", "=", "Produk Company Profile"],
-          ["attached_to_name", "=", `${data.nama}`],
+          ["attached_to_name", "=", data.nama],
         ],
       });
       setFile(files);
+      setActiveIndex(0); // reset ke indeks 0
     } catch (error) {
       console.log(error);
     }
   };
 
+  // 2) Otomatis berpindah thumbnail setiap beberapa detik
+  useEffect(() => {
+    if (files.length <= 1) return;
+
+    const intervalId = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % files.length);
+    }, 10000);
+
+    return () => clearInterval(intervalId);
+  }, [files]);
+
+  // 3) Scroll manual pada container thumb saja
+  useEffect(() => {
+    if (!thumbContainerRef.current) return;
+
+    const container = thumbContainerRef.current;
+    const thumbs = container.children;
+    const activeThumb = thumbs[activeIndex] as HTMLElement | undefined;
+
+    if (!activeThumb) return;
+
+    const thumbLeft = activeThumb.offsetLeft;
+    const thumbWidth = activeThumb.clientWidth;
+    const containerWidth = container.clientWidth;
+
+    // Target: pusatkan thumbnail di dalam container
+    const targetScrollLeft = thumbLeft - (containerWidth - thumbWidth) / 2;
+
+    container.scrollTo({
+      left: targetScrollLeft,
+      behavior: "smooth",
+    });
+  }, [activeIndex]);
+
   return (
     <div className="flex flex-row border border-gray-200 overflow-hidden hover:shadow-2xl rounded-3xl transition-shadow duration-300">
       <div className="flex flex-2 flex-col">
-        {/* 1) Main Image */}
-        <div className="relative w-full h-80">
-          {files[activeIndex]?.file_url && (
-            <Image
-              src={`https://api-ekatalog.ekatunggal.com${files[activeIndex].file_url}`}
-              alt={`Product image ${activeIndex + 1}`}
-              fill
-              style={{ objectFit: "fill" }}
-              className="rounded-3xl"
-            />
-          )}
+        {/* 1) Main Image dengan Framer Motion */}
+        <div className="relative w-full h-80 overflow-hidden">
+          <AnimatePresence mode="wait">
+            {files[activeIndex]?.file_url && (
+              <motion.div
+                key={activeIndex}
+                initial={{ x: 50, opacity: 0 }} // mulai 50px di bawah & transparan
+                animate={{ x: 0, opacity: 1 }} // ke posisi normal & full opacity
+                exit={{ x: -50, opacity: 0 }} // saat keluar, naik 50px & transparan
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={`https://api-ekatalog.ekatunggal.com${files[activeIndex].file_url}`}
+                  alt={`Product image ${activeIndex + 1}`}
+                  fill
+                  style={{ objectFit: "fill" }}
+                  className="rounded-3xl"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* 2) Thumbnail + tombol scroll */}
@@ -85,7 +132,7 @@ export default function ProductCard({ data }: ProductCardProps) {
 
           <div
             ref={thumbContainerRef}
-            className="flex justify-between gap-x-4 max-w-140 space-x-8 overflow-x-hidden mb-2 snap-x snap-mandatory scrollbar-none px-4 pb-2"
+            className="flex justify-start gap-x-4 max-w-140 space-x-8 overflow-x-hidden mb-2 snap-x snap-mandatory scrollbar-none px-4 pb-2"
           >
             {files.map((url: IFile, idx: number) => (
               <button
@@ -97,7 +144,7 @@ export default function ProductCard({ data }: ProductCardProps) {
                     idx === activeIndex
                       ? "border-blue-600 ring-2 ring-blue-200"
                       : "border-gray-200"
-                  } hover:brightness-110 transition
+                  } hover:brightness-90 transition
                 `}
                 aria-label={`Tampilkan gambar ${idx + 1}`}
               >
@@ -136,7 +183,6 @@ export default function ProductCard({ data }: ProductCardProps) {
             {data.nama}
           </h3>
           <h5 className="text-md font-medium text-gray-800">Detail</h5>
-
           <div className="absolute left-4 top-13 h-[0.2] w-84 bg-gray-300" />
           <p className="mt-1.5 text-gray-600 text-sm line-clamp-4">
             {data.deskripsi}

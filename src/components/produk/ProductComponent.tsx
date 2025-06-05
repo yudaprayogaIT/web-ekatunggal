@@ -48,7 +48,7 @@ const ProductComponent = () => {
 
   return (
     <>
-      <main className="space-y-8 px-6 md:px-12 lg:px-10 mb-10">
+      <main className="space-y-8 px-6 md:px-12 lg:px-10">
         {/* Collapsible “Barang Jadi” */}
         <CollapsibleSection
           title="Barang Jadi"

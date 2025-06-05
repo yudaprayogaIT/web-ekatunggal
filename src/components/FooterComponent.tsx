@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const FooterComponent = () => {
   return (
-    <section className="footer">
+    <section className="footer mt-10">
       <div className="relative text mx-auto container flex flex-col md:flex-row w-full font-bold md:-mb-10 gap-y-5 text-[var(--colorBlack)]">
         {/* Garis horizontal abu */}
         <div className="absolute md:left-0 -top-2 md:-top-5 h-[0.2] w-[90vw] md:w-full bg-gray-300" />

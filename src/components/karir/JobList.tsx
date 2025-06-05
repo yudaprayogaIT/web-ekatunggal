@@ -189,12 +189,10 @@ export default function JobList({
           </span>
           <Image
             src="/icons/arrow-left.png"
-            alt="toggle"
-            width={24}
-            height={24}
-            className={`transform transition-transform ${
-              showAll ? "rotate-180" : ""
-            }`}
+            alt="see-more"
+            width={400}
+            height={100}
+            className="w-30 h-auto object-contain -m-12"
           />
         </button>
       </div>

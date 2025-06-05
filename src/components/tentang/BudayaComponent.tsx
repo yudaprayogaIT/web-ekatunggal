@@ -53,7 +53,7 @@ export const BudayaComponent = () => {
         {budaya.map(({ key, label, img, imgHover }) => (
           <div
             key={key}
-            className="group bg-[#FDD10026] hover:bg-[#FFFFFF26] shadow-lg hover:shadow-2xl py-2 md:py-5 w-40 h-42 md:w-50 md:h-52 overflow-hidden transition-shadow duration-300 ease-in-out rounded-2xl"
+            className="group bg-[#FDD10026] hover:bg-[##FFFFFF26] shadow-lg hover:shadow-2xl py-2 md:py-5 w-40 h-42 md:w-50 md:h-52 overflow-hidden transition-shadow duration-300 ease-in-out rounded-2xl"
           >
             <div className="relative h-22 md:h-28 mt-2 md:mt-0 w-auto">
               <Image
