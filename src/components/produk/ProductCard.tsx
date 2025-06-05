@@ -3,7 +3,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { buildImageUrl } from "@/utils/images";
 import { FileHook, IFile } from "@/app/hooks/FileHook";
 
 // Ubah interface supaya image: string (bukan string[])
