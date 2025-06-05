@@ -84,48 +84,44 @@
 "use client";
 
 // src/app/produk/[tipe]/page.tsx
+
 import React, { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import HeaderComponent from "@/components/HeaderComponent";
 import Link from "next/link";
 import Image from "next/image";
 import { FooterComponent } from "@/components/FooterComponent";
 import Category, { CategoryHook, TypeProduct } from "@/app/hooks/CategoryHook";
 
-interface PageProps {
-  params: {
-    tipe: string;
-  };
-}
+export default function Page() {
+  // Ambil segmen dinamis dari URL: [tipe]
+  const params = useParams();
+  const tipe = params?.tipe as string;
 
-export default function Page({ params }: PageProps) {
-  const { tipe } = params;
   const [category, setCategory] = useState<Category[]>([]);
-  // const [isLoading, setLoading] = useState<boolean>(true);
 
   // Cek apakah tipe valid
   const isValidTipe = tipe === "bahanbaku" || tipe === "barangjadi";
 
-  // Fungsi untuk mengambil data kategori sesuai tipe
+  // Fungsi untuk fetch kategori berdasarkan tipe
   const getCategory = async (type: string) => {
     try {
       const data = await CategoryHook({
         type: type === "bahanbaku" ? TypeProduct.BB : TypeProduct.BJ,
       });
       setCategory(data);
-      // setLoading(false);
     } catch (error) {
       console.error("Gagal mengambil data kategori:", error);
     }
   };
 
   useEffect(() => {
-    // Karena useEffect dipanggil setiap render, kita cek validitas di dalamnya
+    // Pastikan Hook selalu dipanggil, lalu cek di dalamnya
     if (!isValidTipe) return;
-
     getCategory(tipe);
   }, [tipe, isValidTipe]);
 
-  // Jika tipe tidak valid, tampilkan halaman 404/invalid
+  // Jika tipe tidak valid, tampilkan 404/Invalid
   if (!isValidTipe) {
     return (
       <div className="p-12 text-center">
