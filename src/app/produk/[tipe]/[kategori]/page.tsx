@@ -52,22 +52,21 @@
 
 //   return (
 //     <>
-//       <HeaderComponent />
-//       <section className="px-6 md:px-12 lg:px-24 py-12">
-//         <h1 className="text-4xl font-bold mb-8">Kategori: {kategori}</h1>
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8"></div>
-//         {produk.map((item: Produk, index: number) => {
-//           return <ProductCard data={item} key={index} />;
-//         })}
-//       </section>
-//       <FooterComponent />
+// <HeaderComponent />
+// <section className="px-6 md:px-12 lg:px-24 py-12">
+//   <h1 className="text-4xl font-bold mb-8">Kategori: {kategori}</h1>
+//   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8"></div>
+//   {produk.map((item: Produk, index: number) => {
+//     return <ProductCard data={item} key={index} />;
+//   })}
+// </section>
+// <FooterComponent />
 //     </>
 //   );
 // }
 
-"use client";
-
 // src/app/produk/[tipe]/[kategori]/page.tsx
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
@@ -127,10 +126,10 @@ export default function Page() {
 
       <section className="px-6 md:px-12 lg:px-24 py-12">
         <h1 className="text-4xl font-bold mb-8">Kategori: {kategori}</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {produk.map((item, index) => (
-            <ProductCard data={item} key={index} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
+          {produk.map((item: Produk, index: number) => {
+            return <ProductCard data={item} key={index} />;
+          })}
         </div>
       </section>
 

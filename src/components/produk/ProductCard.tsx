@@ -5,12 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FileHook, IFile } from "@/app/hooks/FileHook";
 
-// Ubah interface supaya image: string (bukan string[])
 interface ProductData {
-  image: string; // <-- satu string saja
+  image: string;
   nama: string;
   deskripsi: string;
-  // …field lain jika ada…
 }
 
 interface ProductCardProps {
@@ -53,7 +51,7 @@ export default function ProductCard({ data }: ProductCardProps) {
   };
 
   return (
-    <div className="flex flex-row mb-10 border border-gray-200 overflow-hidden hover:shadow-2xl rounded-3xl transition-shadow duration-300">
+    <div className="flex flex-row border border-gray-200 overflow-hidden hover:shadow-2xl rounded-3xl transition-shadow duration-300">
       <div className="flex flex-2 flex-col">
         {/* 1) Main Image */}
         <div className="relative w-full h-80">
@@ -94,7 +92,7 @@ export default function ProductCard({ data }: ProductCardProps) {
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
                 className={`
-                  snap-center flex-shrink-0 w-35 h-20 rounded-md overflow-hidden border
+                  snap-center flex-shrink-0 w-35 h-20 rounded-md overflow-hidden border cursor-pointer
                   ${
                     idx === activeIndex
                       ? "border-blue-600 ring-2 ring-blue-200"
@@ -108,7 +106,7 @@ export default function ProductCard({ data }: ProductCardProps) {
                   alt={`${data.nama} preview ${idx + 1}`}
                   width={100}
                   height={100}
-                  className="w-full "
+                  className="w-full h-auto"
                 />
               </button>
             ))}

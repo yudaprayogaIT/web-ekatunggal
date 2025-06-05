@@ -160,7 +160,7 @@ export default function Page() {
                   src={`https://api-ekatalog.ekatunggal.com/public/files/${item.image}`}
                   alt={item.name}
                   fill
-                  className="object-contain group-hover:scale-105 transition-transform duration-300"
+                  className="h-70 group-hover:scale-102 transition-transform duration-300"
                 />
               </div>
               <p className="text-3xl mt-2 font-[montserrat] font-bold">
