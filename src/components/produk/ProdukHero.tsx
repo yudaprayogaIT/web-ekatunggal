@@ -8,11 +8,11 @@ interface ProdukRaw {
   images?: string[];
 }
 
-interface ApiResponse {
-  data: ProdukRaw[];
-  message: string;
-  status: string;
-}
+// interface ApiResponse {
+//   data: ProdukRaw[];
+//   message: string;
+//   status: string;
+// }
 
 export default async function ProdukHero() {
   return (

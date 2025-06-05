@@ -14,16 +14,16 @@ export enum TypeProduct {
 }
 export const ProductHook = async (
   props: {
-    limit?: Number;
+    limit?: number;
     type?: TypeProduct;
-    category?: String;
+    category?: string;
   } = { limit: 0, type: TypeProduct.ALL }
 ): Promise<Produk[]> => {
   try {
     const API_BASE = "https://api-ekatalog.ekatunggal.com";
     const TOKEN =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzA5ZDg0ODIyNmVhNDRkZjZkN2QyMmMiLCJuYW1lIjoiQWRtaW5pc3RyYXRvciIsImVtYWlsIjoicmFtZGhhbmlpdEBnbWFpbC5jb20iLCJpbWciOiJyYW1kaGFuaWl0QGdtYWlsLmNvbS5qcGVnIiwidXNlcm5hbWUiOiJhZG1pbmlzdHJhdG9yIiwic3RhdHVzIjoiMSIsImlhdCI6MTc0ODc1MTQ1MX0.BXQO3Ju77IYmyEWP2CYuPvSg7g3zway759KvPJZuLsU";
-    let filters = [];
+    const filters = [];
     if (props.type !== TypeProduct.ALL) {
       filters.push(["type", "=", `${props.type}`]);
     }

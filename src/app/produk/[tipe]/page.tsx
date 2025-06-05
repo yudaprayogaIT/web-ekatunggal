@@ -16,15 +16,15 @@ export default function Page({
 }) {
   const { tipe } = React.use(params);
   const [category, setCategory] = useState<Category[]>([]);
-  const [isLoading, setLoading] = useState<boolean>(true);
+  // const [isLoading, setLoading] = useState<boolean>(true);
 
-  const getCategory = async (type: String) => {
+  const getCategory = async (type: string) => {
     try {
       const data = await CategoryHook({
         type: type == "bahanbaku" ? TypeProduct.BB : TypeProduct.BJ,
       });
       setCategory(data);
-      setLoading(false);
+      // setLoading(false);
     } catch (error) {
       console.log(error);
     }

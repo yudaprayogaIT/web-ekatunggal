@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import Produk from "@/app/hooks/ProductHook";
 import Category from "@/app/hooks/CategoryHook";
 
 interface BahanBakuComponentProps {

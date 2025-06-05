@@ -232,16 +232,16 @@ export default function Page({
 }) {
   const { tipe, kategori } = React.use(params);
   const [produk, setProduk] = useState<Produk[]>([]);
-  const [isLoading, setLoading] = useState<boolean>(true);
+  // const [isLoading, setLoading] = useState<boolean>(true);
 
-  const getProduct = async (type: String) => {
+  const getProduct = async (type: string) => {
     try {
       const data = await ProductHook({
         type: type == "bahanbaku" ? TypeProduct.BB : TypeProduct.BJ,
         category: kategori,
       });
       setProduk(data);
-      setLoading(false);
+      // setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -253,7 +253,8 @@ export default function Page({
       <div className="p-12 text-center">
         <h1 className="text-2xl font-semibold">404/Invalid Tipe</h1>
         <p className="mt-2 text-gray-600">
-          Tipe "{tipe}" tidak dikenali. Pilih “bahanbaku” atau “barangjadi”.
+          Tipe &quot;{tipe}&quot; tidak dikenali. Pilih “bahanbaku” atau
+          “barangjadi”.
         </p>
       </div>
     );
@@ -271,7 +272,7 @@ export default function Page({
     <>
       <HeaderComponent />
       <section className="px-6 md:px-12 lg:px-24 py-12">
-        <h1 className="text-4xl font-bold mb-8">Kategori:</h1>
+        <h1 className="text-4xl font-bold mb-8">Kategori: {kategori}</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8"></div>
         {produk.map((item: Produk, index: number) => {
           return <ProductCard data={item} key={index} />;

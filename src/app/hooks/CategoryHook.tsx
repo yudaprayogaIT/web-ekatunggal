@@ -14,12 +14,12 @@ export enum TypeProduct {
 
 export const CategoryHook = async (
   props: {
-    limit?: Number;
+    limit?: number;
     type: TypeProduct;
   } = { limit: 0, type: TypeProduct.ALL }
 ): Promise<Category[]> => {
   try {
-    let filters = [];
+    const filters = [];
     if (props.type !== TypeProduct.ALL) {
       filters.push(["type", "=", `${props.type}`]);
     }

@@ -144,7 +144,7 @@ export default function ProductCard({ data }: ProductCardProps) {
 
   // Karena sekarang data.image adalah string (bukan array), maka kita bikin array satu elemen:
   const urls: string[] = [buildImageUrl(data.image)].filter((u) => !!u);
-  const finalUrls: string[] = urls.length > 0 ? urls : ["/placeholder.png"];
+  // const finalUrls: string[] = urls.length > 0 ? urls : ["/placeholder.png"];
 
   const scrollThumbnails = (direction: "left" | "right") => {
     if (!thumbContainerRef.current) return;

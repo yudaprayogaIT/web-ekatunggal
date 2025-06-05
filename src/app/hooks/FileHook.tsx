@@ -3,10 +3,12 @@ export interface IFile {
   file_url: string;
 }
 
+type FilterItem = [field: string, operator: string, value: string | number];
+
 export const FileHook = async (
   props: {
-    limit?: Number;
-    filters?: any[];
+    limit?: number;
+    filters?: FilterItem[];
   } = { limit: 0, filters: [] }
 ): Promise<IFile[]> => {
   try {

@@ -1,7 +1,4 @@
 import ProdukHero from "@/components/produk/ProdukHero";
-import BarangJadiComponent from "@/components/produk/BarangJadiComponent";
-import BahanBakuComponent from "@/components/produk/BahanBakuComponent";
-import CollapsibleSection from "@/components/CollapsibleSection";
 import HeaderComponent from "@/components/HeaderComponent";
 import { FooterComponent } from "@/components/FooterComponent";
 import FloatingIconComponent from "@/components/FloatingIconComponent";
