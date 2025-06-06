@@ -411,7 +411,7 @@ interface JobDetailProps {
 }
 
 // Komponen Toast sederhana
-function Toast({ message, onClose }: { message: string; onClose: () => void }) {
+function Toast({ message }: { message: string; onClose: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
