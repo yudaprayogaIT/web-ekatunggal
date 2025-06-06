@@ -24,7 +24,7 @@ export const FooterComponent = () => {
           </h4>
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
-              src="/icons/footer/telepon.png"
+              src="/icons/medsos/telepon.png"
               width={20}
               height={20}
               alt="telepon"
@@ -34,7 +34,7 @@ export const FooterComponent = () => {
           </Link>
           <Link href="#" className="flex my-2 items-center mx-4 ">
             <Image
-              src="/icons/footer/email.png"
+              src="/icons/medsos/email.png"
               width={20}
               height={20}
               alt="email"
@@ -49,7 +49,7 @@ export const FooterComponent = () => {
           </h4>
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
-              src="/icons/footer/ig.png"
+              src="/icons/medsos/ig.png"
               width={1600}
               height={1600}
               alt="ig"
@@ -59,7 +59,7 @@ export const FooterComponent = () => {
           </Link>
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
-              src="/icons/footer/ig.png"
+              src="/icons/medsos/ig.png"
               width={1600}
               height={1600}
               alt="ig"
@@ -69,7 +69,7 @@ export const FooterComponent = () => {
           </Link>
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
-              src="/icons/footer/fb.png"
+              src="/icons/medsos/fb.png"
               width={1600}
               height={1600}
               alt="fb"
@@ -79,7 +79,7 @@ export const FooterComponent = () => {
           </Link>
           <Link href="#" className="flex my-2 items-center mx-4">
             <Image
-              src="/icons/footer/tiktok.png"
+              src="/icons/medsos/tiktok.png"
               width={1600}
               height={1600}
               alt="tiktok"

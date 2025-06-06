@@ -182,7 +182,7 @@ export default function JobList({
       <div className="flex justify-center mt-8">
         <button
           onClick={toggleShowAll}
-          className="flex items-center bg-yellow-500 text-black font-bold text-md md:text-xl rounded-2xl px-6 py-3 shadow hover:bg-yellow-600 transition"
+          className="flex cursor-pointer items-center bg-[var(--colorYellow)] text-black font-bold text-md md:text-xl rounded-2xl px-6 py-3 shadow hover:bg-yellow-600 transition"
         >
           <span className="mr-4">
             {showAll ? "Sembunyikan List" : "Lihat Semua Posisi"}

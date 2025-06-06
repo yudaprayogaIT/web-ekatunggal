@@ -118,7 +118,7 @@ export default function ProductCard({ data }: ProductCardProps) {
           {files.length > 3 && (
             <button
               onClick={() => scrollThumbnails("left")}
-              className="absolute left-0 top-1/2 z-10 transform -translate-y-1/2 bg-[#d9d9d98f] h-10 w-10 rounded-full hover:bg-[#d9d9d9] transition"
+              className="absolute cursor-pointer left-0 top-1/2 z-10 transform -translate-y-1/2 bg-[#d9d9d98f] h-10 w-10 rounded-full hover:bg-[#d9d9d9] transition"
               aria-label="Scroll kiri"
             >
               <Image
@@ -162,7 +162,7 @@ export default function ProductCard({ data }: ProductCardProps) {
           {files.length > 3 && (
             <button
               onClick={() => scrollThumbnails("right")}
-              className="absolute right-0 top-1/2 z-10 transform -translate-y-1/2 bg-[#d9d9d98f] h-10 w-10 rounded-full hover:bg-[#d9d9d9] transition"
+              className="absolute cursor-pointer right-0 top-1/2 z-10 transform -translate-y-1/2 bg-[#d9d9d98f] h-10 w-10 rounded-full hover:bg-[#d9d9d9] transition"
               aria-label="Scroll kanan"
             >
               <Image
