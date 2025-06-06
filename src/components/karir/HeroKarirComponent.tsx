@@ -104,14 +104,14 @@ export default function HeroKarirComponent() {
                   onChange={onLocationSelect}
                   className="absolute z-20 w-full mt-1 bg-white rounded-xl shadow max-h-50 overflow-auto outline-none cursor-pointer"
                 >
-                  <option value="" className="text-lg p-2 font-bold">
+                  <option value="" className="text-sm md:text-lg p-2 font-bold">
                     Semua Lokasi
                   </option>
                   {locations.map((loc) => (
                     <option
                       key={loc}
                       value={loc}
-                      className="text-lg p-2 font-bold"
+                      className="text-sm md:text-lg p-2 font-bold"
                     >
                       {loc}
                     </option>

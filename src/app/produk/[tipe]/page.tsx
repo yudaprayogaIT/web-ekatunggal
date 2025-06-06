@@ -64,17 +64,17 @@ export default function Page() {
           alt={tipe === "bahanbaku" ? "hero bahan baku" : "hero barang jadi"}
           width={1920}
           height={1080}
-          className="w-full h-[95vh] object-cover"
+          className="w-full md:h-[95vh] object-cover"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-7xl mx-auto mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-10 max-w-7xl mx-4 md:mx-auto mt-8">
           {category.map((item) => (
             <Link
               key={item.name}
               href={`/produk/${tipe}/${encodeURIComponent(item.name)}`}
-              className="group border border-gray-200 h-90 rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="group border border-gray-200 h-58 md:h-90 rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-shadow duration-300"
             >
-              <div className="relative w-full h-72">
+              <div className="relative w-full h-40 md:h-72">
                 <Image
                   src={`https://api-ekatalog.ekatunggal.com/public/files/${item.image}`}
                   alt={item.name}
@@ -82,7 +82,7 @@ export default function Page() {
                   className="h-70 group-hover:scale-102 transition-transform duration-300"
                 />
               </div>
-              <p className="text-3xl mt-2 font-[montserrat] font-bold">
+              <p className="text-xl md:text-3xl mt-2 font-[montserrat] font-bold">
                 {item.name}
               </p>
             </Link>

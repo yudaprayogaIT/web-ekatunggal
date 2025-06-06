@@ -2,7 +2,7 @@
 
 import BarangJadiComponent from "@/components/produk/BarangJadiComponent";
 import BahanBakuComponent from "@/components/produk/BahanBakuComponent";
-import CollapsibleSection from "@/components/CollapsibleSection";
+import CollapsibleSection from "@/components/produk/CollapsibleSection";
 import { useEffect, useState } from "react";
 
 import React from "react";
@@ -48,7 +48,7 @@ const ProductComponent = () => {
 
   return (
     <>
-      <main className="space-y-8 px-6 md:px-12 lg:px-10">
+      <main className="space-y-8 md:px-8 lg:px-8">
         {/* Collapsible “Barang Jadi” */}
         <CollapsibleSection
           title="Barang Jadi"

@@ -243,9 +243,11 @@ export default function Page() {
       <FloatingIconComponent />
 
       <section className="px-6 md:px-12 lg:px-24 py-12">
-        <h1 className="text-4xl font-bold mb-8">Kategori: {kategori}</h1>
+        <h1 className="text-2xl md:text-4xl font-bold mb-8">
+          Kategori: {kategori}
+        </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 md:gap-8">
           {displayedProduk.map((item: Produk, idx: number) => (
             <ProductCard data={item} key={idx} />
           ))}

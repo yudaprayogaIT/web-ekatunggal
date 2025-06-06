@@ -136,7 +136,7 @@ export default function JobList({
 
   return (
     <section className="w-[90%] md:w-[86%] mx-auto -mt-105 md:mt-0 relative">
-      <div className="bg-white rounded-4xl p-6 shadow-lg">
+      <div className="bg-white rounded-xl md:rounded-4xl p-6 shadow-lg">
         <h2 className="text-xl md:text-3xl font-bold mb-4 font-[montserrat]">
           Semua Karir
         </h2>
