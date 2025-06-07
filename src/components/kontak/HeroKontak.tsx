@@ -210,7 +210,7 @@ export default function HeroKontak() {
           </div>
 
           {/* Form Kontak */}
-          <div className="kontak flex-1 p-6 border border-y-0 border-gray-100">
+          <div className="kontak flex-1 p-6 border border-y-0 border-gray-100 overflow-hidden">
             <h1 className="text-2xl font-bold mb-2">Kontak Kami</h1>
             <p className="mb-6 text-gray-600 font-semibold">
               Tinggalkan Sebuah Pesan

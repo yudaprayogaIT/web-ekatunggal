@@ -87,10 +87,10 @@ export default function ProductCard({ data }: ProductCardProps) {
   }, [activeIndex]);
 
   return (
-    <div className="flex flex-col md:flex-row border border-gray-200 overflow-hidden hover:shadow-2xl rounded-3xl transition-shadow duration-300">
+    <div className="flex flex-col md:flex-row border md:border-0 border-gray-100 overflow-hidden hover:shadow-2xl rounded-3xl transition-shadow duration-300">
       <div className="flex flex-2 flex-col">
         {/* 1) Main Image dengan Framer Motion */}
-        <div className="relative w-full h-40 md:h-80 overflow-hidden">
+        <div className="relative w-full h-40 md:h-80 2xl:h-90 overflow-hidden">
           <AnimatePresence mode="wait">
             {files[activeIndex]?.file_url && (
               <motion.div
@@ -104,9 +104,10 @@ export default function ProductCard({ data }: ProductCardProps) {
                 <Image
                   src={`https://api-ekatalog.ekatunggal.com${files[activeIndex].file_url}`}
                   alt={`Product image ${activeIndex + 1}`}
-                  fill
+                  width={1920}
+                  height={1080}
                   // style={{ objectFit: "fill" }}
-                  className="rounded-3xl w-10 obejct-center"
+                  className="rounded-3xl w-full h-full object-center"
                 />
               </motion.div>
             )}
@@ -118,7 +119,7 @@ export default function ProductCard({ data }: ProductCardProps) {
           {files.length > 3 && (
             <button
               onClick={() => scrollThumbnails("left")}
-              className="absolute cursor-pointer left-0 top-1/2 z-10 transform -translate-y-1/2 bg-[#d9d9d98f] h-10 w-10 rounded-full hover:bg-[#d9d9d9] transition"
+              className="absolute hidden md:block cursor-pointer left-0 top-1/2 z-10 transform -translate-y-1/2 bg-[#d9d9d98f] h-10 w-10 rounded-full hover:bg-[#d9d9d9] transition"
               aria-label="Scroll kiri"
             >
               <Image
@@ -132,14 +133,14 @@ export default function ProductCard({ data }: ProductCardProps) {
 
           <div
             ref={thumbContainerRef}
-            className="flex justify-start gap-x-2 md:gap-x-4 max-w-140 md:space-x-8 overflow-x-hidden mb-2 snap-x snap-mandatory scrollbar-none px-4 pb-2"
+            className="flex justify-start mx-auto gap-x-2 md:gap-x-4 md:max-w-140 2xl:max-w-165 md:space-x-8 overflow-x-hidden mb-2 snap-x snap-mandatory scrollbar-none px-4 pb-2"
           >
             {files.map((url: IFile, idx: number) => (
               <button
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
                 className={`
-                  snap-center flex-shrink-0 w-20 h-10 md:w-35 md:h-20 rounded-md overflow-hidden border cursor-pointer
+                  snap-center flex-shrink-0 w-20 h-10 md:w-35 md:h-20 2xl:w-45 2xl:h-25 rounded-md overflow-hidden border cursor-pointer
                   ${
                     idx === activeIndex
                       ? "border-blue-600 ring-2 ring-blue-200"
@@ -151,8 +152,8 @@ export default function ProductCard({ data }: ProductCardProps) {
                 <Image
                   src={`https://api-ekatalog.ekatunggal.com${files[idx].file_url}`}
                   alt={`${data.nama} preview ${idx + 1}`}
-                  width={100}
-                  height={100}
+                  width={500}
+                  height={500}
                   className="w-full h-auto"
                 />
               </button>
@@ -162,7 +163,7 @@ export default function ProductCard({ data }: ProductCardProps) {
           {files.length > 3 && (
             <button
               onClick={() => scrollThumbnails("right")}
-              className="absolute cursor-pointer right-0 top-1/2 z-10 transform -translate-y-1/2 bg-[#d9d9d98f] h-10 w-10 rounded-full hover:bg-[#d9d9d9] transition"
+              className="absolute hidden md:block cursor-pointer right-0 top-1/2 z-10 transform -translate-y-1/2 bg-[#d9d9d98f] h-10 w-10 rounded-full hover:bg-[#d9d9d9] transition"
               aria-label="Scroll kanan"
             >
               <Image
@@ -179,12 +180,14 @@ export default function ProductCard({ data }: ProductCardProps) {
       {/* 3) Nama & Deskripsi */}
       <div className="p-4 flex flex-1 flex-col justify-between font-[montserrat] border md:border-0 border-gray-100 mt-4 md:mt-0">
         <div className="relative w-full h-40 my-auto md:px-4">
-          <h3 className="text-xl font-bold capitalize text-gray-800">
+          <h3 className="text-lg md:text-xl font-bold capitalize text-gray-800">
             {data.nama}
           </h3>
-          <h5 className="text-md font-medium text-gray-800">Detail</h5>
-          <div className="absolute md:left-4 top-13 h-[0.2] w-74 md:w-84 bg-gray-300" />
-          <p className="mt-1.5 text-gray-600 md:text-sm line-clamp-4">
+          <h5 className="text-xs md:text-base font-medium text-gray-800">
+            Detail
+          </h5>
+          <div className="absolute top-13 md:left-4 h-[0.5] md:h-[0.2] w-60 md:w-84 bg-gray-300" />
+          <p className="mt-3 md:mt-1.5 text-gray-600 text-xs md:text-sm line-clamp-4">
             {data.deskripsi}
           </p>
         </div>
