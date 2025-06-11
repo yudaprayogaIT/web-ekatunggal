@@ -20,7 +20,7 @@ const slides = [
   },
   {
     id: "item2",
-    image: "/img/hero2.png",
+    image: "/img/homeKirim.png",
     alt: "gedung_etm_2",
     title: "SOLUSI CEPAT UNTUK KEBUTUHAN INDUSTRI, ",
     hashtag: "#EKATUNGGAL",
@@ -31,7 +31,7 @@ const slides = [
   },
   {
     id: "item3",
-    image: "/img/hero3.png",
+    image: "/img/homeMedsos.png",
     alt: "gedung_etm_3",
     title: "LAYANAN TERBAIK DENGAN TEKNOLOGI TERKINI, ",
     hashtag: "#EKATUNGGAL",
@@ -116,46 +116,49 @@ export default function SliderComponent() {
               className="w-full h-full object-cover"
             />
 
-            <div className="content w-[90%] md:w-[50%] 2xl:w-[45%] text-[var(--colorWhite)] font-[montserrat] font-bold absolute top-[45%] left-[6%] z-20">
-              <h2 className="text-lg md:text-3xl 2xl:text-4xl leading-6 md:leading-9">
-                {slide.title}
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={animatedKey}
-                    className=""
-                    variants={containerVariant}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    {slide.hashtag.split("").map((char, i) => (
-                      <motion.span key={i} variants={letterVariant}>
-                        {char}
-                      </motion.span>
-                    ))}
-                  </motion.span>
-                </AnimatePresence>
-              </h2>
+            {/* Tampilkan content hanya di slide pertama (index 0) */}
+            {index === 0 && (
+              <div className="content w-[90%] md:w-[50%] 2xl:w-[45%] text-[var(--colorWhite)] font-[montserrat] font-bold absolute top-[45%] left-[6%] z-20">
+                <h2 className="text-lg md:text-3xl 2xl:text-4xl leading-6 md:leading-9">
+                  {slide.title}
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={animatedKey}
+                      className=""
+                      variants={containerVariant}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                    >
+                      {slide.hashtag.split("").map((char, i) => (
+                        <motion.span key={i} variants={letterVariant}>
+                          {char}
+                        </motion.span>
+                      ))}
+                    </motion.span>
+                  </AnimatePresence>
+                </h2>
 
-              <Link
-                href={slide.button.link}
-                className="wa mt-1 p-2 flex justify-center items-center bg-[var(--colorYellow)] w-30 md:w-35 h-10 md:h-11 rounded-2xl uppercase text-[0.7rem] md:text-sm text-black"
-              >
-                <div className="button-text p-1">
-                  {slide.button.label.split(" ")[0]}{" "}
-                  <span className="text-[var(--colorRed)]">
-                    {slide.button.label.split(" ")[1]}
-                  </span>
-                </div>
-                <Image
-                  src="/img/wa.png"
-                  width={35}
-                  height={34}
-                  alt="logo_wa"
-                  className="w-5 h-5"
-                />
-              </Link>
-            </div>
+                <Link
+                  href={slide.button.link}
+                  className="wa mt-1 p-2 flex justify-center items-center bg-[var(--colorYellow)] w-30 md:w-35 h-10 md:h-11 rounded-2xl uppercase text-[0.7rem] md:text-sm text-black"
+                >
+                  <div className="button-text p-1">
+                    {slide.button.label.split(" ")[0]}{" "}
+                    <span className="text-[var(--colorRed)]">
+                      {slide.button.label.split(" ")[1]}
+                    </span>
+                  </div>
+                  <Image
+                    src="/img/wa.png"
+                    width={35}
+                    height={34}
+                    alt="logo_wa"
+                    className="w-5 h-5"
+                  />
+                </Link>
+              </div>
+            )}
           </div>
         ))}
 
@@ -165,7 +168,7 @@ export default function SliderComponent() {
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`w-5 h-1 mx-1 rounded-sm transition-all duration-300 ${
+              className={`w-5 h-1 mx-1 cursor-pointer rounded-sm transition-all duration-300 ${
                 index === current
                   ? "bg-[var(--colorWhite)]"
                   : "bg-[var(--colorWhite)] opacity-50"
