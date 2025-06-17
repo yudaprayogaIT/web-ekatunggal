@@ -41,8 +41,8 @@ export const AboutComponent = () => {
     <section className="my-10 w-full overflow-hidden">
       <div className="relative container max-w-full mx-auto flex flex-col md:flex-row items-start gap-8 px-4 md:px-12">
         {/* Kiri: Teks */}
-        <div className="relative flex-1 -mt-14 md:mt-4 space-y-4 md:space-y-8">
-          <div className="absolute right-0 md:left-0 top-10 md:top-5 h-[32%] w-1 bg-[var(--colorYellow)]" />
+        <div className="relative flex-1 -mt-14 md:mt-4 2xl:mt-0 space-y-4 md:space-y-8">
+          <div className="absolute right-0 md:left-0 top-10 md:top-5 2xl:top-14 h-[32%] w-1 bg-[var(--colorYellow)]" />
 
           {/* Teks atas: masuk dari kiri */}
           <motion.div
@@ -89,7 +89,7 @@ export const AboutComponent = () => {
 
         {/* Kanan: Gambar */}
         <motion.div
-          className="relative flex-1 w-full -mt-10 md:mt-0 order-first md:order-last"
+          className="relative flex-1 w-full -mt-10 md:mt-0 2xl:mt-10 order-first md:order-last"
           initial={{ opacity: 0, scale: 1.05 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { gmailHref, instagramHref, instagramHref1, tiktokHref, whatsappHref } from "@/utils/contact";
 
 export const FooterComponent = () => {
   return (
@@ -22,17 +23,17 @@ export const FooterComponent = () => {
           <h4 className="text-start mx-5 mb-2 text-md 2xl:text-xl">
             Hubungi Kami
           </h4>
-          <Link href="#" className="flex my-2 items-center mx-4">
+          <Link href={whatsappHref} target="_blank" className="flex my-2 items-center mx-4">
             <Image
-              src="/icons/medsos/telepon.png"
+              src="/icons/medsos/whatsapp.png"
               width={20}
               height={20}
               alt="telepon"
               className="mr-1 h-4 md:h-5 w-auto"
             />
-            <p className="text-xs">0828111115355</p>
+            <p className="text-xs">08111115365</p>
           </Link>
-          <Link href="#" className="flex my-2 items-center mx-4 ">
+          <Link href={gmailHref} target="_blank" className="flex my-2 items-center mx-4 ">
             <Image
               src="/icons/medsos/email.png"
               width={20}
@@ -47,7 +48,7 @@ export const FooterComponent = () => {
           <h4 className="text-start mx-5 mb-2 text-md 2xl:text-xl">
             Media Sosial
           </h4>
-          <Link href="#" className="flex my-2 items-center mx-4">
+          <Link href={instagramHref} target="_blank" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/medsos/ig.png"
               width={1600}
@@ -57,7 +58,7 @@ export const FooterComponent = () => {
             />
             <p className="text-xs">ekatunggaltunasmandiri</p>
           </Link>
-          <Link href="#" className="flex my-2 items-center mx-4">
+          <Link href={instagramHref1} target="_blank" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/medsos/ig.png"
               width={1600}
@@ -77,7 +78,7 @@ export const FooterComponent = () => {
             />
             <p className="text-xs">Ekatunggal Tunas Mandiri</p>
           </Link>
-          <Link href="#" className="flex my-2 items-center mx-4">
+          <Link href={tiktokHref} target="_blank" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/medsos/tiktok.png"
               width={1600}
@@ -95,9 +96,9 @@ export const FooterComponent = () => {
             Informasi Seputar Karir{" "}
             <span className="text-[var(--colorRed)]">Ekatunggal</span>
           </h2>
-          <button className="p-1 w-20 md:w-25 text-xs md:text-sm bg-[var(--colorYellow)] rounded-full">
+          <Link href="/karir" className="py-1 px-3 w-20 md:w-25 text-xs md:text-sm bg-[var(--colorYellow)] rounded-full">
             Learn More
-          </button>
+          </Link>
         </div>
       </div>
       <div className="text-center mt-16 md:mt-5 font-bold text-[8px] md:text-xs text-[var(--colorBlack)]">

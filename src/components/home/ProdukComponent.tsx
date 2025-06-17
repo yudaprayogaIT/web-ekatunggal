@@ -335,8 +335,8 @@ export const ProdukComponents = () => {
 
       {/* Kategori */}
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-y-8 justify-items-center">
-        <div className="absolute hidden md:block left-0 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
-        <div className="absolute hidden md:block right-0 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
+        <div className="absolute hidden md:block left-0 2xl:left-8 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
+        <div className="absolute hidden md:block right-0 2xl:right-8 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
 
         {kategoriOptions.map((kat) => {
           const produk =
@@ -365,14 +365,14 @@ export const ProdukComponents = () => {
                   className="mt-2 focus:outline-none cursor-pointer"
                 >
                   <Image
-                    src="/img/produk/search.png"
+                    src="/icons/search.png"
                     alt="search icon"
                     width={40}
                     height={40}
                     className="group-hover:hidden"
                   />
                   <Image
-                    src="/img/produk/search_hover.png"
+                    src="/icons/search_hover.png"
                     alt="search icon hover"
                     width={40}
                     height={40}

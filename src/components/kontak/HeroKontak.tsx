@@ -2,6 +2,7 @@
 // // Pada skema ini, form di‐submit ke API Route Next.js yang mengirim email menggunakan Nodemailer. Pesan akan dikirim “dari” alamat SMTP (misalnya no-reply@domainanda.com), tetapi ketika admin membalas, akan diarahkan ke alamat email pengunjung (field replyTo).
 "use client";
 
+import { instagramDmWebHref, tiktokHref, whatsappHref } from "@/utils/contact";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -164,7 +165,7 @@ export default function HeroKontak() {
               whileHover={{ scale: 1.15 }}
               className="cursor-pointer"
             >
-              <Link href="#" aria-label="WhatsApp">
+              <Link href={whatsappHref} aria-label="WhatsApp">
                 <Image
                   src="/icons/medsos/whatsapp.png"
                   width={40}
@@ -181,7 +182,7 @@ export default function HeroKontak() {
               whileHover={{ scale: 1.15 }}
               className="cursor-pointer"
             >
-              <Link href="#" aria-label="Instagram">
+              <Link href={instagramDmWebHref} target="_blank" aria-label="Instagram">
                 <Image
                   src="/icons/medsos/ig.png"
                   width={40}
@@ -198,7 +199,7 @@ export default function HeroKontak() {
               whileHover={{ scale: 1.15 }}
               className="cursor-pointer"
             >
-              <Link href="#" aria-label="TikTok">
+              <Link href={tiktokHref} target="_blank" aria-label="TikTok">
                 <Image
                   src="/icons/medsos/tiktok.png"
                   width={40}

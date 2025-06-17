@@ -29,7 +29,7 @@ export default function BranchByIsland() {
           <button
             key={island}
             onClick={() => setSelectedIsland(island)}
-            className={`py-2 px-2 md:px-4 text-xs md:text-base font-semibold capitalize ${
+            className={`py-2 px-2 md:px-4 text-xs md:text-base font-semibold capitalize cursor-pointer ${
               selectedIsland === island
                 ? "border-b-2 border-[var(--colorRed)] text-black"
                 : "text-gray-500 hover:text-black"

@@ -5,22 +5,23 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import FloatingIconComponent from "../FloatingIconComponent";
+import { whatsappHref } from "@/utils/contact";
 
 const slides = [
   {
     id: "item1",
-    image: "/img/hero.png",
+    image: "/img/home/hero.png",
     alt: "gedung_etm",
     title: "APAPUN KEBUTUHANMU, SOLUSINYA, ",
     hashtag: "#EKATUNGGAL",
     button: {
       label: "TANYA VIKA",
-      link: "https://wa.me/085788837057",
+      link: whatsappHref,
     },
   },
   {
     id: "item2",
-    image: "/img/homeKirim.png",
+    image: "/img/home/homeKirim.png",
     alt: "gedung_etm_2",
     title: "SOLUSI CEPAT UNTUK KEBUTUHAN INDUSTRI, ",
     hashtag: "#EKATUNGGAL",
@@ -31,7 +32,7 @@ const slides = [
   },
   {
     id: "item3",
-    image: "/img/homeMedsos.png",
+    image: "/img/home/homeMedsos.png",
     alt: "gedung_etm_3",
     title: "LAYANAN TERBAIK DENGAN TEKNOLOGI TERKINI, ",
     hashtag: "#EKATUNGGAL",
@@ -140,7 +141,7 @@ export default function SliderComponent() {
                 </h2>
 
                 <Link
-                  href={slide.button.link}
+                  href={slide.button.link} target="_blank"
                   className="wa mt-1 p-2 flex justify-center items-center bg-[var(--colorYellow)] w-30 md:w-35 h-10 md:h-11 rounded-2xl uppercase text-[0.7rem] md:text-sm text-black"
                 >
                   <div className="button-text p-1">
