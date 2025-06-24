@@ -96,7 +96,7 @@ export const FooterComponent = () => {
             Informasi Seputar Karir{" "}
             <span className="text-[var(--colorRed)]">Ekatunggal</span>
           </h2>
-          <Link href="/karir" className="py-1 px-3 w-20 md:w-25 text-xs md:text-sm bg-[var(--colorYellow)] rounded-full">
+          <Link href="/karir" className="py-1 px-3 w-22 md:w-25 text-xs md:text-sm bg-[var(--colorYellow)] rounded-full">
             Learn More
           </Link>
         </div>

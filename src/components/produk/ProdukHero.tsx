@@ -8,7 +8,7 @@ export default async function ProdukHero() {
         alt="Hero product"
         width={1920}
         height={1080}
-        className="md:w-[95%] h-auto mx-auto rounded-xl md:rounded-4xl shadow-lg"
+        className="max-w-360 h-auto mx-auto rounded-xl md:rounded-4xl shadow-lg"
       />
     </main>
   );
