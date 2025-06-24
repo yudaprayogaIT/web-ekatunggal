@@ -617,7 +617,7 @@ const slides: Slide[] = [
     variant: 4,
     extraImages: [
       {
-        src: "/img/home/furniture.png",
+        src: "/img/home/furnitureText.png",
         alt: "outline furniture",
         width: 440,
         height: 100,
