@@ -6,7 +6,7 @@ export const BannerComponent = () => {
     <section className="my-5 md:my-10 h-15 md:h-48 w-full bg-[linear-gradient(90deg,_#ffffff_0%,_#f7eded_6%,_#dc8b8d_16%,_#bc1f24_20%,_#bc1f24_100%)] md:bg-[linear-gradient(90deg,_#ffffff_0%,_#f7eded_10%,_#dc8b8d_15%,_#bc1f24_25%,_#bc1f24_100%)] flex">
       <div>
         <Image
-          src="/img/character.png"
+          src="/img/home/character.png"
           width={340}
           height={410}
           className="h-20 md:h-60 w-auto pl-5 -mt-5 md:pl-53 md:-mt-12 pb-[0.8px]"
