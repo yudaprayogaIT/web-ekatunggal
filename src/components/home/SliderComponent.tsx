@@ -522,11 +522,11 @@ const slides: Slide[] = [
     },
     style1: {
       container:
-        "absolute top-[45%] left-[6%] md:w-[45%] text-white font-bold text-xs md:text-3xl font-[montserrat]",
+        "absolute top-[45%] left-[6%] w-80 md:w-[45%] text-white font-bold text-xs md:text-3xl font-[montserrat]",
       title: "",
       hashtag: "block inline-flex",
       button:
-        "mt-2 inline-block bg-[var(--colorYellow)] p-1.5 md:p-2 rounded-lg md:rounded-xl text-[9px] md:text-base w-23 md:w-38 mx-auto",
+        "mt-1 md:mt-2 inline-block bg-[var(--colorYellow)] p-1.5 md:p-2 rounded-lg md:rounded-xl text-[9px] md:text-base w-23 md:w-38 mx-auto",
     },
   },
   // Slide 2

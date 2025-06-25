@@ -96,10 +96,10 @@ export const AboutComponent = () => {
           viewport={{ once: false }} // agar bisa di-trigger ulang
         >
           <Image
-            src="/img/about.png"
+            src="/img/home/about.png"
             width={1920}
             height={800}
-            alt="lobby"
+            alt="about"
             className="h-auto w-full max-h-[70vh] object-cover"
           />
         </motion.div>
