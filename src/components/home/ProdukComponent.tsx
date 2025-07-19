@@ -3,22 +3,35 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
-const produkBahanBaku = [
-  { src: "/img/produk/BahanBaku/bahanbaku.png", alt: "BahanBaku" },
-  { src: "/img/produk/BahanBaku/produk.png", alt: "BahanBaku 1" },
-  { src: "/img/produk/BahanBaku/produk1.png", alt: "BahanBaku 2" },
-  { src: "/img/produk/BahanBaku/produk2.png", alt: "BahanBaku 3" },
+const materialUnggulan = [
+  { src: "/img/produk/MaterialUnggulan/aMaterialUnggulan.png", alt: "MaterialUnggulan" },
+  { src: "/img/produk/MaterialUnggulan/Material 1.png", alt: "MaterialUnggulan 1" },
+  { src: "/img/produk/MaterialUnggulan/Material 2.png", alt: "MaterialUnggulan 2" },
+  { src: "/img/produk/MaterialUnggulan/Material 3.png", alt: "MaterialUnggulan 3" },
+  { src: "/img/produk/MaterialUnggulan/Material 4.png", alt: "MaterialUnggulan 4" },
+  { src: "/img/produk/MaterialUnggulan/Material 5.png", alt: "MaterialUnggulan 5" },
+  { src: "/img/produk/MaterialUnggulan/Material 6.png", alt: "MaterialUnggulan 6" },
+  { src: "/img/produk/MaterialUnggulan/Material 7.png", alt: "MaterialUnggulan 7" },
+  { src: "/img/produk/MaterialUnggulan/Material 8.png", alt: "MaterialUnggulan 8" },
+  { src: "/img/produk/MaterialUnggulan/Material 9.png", alt: "MaterialUnggulan 9" },
+  { src: "/img/produk/MaterialUnggulan/Material 10.png", alt: "MaterialUnggulan 10" },
+  { src: "/img/produk/MaterialUnggulan/Material 11.png", alt: "MaterialUnggulan 11" },
+  { src: "/img/produk/MaterialUnggulan/Material 12.png", alt: "MaterialUnggulan 12" },
+  { src: "/img/produk/MaterialUnggulan/Material 13.png", alt: "MaterialUnggulan 13" },
 ];
 
-const produkBarangJadi = [
-  { src: "/img/produk/BarangJadi/barangjadi.png", alt: "BarangJadi" },
-  { src: "/img/produk/BarangJadi/produk3.png", alt: "BarangJadi 1" },
-  { src: "/img/produk/BarangJadi/produk4.png", alt: "BarangJadi 2" },
-  { src: "/img/produk/BarangJadi/produk5.png", alt: "BarangJadi 3" },
+const furnitureUnggulan = [
+  { src: "/img/produk/FurnitureUnggulan/aFurnitureUnggulan.png", alt: "FurnitureUnggulan" },
+  { src: "/img/produk/FurnitureUnggulan/Furniture 1.png", alt: "FurnitureUnggulan 1" },
+  { src: "/img/produk/FurnitureUnggulan/Furniture 2.png", alt: "FurnitureUnggulan 2" },
+  { src: "/img/produk/FurnitureUnggulan/Furniture 3.png", alt: "FurnitureUnggulan 3" },
+  { src: "/img/produk/FurnitureUnggulan/Furniture 4.png", alt: "FurnitureUnggulan 4" },
+  { src: "/img/produk/FurnitureUnggulan/Furniture 5.png", alt: "FurnitureUnggulan 5" },
+  { src: "/img/produk/FurnitureUnggulan/Furniture 6.png", alt: "FurnitureUnggulan 6" },
 ];
 
 // Buat array kategori dengan literal types
-const kategoriOptions = ["BahanBaku", "BarangJadi"] as const;
+const kategoriOptions = ["MaterialUnggulan", "FurnitureUnggulan"] as const;
 type Kategori = (typeof kategoriOptions)[number];
 
 export const ProdukComponents = () => {
@@ -29,10 +42,10 @@ export const ProdukComponents = () => {
   const [panahAktif, setPanahAktif] = useState<"kiri" | "kanan" | null>(null);
 
   const dataAktif =
-    kategoriAktif === "BahanBaku"
-      ? produkBahanBaku
-      : kategoriAktif === "BarangJadi"
-      ? produkBarangJadi
+    kategoriAktif === "MaterialUnggulan"
+      ? materialUnggulan
+      : kategoriAktif === "FurnitureUnggulan"
+      ? furnitureUnggulan
       : [];
 
   const bukaModal = (kategori: Kategori, index: number) => {
@@ -99,7 +112,7 @@ export const ProdukComponents = () => {
       {/* Judul */}
       <div className="relative text-center my-8 text-md md:text-2xl 2xl:text-3xl font-bold uppercase">
         <h2 className="font-[montserrat] text-[var(--colorBlack)]">
-          Produk Unggulan{" "}
+          Furniture Unggulan{" "}
           <span className="text-[var(--colorRed)]">Ekatunggal</span>
         </h2>
 
@@ -113,8 +126,8 @@ export const ProdukComponents = () => {
 
         {kategoriOptions.map((kat) => {
           const produk =
-            kat === "BahanBaku" ? produkBahanBaku : produkBarangJadi;
-          const label = kat === "BahanBaku" ? "Bahan Baku" : "Barang Jadi";
+            kat === "MaterialUnggulan" ? materialUnggulan : furnitureUnggulan;
+          const label = kat === "MaterialUnggulan" ? "Material Unggulan" : "Furniture Unggulan";
 
           return (
             <div key={kat} className="relative group">

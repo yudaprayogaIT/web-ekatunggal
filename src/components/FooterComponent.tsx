@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { gmailHref, instagramHref, instagramHref1, tiktokHref, whatsappHref } from "@/utils/contact";
+import { facebookHref, gmailHref, instagramHref, instagramHref1, tiktokHref, whatsappHref } from "@/utils/contact";
 
 export const FooterComponent = () => {
   return (
@@ -68,7 +68,7 @@ export const FooterComponent = () => {
             />
             <p className="text-xs">ekatunggalofficial</p>
           </Link>
-          <Link href="#" className="flex my-2 items-center mx-4">
+          <Link href={facebookHref} target="_blank" className="flex my-2 items-center mx-4">
             <Image
               src="/icons/medsos/fb.png"
               width={1600}
@@ -102,7 +102,7 @@ export const FooterComponent = () => {
         </div>
       </div>
       <div className="text-center mt-16 md:mt-5 font-bold text-[8px] md:text-xs text-[var(--colorBlack)]">
-        © ETM GROUP. All Rights Reserved PT. Ekatunggal Tunas Mandiri
+        © EKATUNGGAL GROUP. All Rights Reserved Ekatunggal Group
       </div>
     </section>
   );

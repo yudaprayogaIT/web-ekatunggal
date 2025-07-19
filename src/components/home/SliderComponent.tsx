@@ -476,7 +476,7 @@ interface Slide {
   id: string;
   image: string;
   alt: string;
-  variant: 1 | 2 | 3 | 4;
+  variant: 1 | 2 | 3 | 4 | 5;
   title?: string;
   hashtag?: string;
   button?: {
@@ -502,13 +502,14 @@ interface Slide {
   textLines?: { text: string; classes?: string }[];
   extraImages?: ExtraImage[];
   style3?: { container?: string; line?: string };
+  style5?: { container?: string; line?: string };
 }
 
 const slides: Slide[] = [
   // Slide 1
   {
     id: "slide1",
-    image: "/img/home/hero.png",
+    image: "/img/home/heroHome.png",
     alt: "gedung_etm",
     variant: 1,
     title: "APAPUN KEBUTUHANMU, SOLUSINYA, ",
@@ -522,7 +523,7 @@ const slides: Slide[] = [
     },
     style1: {
       container:
-        "absolute top-[45%] left-[6%] w-80 md:w-[45%] text-white font-bold text-xs md:text-3xl font-[montserrat]",
+        "absolute top-50 right-55 w-80 md:w-105 text-white font-bold text-xs md:text-3xl font-[montserrat]",
       title: "",
       hashtag: "block inline-flex",
       button:
@@ -559,7 +560,8 @@ const slides: Slide[] = [
       },
     ],
     style2: {
-      container: "absolute top-10 md:top-20 left-6 md:left-37 w-60 md:w-150 text-black ",
+      container:
+        "absolute top-10 md:top-20 left-6 md:left-37 w-60 md:w-150 text-black ",
       title:
         "text-xl md:text-7xl font-bold mb-4 md:mb-13 leading-none font-[montserrat] text-[var(--colorRed)] tracking-tight",
       list: "space-y-1 ml-6 md:space-y-3.5 md:ml-14",
@@ -588,8 +590,7 @@ const slides: Slide[] = [
         alt: "ikon paket",
         width: 200,
         height: 200,
-        classes:
-          "absolute top-6 md:top-5 md:left-124 w-20 md:w-65 h-auto",
+        classes: "absolute top-6 md:top-5 md:left-124 w-20 md:w-65 h-auto",
       },
     ],
     textLines: [
@@ -621,8 +622,7 @@ const slides: Slide[] = [
         alt: "outline furniture",
         width: 440,
         height: 100,
-        classes:
-          "md:mb-6 w-30 md:w-110 h-auto ms-auto object-contain",
+        classes: "md:mb-6 w-30 md:w-110 h-auto ms-auto object-contain",
       },
     ],
     textLines: [
@@ -645,6 +645,34 @@ const slides: Slide[] = [
     style3: {
       container:
         "absolute top-1/3 left-7/9 transform -translate-x-1/2 md:left-4/5 md:transform-none text-center",
+      line: "font-[montserrat]",
+    },
+  },
+  // Slide 5
+  {
+    id: "slide5",
+    image: "/img/home/heroMaterial.png",
+    alt: "material",
+    variant: 5,
+    extraImages: [
+      {
+        src: "/img/home/materialText.png",
+        alt: "outline material",
+        width: 1363,
+        height: 1000,
+        classes: "mb-2 md:w-250 ml-1 top-10 h-auto object-contain",
+      },
+    ],
+    textLines: [
+      {
+        text: "HANYA DI EKATUNGGAL",
+        classes:
+          "inline-block text-lg md:text-5xl text-[var(--colorRed)] font-extrabold ",
+      },
+    ],
+    style5: {
+      container:
+        "absolute top-35 left-16",
       line: "font-[montserrat]",
     },
   },
@@ -778,7 +806,8 @@ export default function SliderComponent() {
                     </ul>
                   </div>
                 )}
-                {(slide.variant === 3 || slide.variant === 4) && (
+                {(slide.variant === 3 ||
+                  slide.variant === 4) && (
                   <div className={slide.style3!.container}>
                     {slide.extraImages!.map((img, i) => (
                       <Image
@@ -793,13 +822,56 @@ export default function SliderComponent() {
                     {slide.textLines!.map((line, i) => (
                       <div
                         key={i}
-                        className={`${slide.style3!.line} ${line.classes || ""}`}
+                        className={`${slide.style3!.line} ${
+                          line.classes || ""
+                        }`}
                       >
                         {line.text}
                       </div>
                     ))}
                   </div>
                 )}
+                {/* slide 5 */}
+      {slide.variant === 5 && (
+  <div className={slide.style5!.container}>
+    {/* gambar outline seperti biasa */}
+    {slide.extraImages!.map((img, i) => (
+      <Image
+        key={i}
+        src={img.src}
+        alt={img.alt}
+        width={img.width}
+        height={img.height}
+        className={img.classes}
+      />
+    ))}
+
+    {/* teks statis + animasi huruf per huruf untuk “EKATUNGGAL” */}
+    <h2 className={`${slide.style5!.line} text-lg md:text-5xl font-extrabold text-[var(--colorRed)] inline-flex`}>
+      {/* bagian statis */}
+      <span>HANYA DI&nbsp;</span>
+
+      {/* animasi */}
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={animatedKey}             // biar restart tiap slide change
+          variants={containerVariant}   // staggerChildren
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="inline-flex"
+        >
+          {Array.from("EKATUNGGAL").map((char, i) => (
+            <motion.span key={i} variants={letterVariant}>
+              {char}
+            </motion.span>
+          ))}
+        </motion.span>
+      </AnimatePresence>
+    </h2>
+  </div>
+)}
+
               </motion.div>
             ) : null
           )}
@@ -812,11 +884,11 @@ export default function SliderComponent() {
           className="absolute hidden md:block left-0 top-1/2 transform -translate-y-1/2 opacity-25 hover:opacity-50 z-20"
         >
           <Image
-                          src="/img/produk/arrow-left.png"
-                          alt="Panah Kanan"
-                          width={60}
-                          height={60}
-                        />
+            src="/img/produk/arrow-left.png"
+            alt="Panah Kanan"
+            width={60}
+            height={60}
+          />
         </button>
         <button
           aria-label="Next"
@@ -824,11 +896,11 @@ export default function SliderComponent() {
           className="absolute hidden md:block right-0 top-1/2 transform -translate-y-1/2 opacity-25 hover:opacity-50 z-20"
         >
           <Image
-                          src="/img/produk/arrow-right.png"
-                          alt="Panah Kanan"
-                          width={60}
-                          height={60}
-                        />
+            src="/img/produk/arrow-right.png"
+            alt="Panah Kanan"
+            width={60}
+            height={60}
+          />
         </button>
 
         {/* Dots Navigation */}

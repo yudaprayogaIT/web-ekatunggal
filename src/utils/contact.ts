@@ -9,6 +9,8 @@ export const tiktokUsername = "ekatunggal_official";
 // Username Instagram (tanpa @)
 export const instagramUsername = "ekatunggaltunasmandiri";
 export const instagramUsername1 = "ekatunggalofficial";
+// Username Facebook (tanpa @)
+export const facebookUsername = "ekatunggal.mandiri";
 
 // Pesan default untuk semua platform
 export const defaultMessage = "Halo Ekatunggal, saya ingin melihat penawaran anda";
@@ -27,6 +29,10 @@ export const gmailHref =
 // HREF ke profil TikTok (akan membuka profil; pesan DM di TikTok butuh user manual)
 export const tiktokHref = 
   `https://www.tiktok.com/@${tiktokUsername}`;
+
+// HREF ke profil facebook
+export const facebookHref = 
+  `https://www.facebook.com/${facebookUsername}`;
 
 // HREF ke profil Instagram
 export const instagramHref = 

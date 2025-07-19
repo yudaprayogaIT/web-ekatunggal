@@ -31,7 +31,33 @@ import HeaderComponent from "@/components/HeaderComponent";
 import ProdukHero from "@/components/produk/ProdukHero";
 import ProductPage from "@/components/produk";
 import { FooterComponent } from "@/components/FooterComponent";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: 'Produk Kami',
+  description: 'Katalog Material Springbed & Sofa dan Furniture berkualitas tinggi—banyak pilihan untuk kebutuhan  Anda.',
+  alternates: { canonical: 'https://www.ekatunggal.com/produk' },
+  openGraph: {
+    title: 'Produk Kami | Ekatunggal Group',
+    description:
+      'Telusuri katalog Material Springbed & Sofa dan Furniture kualitas terbaik dengan distribusi cepat.',
+    url: 'https://www.ekatunggal.com/produk',
+    images: [
+      {
+        url: '/img/openGraph/og-produk.png',
+        width: 1200,
+        height: 630,
+        alt: 'Produk di Ekatunggal Group',
+      },
+    ],
+  },
+  twitter: {
+    title: 'Produk Kami | Ekatunggal Group',
+    description:
+      'Telusuri katalog Material Springbed & Sofa dan Furniture kualitas terbaik dengan distribusi cepat.',
+    images: ['/img/openGraph/og-produk.png'],
+  },
+}
 
 export default function ProdukPage() {
   return (

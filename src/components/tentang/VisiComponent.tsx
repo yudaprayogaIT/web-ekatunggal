@@ -17,13 +17,23 @@ Meningkatkan kesejahteraan karyawan dan kepuasan mitra bisnis.`,
 export default function VisiMisi() {
   const [activeTab, setActiveTab] = useState<Tab>("visi");
 
-  // Auto-switch setiap 5 detik
+  // // Auto-switch setiap 5 detik
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setActiveTab((prev) => (prev === "visi" ? "misi" : "visi"));
+  //   }, 10000);
+  //   return () => clearInterval(timer);
+  // }, []);
+
+// Auto-switch berdasarkan durasi tab saat ini
   useEffect(() => {
-    const timer = setInterval(() => {
+    const delay = activeTab === "visi" ? 7500 : 15000;
+    const timer = setTimeout(() => {
       setActiveTab((prev) => (prev === "visi" ? "misi" : "visi"));
-    }, 7500);
-    return () => clearInterval(timer);
-  }, []);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [activeTab]);
+
 
   // Variants untuk animasi konten
   const contentVariants = {

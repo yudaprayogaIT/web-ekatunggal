@@ -82,7 +82,7 @@ export default function Sidebar({
                   if (!next) setOpenCatId(null);
                   onSelectType(type.id);
                 }}
-                className="flex items-center space-x-2 font-bold cursor-pointer"
+                className="flex items-center text-lg space-x-2 font-bold cursor-pointer"
               >
                 <Image
                   src={
@@ -91,10 +91,10 @@ export default function Sidebar({
                       : "/icons/folderClosed.png"
                   }
                   alt="folder icon"
-                  width={20}
-                  height={20}
+                  width={23}
+                  height={23}
                 />
-                <span className="capitalize">{type.name.toLowerCase()}</span>
+                <span className="capitalize">{type.name.toLowerCase()=="bahan baku"?"Material":"Furniture"}</span>
               </button>
 
               <AnimatePresence initial={false}>
@@ -122,7 +122,7 @@ export default function Sidebar({
                               setOpenCatId(next);
                               onSelectCategory(cat);
                             }}
-                            className="flex items-center w-full space-x-2 font-semibold cursor-pointer"
+                            className="flex items-center w-full text-base space-x-2 font-semibold cursor-pointer"
                           >
                             <Image
                               src={
@@ -131,8 +131,8 @@ export default function Sidebar({
                                   : "/icons/folderClosed.png"
                               }
                               alt="folder icon"
-                              width={18}
-                              height={18}
+                              width={20}
+                              height={20}
                             />
                             <span className="capitalize">
                               {cat.name.toLowerCase()}
@@ -156,7 +156,7 @@ export default function Sidebar({
                                   >
                                     <button
                                       onClick={() => onSelectItem(p)}
-                                      className="flex items-center space-x-2 font-medium hover:text-blue-600 cursor-pointer"
+                                      className="flex items-center space-x-2 text-base font-medium hover:text-blue-600 cursor-pointer"
                                     >
                                       <span>●</span>
                                       <span className="capitalize">

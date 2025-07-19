@@ -883,15 +883,38 @@ export default function HeroKontak() {
           />
 
           {/* Buble putih dengan teks */}
-          <div className="absolute top-27 left-16 md:top-43 md:left-25 bg-transparent max-w-xs font-[montserrat] font-semibold text-[8px] md:text-xs leading-2 md:leading-4">
-            <p className="font-semibold mb-1">Hallo ...</p>
-            <TypewriterText
-              text="Ada yang bisa kami bantu?"
-              speed={80}
-              resetDelay={4000}
-              loop
-              className=""
-            />
+          <div className="absolute top-20 left-16 md:top-42 md:left-27">
+            {/* Bubble container */}
+            <div
+              className="relative bg-white border-2 border-black w-55 h-20 rounded-xl p-3 max-w-xs
+                  font-[montserrat] font-semibold text-[8px] md:text-xs leading-tight"
+            >
+              <p className="mt-2 mb-1">Hallo ...</p>
+              <TypewriterText
+                text="Ada yang bisa kami bantu?"
+                speed={80}
+                resetDelay={4000}
+                loop
+                className=""
+              />
+
+              {/* Tail / arrow */}
+              {/* Outer: border hitam */}
+              <div
+                className="absolute bottom-2.5 -right-5 w-0 h-0
+               border-t-10 border-t-transparent
+               border-r-10 border-r-transparent
+               border-l-10 border-l-black"
+              >
+                {/* Inner: fill putih, offset 1px */}
+                <div
+                  className="absolute bottom-0.5 -left-2.5 w-0 h-0
+                 border-t-7 border-t-transparent
+                 border-r-7 border-r-transparent
+                 border-l-7 border-l-white"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -7,8 +7,8 @@ export default interface Category {
 }
 
 export enum TypeProduct {
-  BB = "Bahan Baku",
-  BJ = "Barang Jadi",
+  MT = "Bahan Baku",
+  FN = "Barang Jadi",
   ALL = "",
 }
 

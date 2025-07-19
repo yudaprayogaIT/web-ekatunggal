@@ -18,13 +18,13 @@ export default function Page() {
   const [category, setCategory] = useState<Category[]>([]);
 
   // Cek apakah tipe valid
-  const isValidTipe = tipe === "bahanbaku" || tipe === "barangjadi";
+  const isValidTipe = tipe === "material" || tipe === "furniture";
 
   // Fungsi untuk fetch kategori berdasarkan tipe
   const getCategory = async (type: string) => {
     try {
       const data = await CategoryHook({
-        type: type === "bahanbaku" ? TypeProduct.BB : TypeProduct.BJ,
+        type: type === "material" ? TypeProduct.MT : TypeProduct.FN,
       });
       setCategory(data);
     } catch (error) {
@@ -44,8 +44,8 @@ export default function Page() {
       <div className="p-12 text-center">
         <h1 className="text-2xl font-semibold">404/Invalid Tipe</h1>
         <p className="mt-2 text-gray-600">
-          Tipe &ldquo;{tipe}&rdquo; tidak dikenali. Pilih “bahanbaku” atau
-          “barangjadi”.
+          Tipe &ldquo;{tipe}&rdquo; tidak dikenali. Pilih “material” atau
+          “furniture”.
         </p>
       </div>
     );
@@ -59,9 +59,9 @@ export default function Page() {
       <section className="mb-12">
         <Image
           src={`/img/${
-            tipe === "bahanbaku" ? "heroBahanBaku.png" : "heroBarangJadi.png"
+            tipe === "material" ? "heromaterial.png" : "herofurniture.png"
           }`}
-          alt={tipe === "bahanbaku" ? "hero bahan baku" : "hero barang jadi"}
+          alt={tipe === "material" ? "hero material" : "hero furniture"}
           width={1920}
           height={1080}
           className="w-full md:h-[95vh] object-cover"

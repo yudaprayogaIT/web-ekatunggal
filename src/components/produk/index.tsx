@@ -20,8 +20,8 @@ type ProductType = {
 export default function ProductPage() {
   // 1) State utama
   const [types, setTypes]     = useState<ProductType[]>([
-    { id: CatType.BJ, name: "Barang Jadi", categories: [] },
-    { id: CatType.BB, name: "Bahan Baku",  categories: [] },
+    { id: CatType.FN, name: "Barang Jadi", categories: [] },
+    { id: CatType.MT, name: "Bahan Baku",  categories: [] },
   ]);
   const [selType, setSelType] = useState<CatType | null>(null);
   const [selCat,  setSelCat]  = useState<Category | null>(null);

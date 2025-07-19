@@ -8,8 +8,8 @@ export default interface Produk {
 }
 
 export enum TypeProduct {
-  BB = "Bahan Baku",
-  BJ = "Barang Jadi",
+  MT = "Bahan Baku",
+  FN = "Barang Jadi",
   ALL = "",
 }
 export const ProductHook = async (
@@ -49,6 +49,7 @@ export const ProductHook = async (
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     const data = await res.json();
+    console.log(data)
     return data.data;
   } catch (error) {
     console.log(error);

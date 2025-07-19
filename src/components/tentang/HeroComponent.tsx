@@ -18,13 +18,9 @@ const HeroComponent = () => {
           <h1 className="font-bold text-md md:text-5xl md:mb-4">
             Tentang <span className="text-[var(--colorRed)]">EKATUNGGAL</span>
           </h1>
-          <p className="text-xs md:text-2xl font-medium text-justify md:leading-8">
-            Ekatunggal adalah perusahaan distribusi yang menyediakan bahan baku
-            berkualitas tinggi untuk industri springbed dan sofa, serta produk
-            jadi. <br />
-            Dengan pengalaman lebih dari 25 tahun, Ekatunggal dikenal sebagai
-            mitra terpercaya di bidangnya, didukung jaringan distribusi luas dan
-            layanan cepat di seluruh Indonesia.
+          <p className="text-xs md:text-2xl font-medium text-justify md:leading-9">
+            Ekatunggal adalah perusahaan distribusi yang menyediakan material berkualitas tinggi untuk industri springbed dan sofa, serta furniture. <br />
+            Dengan pengalaman lebih dari 25 tahun, Ekatunggal dikenal sebagai mitra terpercaya di bidangnya, didukung jaringan distribusi luas dan layanan cepat di seluruh Indonesia.
           </p>
         </motion.div>
 

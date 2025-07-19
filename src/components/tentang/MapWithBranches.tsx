@@ -608,7 +608,7 @@ const indonesiaBounds: LatLngBoundsExpression = [[-11.0, 95.0], [5, 141.0]];
 const desktopIcon = new L.Icon({
   iconUrl: "/icons/pin-3x.png",
   iconRetinaUrl: "/icons/pin-3x.png",
-  shadowUrl: "/leaflet/images/marker-shadow.png",
+  // shadowUrl: "/leaflet/images/marker-shadow.png",
   iconSize: [24, 28],
   iconAnchor: [12, 25],
   shadowSize: [40, 40],
@@ -617,7 +617,7 @@ const desktopIcon = new L.Icon({
 const mobileIcon = new L.Icon({
   iconUrl: "/icons/pin-2x.png",
   iconRetinaUrl: "/icons/pin.png",
-  shadowUrl: "/leaflet/images/marker-shadow.png",
+  // shadowUrl: "/leaflet/images/marker-shadow.png",
   iconSize: [80, 60],
   iconAnchor: [41, 40],
   shadowSize: [30, 30],

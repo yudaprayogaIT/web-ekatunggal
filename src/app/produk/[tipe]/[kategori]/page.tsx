@@ -20,8 +20,8 @@ export default function Page() {
   // State untuk toggle menampilkan semua (jika > 5) atau hanya 5
   const [showAll, setShowAll] = useState<boolean>(false);
 
-  // Validasi tipe hanya “bahanbaku” atau “barangjadi”
-  const isValidTipe = tipe === "bahanbaku" || tipe === "barangjadi";
+  // Validasi tipe hanya “material” atau “furniture”
+  const isValidTipe = tipe === "material" || tipe === "furniture";
 
   // Fungsi untuk fetch produk berdasarkan tipe & kategori,
   // lalu sort secara case‐insensitive pada properti `nama`.
@@ -29,7 +29,7 @@ export default function Page() {
     try {
       // 1) Ambil data dari API
       const fetchedProduk: Produk[] = await ProductHook({
-        type: type === "bahanbaku" ? TypeProduct.BB : TypeProduct.BJ,
+        type: type === "material" ? TypeProduct.MT : TypeProduct.FN,
         category,
       });
 
@@ -59,8 +59,8 @@ export default function Page() {
       <div className="p-12 text-center">
         <h1 className="text-2xl font-semibold">404/Invalid Tipe</h1>
         <p className="mt-2 text-gray-600">
-          Tipe &ldquo;{tipe}&rdquo; tidak dikenali. Pilih “bahanbaku” atau
-          “barangjadi”.
+          Tipe &ldquo;{tipe}&rdquo; tidak dikenali. Pilih “material” atau
+          “furniture”.
         </p>
       </div>
     );

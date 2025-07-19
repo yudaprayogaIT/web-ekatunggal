@@ -2,15 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import Category from "@/app/hooks/CategoryHook";
 
-interface BahanBakuComponentProps {
+interface MaterialComponentProps {
   kategoriUtama: Category[];
-  lihatSemuaHref: string; // e.g. "/produk/bahanbaku"
+  lihatSemuaHref: string; // e.g. "/produk/Material"
 }
 
-export default function BahanBakuComponent({
+export default function MaterialComponent({
   kategoriUtama,
   lihatSemuaHref,
-}: BahanBakuComponentProps) {
+}: MaterialComponentProps) {
   return (
     <section className="overflow-hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
       {kategoriUtama.map((kat) => (
