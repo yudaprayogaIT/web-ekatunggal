@@ -2,6 +2,7 @@
 export interface Job {
   id: number;
   title: string;
+  level: string;
   location: string;
   about: string;
   responsibilities: string[];
@@ -12,6 +13,7 @@ export const Jobs: Job[] = [
   {
     id: 1,
     title: "Staff Marketing",
+    level: "Intermediate",
     location: "Bogor",
     about:
       "Staff Marketing adalah posisi yang berperan penting dalam mendukung strategi pemasaran perusahaan, baik dari sisi perencanaan, pelaksanaan, hingga evaluasi kegiatan pemasaran. Staff Marketing bertugas untuk membantu menarik perhatian pasar, memperkuat citra merek, serta meningkatkan penjualan produk atau layanan melalui berbagai saluran pemasaran, baik online maupun offline.",
@@ -33,6 +35,7 @@ export const Jobs: Job[] = [
   {
     id: 2,
     title: "Kepala Gudang",
+    level: "Expert",
     location: "Semarang",
     about: "Memimpin operasional gudang secara efisien.",
     responsibilities: [
@@ -51,6 +54,7 @@ export const Jobs: Job[] = [
   {
     id: 3,
     title: "SPV Accounting",
+    level: "Expert",
     location: "Bogor",
     about: "Memimpin tim accounting dan menjaga keakuratan data.",
     responsibilities: [
@@ -67,6 +71,7 @@ export const Jobs: Job[] = [
   {
     id: 4,
     title: "Sales Support",
+    level: "Freshgraduate",
     location: "Palembang",
     about: "Mendukung tim sales agar target tercapai.",
     responsibilities: [
@@ -83,6 +88,7 @@ export const Jobs: Job[] = [
   {
     id: 5,
     title: "Staff Purchasing",
+    level: "Intermediate",
     location: "Medan",
     about: "Menangani pembelian barang dan vendor management.",
     responsibilities: [
@@ -99,6 +105,7 @@ export const Jobs: Job[] = [
   {
     id: 6,
     title: "Sales Support",
+    level: "Freshgraduate",
     location: "Kupang",
     about: "Mendukung tim sales agar target tercapai.",
     responsibilities: [
@@ -115,6 +122,7 @@ export const Jobs: Job[] = [
   {
     id: 7,
     title: "Staff Purchasing",
+    level: "Intermediate",
     location: "Manado",
     about: "Mengurus pembelian barang dan jasa perusahaan.",
     responsibilities: [
@@ -133,6 +141,7 @@ export const Jobs: Job[] = [
   {
     id: 8,
     title: "Kepala Gudang",
+    level: "Expert",
     location: "Makassar",
     about: "Memimpin operasional gudang secara efisien.",
     responsibilities: [
@@ -151,6 +160,7 @@ export const Jobs: Job[] = [
   {
     id: 9,
     title: "Kepala Cabang",
+    level: "Expert",
     location: "Pontianak",
     about: "Mengelola operasional dan tim cabang.",
     responsibilities: [
@@ -169,6 +179,7 @@ export const Jobs: Job[] = [
   {
     id: 10,
     title: "IT Support",
+    level: "Freshgraduate",
     location: "Bogor",
     about: "Menangani permasalahan komputer dan jaringan.",
     responsibilities: [
@@ -187,6 +198,7 @@ export const Jobs: Job[] = [
   {
     id: 11,
     title: "Staff Purchasing",
+    level: "Intermediate",
     location: "Klaten",
     about: "Mengurus pembelian barang dan jasa perusahaan.",
     responsibilities: [
@@ -205,6 +217,7 @@ export const Jobs: Job[] = [
   {
     id: 12,
     title: "Staff Audit",
+    level: "Intermediate",
     location: "Bogor",
     about: "Melakukan audit internal dan memastikan kepatuhan.",
     responsibilities: [

@@ -8,8 +8,8 @@ export default interface Produk {
 }
 
 export enum TypeProduct {
-  MT = "Bahan Baku",
-  FN = "Barang Jadi",
+  BB = "Bahan Baku",
+  BJ = "Barang Jadi",
   ALL = "",
 }
 export const ProductHook = async (

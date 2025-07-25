@@ -43,13 +43,13 @@ export const BudayaComponent = () => {
           Budaya kerja{" "}
           <span className="text-[var(--colorChilli)]">ekatunggal</span>
         </h2>
-        <h3 className="font-[montserrat] font-bold text-xs md:text-2xl text-[var(--colorWhite)] text-center uppercase w-90 md:w-260 py-2 md:py-2 mt-1 md:mt-2 bg-[var(--colorRed)] mx-auto rounded-lg md:rounded-2xl">
+        <h3 className="font-[montserrat] font-bold text-xs md:text-2xl text-[var(--colorWhite)] text-center uppercase w-90 sm:w-160 lg:w-260 py-2 mt-1 lg:mt-2 bg-[var(--colorRed)] mx-auto rounded-lg md:rounded-2xl">
           Bekerja dan melayani dengan{" "}
           <span className="text-[var(--colorYellow)]">sejuta hati</span>
         </h3>
       </div>
 
-      <div className="container mx-auto px-4 mt-4 flex flex-row justify-center items-center gap-8 md:gap-15 flex-wrap">
+      <div className="container mx-auto px-4 mt-4 flex flex-row justify-center items-center gap-8 sm:gap-10 2xl:gap-15 flex-wrap">
         {budaya.map(({ key, label, img, imgHover }) => (
           <div
             key={key}

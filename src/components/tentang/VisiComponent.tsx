@@ -43,7 +43,7 @@ export default function VisiMisi() {
   };
 
   return (
-    <section className="mt-4 h-55 md:h-61">
+    <section className="mt-4 sm:mt-8 h-55 md:h-61">
       {/* Tab Buttons */}
       <div className="bg-[#fdd3007c] w-35 h-10 md:w-50 md:h-15 mx-auto rounded-3xl font-[montserrat] text-[var(--colorBlack)] font-bold uppercase text-md md:text-2xl flex items-center justify-center ">
         {(["visi", "misi"] as Tab[]).map((tab) => {
@@ -75,7 +75,7 @@ export default function VisiMisi() {
       </div>
 
       {/* Content */}
-      <div className="mt-4 md:mt-4 w-[95%] md:max-w-3xl mx-auto text-center font-lato text-xs md:text-xl text-[var(--colorBlack)] leading-4 md:leading-6">
+      <div className="mt-4 md:mt-4 w-[95%] md:max-w-3xl mx-auto text-center font-lato text-xs sm:text-lg lg:text-xl text-[var(--colorBlack)] leading-4 md:leading-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}

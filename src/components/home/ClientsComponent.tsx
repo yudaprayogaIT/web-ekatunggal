@@ -15,6 +15,7 @@ const clients = [
   { src: "/img/home/clients/comforta.png", alt: "Comforta Logo" },
   { src: "/img/home/clients/djoeragan.png", alt: "Djoeragan Kasoer Logo" },
   { src: "/img/home/clients/dnd.png", alt: "DND Logo" },
+  { src: "/img/home/clients/dunlopillo.png", alt: "Dunlopillo Logo" },
   { src: "/img/home/clients/guhdo.png", alt: "Guhdo Logo" },
   { src: "/img/home/clients/harley.png", alt: "Harley Logo" },
   { src: "/img/home/clients/kangaroo.png", alt: "kangaroo Logo" },
@@ -27,6 +28,7 @@ const clients = [
   { src: "/img/home/clients/royalfoam.png", alt: "Royal Foam Logo" },
   { src: "/img/home/clients/uniland.png", alt: "Uniland Logo" },
   { src: "/img/home/clients/wisdom.png", alt: "Wisdom Logo" },
+  { src: "/img/home/clients/zinus.png", alt: "Zinus Logo" },
 ];
 
 // Duplikat agar seamless

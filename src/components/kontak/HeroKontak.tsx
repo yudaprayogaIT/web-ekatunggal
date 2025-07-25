@@ -691,9 +691,9 @@ export default function HeroKontak() {
 
   return (
     <main>
-      <div className="flex flex-col md:flex-row md:h-[92vh] font-[montserrat]">
+      <div className="flex flex-col lg:flex-row lg:h-[92vh] font-[montserrat]">
         {/* SIDEBAR SOSMED + FORM */}
-        <div className="flex flex-3 order-2 md:order-1">
+        <div className="flex flex-3 order-2 lg:order-1">
           <div className="logo flex flex-col justify-center items-center mx-2 md:mx-6 gap-8">
             {[
               {
@@ -873,23 +873,23 @@ export default function HeroKontak() {
         </div>
 
         {/* ILUSTRASI + TYPEWRITER BUBLE */}
-        <div className="gambar flex-2 order-1 md:order-2 relative">
+        <div className="gambar flex-2 order-1 lg:order-2 relative">
           <Image
             src={"/img/heroKontak.png"}
-            width={750}
-            height={750}
+            width={1000}
+            height={1000}
             alt="img-kontak"
-            className="h-full w-auto"
+            className="object-contain"
           />
 
           {/* Buble putih dengan teks */}
-          <div className="absolute top-20 left-16 md:top-42 md:left-27">
+          <div className="absolute top-28 left-20 sm:top-55 sm:left-35 lg:top-35 lg:left-12 2xl:top-50 2xl:left-30">
             {/* Bubble container */}
             <div
-              className="relative bg-white border-2 border-black w-55 h-20 rounded-xl p-3 max-w-xs
-                  font-[montserrat] font-semibold text-[8px] md:text-xs leading-tight"
+              className="relative bg-white border-2 border-black w-40 h-15 sm:w-80 sm:h-25 lg:w-58 lg:h-18 rounded-xl p-3
+                  font-[montserrat] font-semibold text-[10px] sm:text-xl lg:text-sm 2xl:text-base leading-tight"
             >
-              <p className="mt-2 mb-1">Hallo ...</p>
+              <p className="-mt-1 sm:mt-1.5 lg:mt-0 mb-1">Hallo ...</p>
               <TypewriterText
                 text="Ada yang bisa kami bantu?"
                 speed={80}

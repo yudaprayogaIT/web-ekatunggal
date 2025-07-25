@@ -6,7 +6,7 @@ import { facebookHref, gmailHref, instagramHref, instagramHref1, tiktokHref, wha
 export const FooterComponent = () => {
   return (
     <section className="footer mt-10">
-      <div className="relative text mx-auto container flex flex-col md:flex-row w-full font-bold md:-mb-10 gap-y-5 text-[var(--colorBlack)]">
+      <div className="relative text mx-auto container flex flex-col lg:flex-row w-full font-bold lg:-mb-10 gap-y-5 text-[var(--colorBlack)]">
         {/* Garis horizontal abu */}
         <div className="absolute md:left-0 -top-2 md:-top-5 h-[0.2] w-[90vw] md:w-full bg-gray-300" />
         <Image
@@ -17,7 +17,7 @@ export const FooterComponent = () => {
           className="mx-8 w-10 md:w-32 h-10 md:h-32"
         />
         {/* garis vertical abu */}
-        <div className="absolute hidden md:block md:left-115 md:top-6 h-28 w-[1px] ml-0 bg-[var(--colorGrey)] opacity-25" />
+        <div className="absolute hidden lg:block lg:left-115 lg:top-6 h-28 w-[1px] ml-0 bg-[var(--colorGrey)] opacity-25" />
 
         <div className="flex-1 w-full">
           <h4 className="text-start mx-5 mb-2 text-md 2xl:text-xl">
@@ -92,16 +92,16 @@ export const FooterComponent = () => {
         <div className="flex-2 relative h-50 flex justify-start flex-col mx-4 md:mx-0">
           {/* Garis horizontal kuning bawah md:atas */}
           <div className="absolute md:left-0 -top-2 md:-top-0 h-1 w-[90vw] md:w-[53%] ml-0 bg-[var(--colorYellow)]" />
-          <h2 className="font-[montserrat] text-md md:text-2xl my-1 md:my-2 ">
+          <h2 className="font-[montserrat] text-base md:text-2xl my-1 md:my-2 ">
             Informasi Seputar Karir{" "}
             <span className="text-[var(--colorRed)]">Ekatunggal</span>
           </h2>
-          <Link href="/karir" className="py-1 px-3 w-22 md:w-25 text-xs md:text-sm bg-[var(--colorYellow)] rounded-full">
-            Learn More
+          <Link href="/karir" className="py-1 px-3 w-34 sm:w-38 text-xs md:text-sm bg-[var(--colorYellow)] rounded-lg">
+           Pelajari Lebih Lanjut
           </Link>
         </div>
       </div>
-      <div className="text-center mt-16 md:mt-5 font-bold text-[8px] md:text-xs text-[var(--colorBlack)]">
+      <div className="text-center mt-16 lg:mt-5 font-bold text-[8px] md:text-xs text-[var(--colorBlack)]">
         © EKATUNGGAL GROUP. All Rights Reserved Ekatunggal Group
       </div>
     </section>

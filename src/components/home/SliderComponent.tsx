@@ -93,11 +93,11 @@
 //     },
 //     style1: {
 //       container:
-//         "absolute top-[45%] left-[6%] w-80 md:w-[45%] text-white font-bold text-xs md:text-3xl font-[montserrat]",
+//         "absolute top-[45%] left-[6%] w-80 lg:w-[45%] text-white font-bold text-xs lg:text-3xl font-[montserrat]",
 //       title: "",
 //       hashtag: "block inline-flex",
 //       button:
-//         "mt-2 inline-block bg-[var(--colorYellow)] p-1.5 md:p-2 rounded-lg md:rounded-xl text-[9px] md:text-base w-23 md:w-38 mx-auto",
+//         "mt-2 inline-block bg-[var(--colorYellow)] p-1.5 lg:p-2 rounded-lg lg:rounded-xl text-[9px] lg:text-base w-23 lg:w-38 mx-auto",
 //     },
 //   },
 //   {
@@ -129,12 +129,12 @@
 //       },
 //     ],
 //     style2: {
-//       container: "absolute top-10 md:top-20 left-6 md:left-37 w-60 md:w-150 text-black ",
+//       container: "absolute top-10 lg:top-20 left-6 lg:left-37 w-60 lg:w-150 text-black ",
 //       title:
-//         "text-xl md:text-7xl font-bold mb-4 md:mb-13 leading-none font-[montserrat] text-[var(--colorRed)] tracking-tight",
-//       list: "space-y-1 ml-6 md:space-y-3.5 md:ml-14",
-//       item: "flex items-center font-bold font-[lato] text-sm md:text-3xl tracking-tighter",
-//       icon: "mr-2 md:mr-4 w-4 md:w-11",
+//         "text-xl lg:text-7xl font-bold mb-4 lg:mb-13 leading-none font-[montserrat] text-[var(--colorRed)] tracking-tight",
+//       list: "space-y-1 ml-6 lg:space-y-3.5 lg:ml-14",
+//       item: "flex items-center font-bold font-[lato] text-sm lg:text-3xl tracking-tighter",
+//       icon: "mr-2 lg:mr-4 w-4 lg:w-11",
 //       link: "",
 //     },
 //   },
@@ -150,7 +150,7 @@
 //         width: 1920,
 //         height: 1920,
 //         classes:
-//           "mx-auto w-60 -ml-33 mt-20 md:w-140 md:-ml-20 md:mt-50 object-contain",
+//           "mx-auto w-60 -ml-33 mt-20 lg:w-140 lg:-ml-20 lg:mt-50 object-contain",
 //       },
 //       {
 //         src: "/img/home/homePaket.png",
@@ -158,24 +158,24 @@
 //         width: 200,
 //         height: 200,
 //         classes:
-//           "absolute top-6 md:top-5 md:left-124 w-20 md:w-65 h-auto",
+//           "absolute top-6 lg:top-5 lg:left-124 w-20 lg:w-65 h-auto",
 //       },
 //     ],
 //     textLines: [
 //       {
 //         text: "BISA KIRIM",
 //         classes:
-//           "absolute top-0 right-30 md:left-0 text-[var(--colorYellow)] -rotate-1 bg-[var(--colorRed)] font-black text-center w-30 md:w-96 py-1 md:py-4 ",
+//           "absolute top-0 right-30 lg:left-0 text-[var(--colorYellow)] -rotate-1 bg-[var(--colorRed)] font-black text-center w-30 lg:w-96 py-1 lg:py-4 ",
 //       },
 //       {
 //         text: "KEMANA SAJA",
 //         classes:
-//           "absolute top-6 right-25 md:top-19 md:-left-12 mt-2 text-[var(--colorRed)] rotate-1 bg-[var(--colorYellow)] font-semibold text-center w-38 md:w-120 py-1 md:py-4",
+//           "absolute top-6 right-25 lg:top-19 lg:-left-12 mt-2 text-[var(--colorRed)] rotate-1 bg-[var(--colorYellow)] font-semibold text-center w-38 lg:w-120 py-1 lg:py-4",
 //       },
 //     ],
 //     style3: {
 //       container: "absolute top-5 left-40 text-center",
-//       line: "text-lg md:text-6xl rounded-lg md:rounded-2xl font-[montserrat] tracking-tight",
+//       line: "text-lg lg:text-6xl rounded-lg lg:rounded-2xl font-[montserrat] tracking-tight",
 //     },
 //   },
 //   {
@@ -190,29 +190,29 @@
 //         width: 440,
 //         height: 100,
 //         classes:
-//           "md:mb-6 w-30 md:w-110 h-auto ms-auto object-contain",
+//           "lg:mb-6 w-30 lg:w-110 h-auto ms-auto object-contain",
 //       },
 //     ],
 //     textLines: [
 //       {
 //         text: "ESTETIK",
 //         classes:
-//           "inline-block text-end md:ml-35 text-lg md:text-6xl text-white font-light tracking-widest",
+//           "inline-block text-end lg:ml-35 text-lg lg:text-6xl text-white font-light tracking-widest",
 //       },
 //       {
 //         text: "ya",
 //         classes:
-//           "inline-block tracking-wide -rotate-90 text-lg md:text-6xl text-[var(--colorYellow)] -mr-8 md:mt-2",
+//           "inline-block tracking-wide -rotate-90 text-lg lg:text-6xl text-[var(--colorYellow)] -mr-8 lg:mt-2",
 //       },
 //       {
 //         text: "EKATUNGGAL",
 //         classes:
-//           "md:mt-4 bg-[var(--colorRed)] font-bold inline-block p-1 md:px-2 md:py-3 text-lg md:text-4xl md:text-6xl text-white uppercase tracking-widest",
+//           "lg:mt-4 bg-[var(--colorRed)] font-bold inline-block p-1 lg:px-2 lg:py-3 text-lg lg:text-4xl lg:text-6xl text-white uppercase tracking-widest",
 //       },
 //     ],
 //     style3: {
 //       container:
-//         "absolute top-1/3 left-7/9 transform -translate-x-1/2 md:left-4/5 md:transform-none text-center",
+//         "absolute top-1/3 left-7/9 transform -translate-x-1/2 lg:left-4/5 lg:transform-none text-center",
 //       line: "font-[montserrat]",
 //     },
 //   },
@@ -266,7 +266,7 @@
 
 //   return (
 //     <>
-//       <section className="relative h-55 md:w-full md:h-[82vh] overflow-hidden">
+//       <section className="relative h-55 lg:w-full lg:h-[82vh] overflow-hidden">
 //         <AnimatePresence mode="wait">
 //           {slides.map((slide, idx) =>
 //             idx === current ? (
@@ -325,7 +325,7 @@
 //                         width={24}
 //                         height={24}
 //                         alt="WA"
-//                         className="w-3 md:w-6 inline-block ml-2"
+//                         className="w-3 lg:w-6 inline-block ml-2"
 //                       />
 //                     </Link>
 //                   </div>
@@ -400,7 +400,7 @@
 //         <FloatingIconComponent />
 //       </section>
 
-//       <div className="w-full h-10 md:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-xs md:text-xl">
+//       <div className="w-full h-10 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-xs lg:text-xl">
 //         BEKERJA DAN MELAYANI DENGAN{" "}
 //         <span className="text-[var(--colorYellow)]">SEJUTA HATI</span>
 //       </div>
@@ -523,11 +523,11 @@ const slides: Slide[] = [
     },
     style1: {
       container:
-        "absolute top-50 right-55 w-80 md:w-105 text-white font-bold text-xs md:text-3xl font-[montserrat]",
+        "absolute inset-y-2/10 sm:inset-y-1/3 right-3 sm:right-0 md:right-10 pr-4 w-2/5 md:w-1/3 lg:w-1/2 xl:w-2/5 text-[10px] md:text-lg lg:text-xl xl:text-4xl text-white font-bold font-[montserrat]",
       title: "",
-      hashtag: "block inline-flex",
+      hashtag: "block",
       button:
-        "mt-1 md:mt-2 inline-block bg-[var(--colorYellow)] p-1.5 md:p-2 rounded-lg md:rounded-xl text-[9px] md:text-base w-23 md:w-38 mx-auto",
+        "mt-1 p-0.5 w-auto text-[8px] rounded-sm md:p-1.5 md:mt-2 md:w-38 md:rounded-xl md:text-base md:mt-2 lg:p-2  mx-auto inline-block bg-[var(--colorYellow)]",
     },
   },
   // Slide 2
@@ -561,12 +561,12 @@ const slides: Slide[] = [
     ],
     style2: {
       container:
-        "absolute top-10 md:top-20 left-6 md:left-37 w-60 md:w-150 text-black ",
+        "absolute w-40 top-10 left-10 sm:w-80 sm:left-10 lg:w-150 lg:top-20 lg:left-37 text-black",
       title:
-        "text-xl md:text-7xl font-bold mb-4 md:mb-13 leading-none font-[montserrat] text-[var(--colorRed)] tracking-tight",
-      list: "space-y-1 ml-6 md:space-y-3.5 md:ml-14",
-      item: "flex items-center font-bold font-[lato] text-sm md:text-3xl tracking-tighter",
-      icon: "mr-2 md:mr-4 w-4 md:w-11",
+        "text-md sm:text-4xl lg:text-7xl font-bold mb-4 lg:mb-13 leading-none font-[montserrat] text-[var(--colorRed)] tracking-tight",
+      list: "ml-1 sm:ml-4 sm:space-y-2 lg:space-y-3.5 lg:ml-14",
+      item: "flex items-center font-bold font-[lato] text-xs sm:text-xl lg:text-3xl tracking-tighter",
+      icon: "mr-1 sm:mr-4 lg:mr-4 w-3 sm:w-8 lg:w-11",
       link: "",
     },
   },
@@ -583,31 +583,31 @@ const slides: Slide[] = [
         width: 1920,
         height: 1920,
         classes:
-          "mx-auto w-60 -ml-33 mt-20 md:w-140 md:-ml-20 md:mt-50 object-contain",
+          "mx-auto w-60 -ml-30 mt-19 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
       },
       {
         src: "/img/home/homePaket.png",
         alt: "ikon paket",
         width: 200,
         height: 200,
-        classes: "absolute top-6 md:top-5 md:left-124 w-20 md:w-65 h-auto",
+        classes: "absolute w-18 top-4.5 left-4.5 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:left-94 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
       },
     ],
     textLines: [
       {
         text: "BISA KIRIM",
         classes:
-          "absolute top-0 right-30 md:left-0 text-[var(--colorYellow)] -rotate-1 bg-[var(--colorRed)] font-black text-center w-30 md:w-96 py-1 md:py-4 ",
+          "absolute w-20 py-1 top-3 right-35 sm:w-55 lg:w-96 lg:py-4 lg:left-0 text-[var(--colorYellow)] -rotate-1 bg-[var(--colorRed)] font-black text-center ",
       },
       {
         text: "KEMANA SAJA",
         classes:
-          "absolute top-6 right-25 md:top-19 md:-left-12 mt-2 text-[var(--colorRed)] rotate-1 bg-[var(--colorYellow)] font-semibold text-center w-38 md:w-120 py-1 md:py-4",
+          "absolute w-25 py-1 top-6 right-32 sm:w-62 sm:top-11 sm:right-32 lg:w-120 lg:py-4 lg:top-19 lg:-left-12 mt-2 text-[var(--colorRed)] rotate-1 bg-[var(--colorYellow)] font-semibold text-center",
       },
     ],
     style3: {
       container: "absolute top-5 left-40 text-center",
-      line: "text-lg md:text-6xl rounded-lg md:rounded-2xl font-[montserrat] tracking-tight",
+      line: "text-xs sm:text-3xl lg:text-6xl rounded-lg lg:rounded-2xl font-[montserrat] tracking-tight",
     },
   },
   // Slide 4
@@ -620,31 +620,31 @@ const slides: Slide[] = [
       {
         src: "/img/home/furnitureText.png",
         alt: "outline furniture",
-        width: 440,
-        height: 100,
-        classes: "md:mb-6 w-30 md:w-110 h-auto ms-auto object-contain",
+        width: 3600,
+        height: 3600,
+        classes: "w-80 sm:w-100 lg:w-110 lg:mb-6 h-auto ms-auto object-contain",
       },
     ],
     textLines: [
       {
         text: "ESTETIK",
         classes:
-          "inline-block text-end md:ml-35 text-lg md:text-6xl text-white font-light tracking-widest",
+          "inline-block text-end lg:ml-35 text-lg lg:text-6xl text-white font-light tracking-widest",
       },
       {
         text: "ya",
         classes:
-          "inline-block tracking-wide -rotate-90 text-lg md:text-6xl text-[var(--colorYellow)] -mr-8 md:mt-2",
+          "inline-block tracking-wide -rotate-90 text-lg lg:text-6xl text-[var(--colorYellow)] -mr-8 lg:mt-2",
       },
       {
         text: "EKATUNGGAL",
         classes:
-          "md:mt-4 bg-[var(--colorRed)] font-bold inline-block p-1 md:px-2 md:py-3 text-lg md:text-4xl md:text-6xl text-white uppercase tracking-widest",
+          "lg:mt-4 bg-[var(--colorRed)] font-bold inline-block p-1 lg:px-2 lg:py-3 text-lg lg:text-4xl lg:text-6xl text-white uppercase tracking-widest",
       },
     ],
     style3: {
       container:
-        "absolute top-1/3 left-7/9 transform -translate-x-1/2 md:left-4/5 md:transform-none text-center",
+        "absolute top-1/4 left-7/9 transform -translate-x-1/2 sm:top-1/3 sm:left-7/9 lg:left-7/9 lg:transform-none text-center",
       line: "font-[montserrat]",
     },
   },
@@ -660,19 +660,18 @@ const slides: Slide[] = [
         alt: "outline material",
         width: 1363,
         height: 1000,
-        classes: "mb-2 md:w-250 ml-1 top-10 h-auto object-contain",
+        classes: "sm:mb-2 ml-1 w-80 sm:w-120 top-10 lg:w-250 h-auto object-contain",
       },
     ],
     textLines: [
       {
         text: "HANYA DI EKATUNGGAL",
         classes:
-          "inline-block text-lg md:text-5xl text-[var(--colorRed)] font-extrabold ",
+          "",
       },
     ],
     style5: {
-      container:
-        "absolute top-35 left-16",
+      container: "absolute top-10 left-5 sm:left-10 sm:top-15 2xl:top-30 2xl:left-15 text-center",
       line: "font-[montserrat]",
     },
   },
@@ -711,7 +710,7 @@ export default function SliderComponent() {
 
   return (
     <>
-      <section className="relative h-55 md:w-full md:h-[82vh] overflow-hidden">
+      <section className="relative w-full h-74 md:h-100 xl:h-[82vh] overflow-hidden">
         <AnimatePresence mode="wait">
           {slides.map((slide, idx) =>
             idx === current ? (
@@ -736,7 +735,7 @@ export default function SliderComponent() {
                   initial={{ scale: 1.05 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.8 }}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full -mt-11 sm:mt-0 object-contain sm:object-cover"
                 />
 
                 {slide.variant === 1 && (
@@ -775,7 +774,7 @@ export default function SliderComponent() {
                         width={24}
                         height={24}
                         alt="WA"
-                        className="w-3 md:w-6 inline-block ml-2"
+                        className="w-2 md:w-6 inline-block ml-0.5 md:ml-2"
                       />
                     </Link>
                   </div>
@@ -806,8 +805,7 @@ export default function SliderComponent() {
                     </ul>
                   </div>
                 )}
-                {(slide.variant === 3 ||
-                  slide.variant === 4) && (
+                {(slide.variant === 3 || slide.variant === 4) && (
                   <div className={slide.style3!.container}>
                     {slide.extraImages!.map((img, i) => (
                       <Image
@@ -832,46 +830,49 @@ export default function SliderComponent() {
                   </div>
                 )}
                 {/* slide 5 */}
-      {slide.variant === 5 && (
-  <div className={slide.style5!.container}>
-    {/* gambar outline seperti biasa */}
-    {slide.extraImages!.map((img, i) => (
-      <Image
-        key={i}
-        src={img.src}
-        alt={img.alt}
-        width={img.width}
-        height={img.height}
-        className={img.classes}
-      />
-    ))}
+                {slide.variant === 5 && (
+                  <div className={slide.style5!.container}>
+                    {/* gambar outline seperti biasa */}
+                    {slide.extraImages!.map((img, i) => (
+                      <Image
+                        key={i}
+                        src={img.src}
+                        alt={img.alt}
+                        width={img.width}
+                        height={img.height}
+                        className={img.classes}
+                      />
+                    ))}
 
-    {/* teks statis + animasi huruf per huruf untuk “EKATUNGGAL” */}
-    <h2 className={`${slide.style5!.line} text-lg md:text-5xl font-extrabold text-[var(--colorRed)] inline-flex`}>
-      {/* bagian statis */}
-      <span>HANYA DI&nbsp;</span>
+                    {/* teks statis + animasi huruf per huruf untuk “EKATUNGGAL” */}
+                    <h2
+                      className={`${
+                        slide.style5!.line
+                      } -ml-26 text-base sm:-ml-40 sm:text-2xl lg:-ml-95 lg:text-5xl font-extrabold text-[var(--colorRed)] inline-flex`}
+                    >
+                      {/* bagian statis */}
+                      <span>HANYA DI&nbsp;</span>
 
-      {/* animasi */}
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={animatedKey}             // biar restart tiap slide change
-          variants={containerVariant}   // staggerChildren
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className="inline-flex"
-        >
-          {Array.from("EKATUNGGAL").map((char, i) => (
-            <motion.span key={i} variants={letterVariant}>
-              {char}
-            </motion.span>
-          ))}
-        </motion.span>
-      </AnimatePresence>
-    </h2>
-  </div>
-)}
-
+                      {/* animasi */}
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={animatedKey} // biar restart tiap slide change
+                          variants={containerVariant} // staggerChildren
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                          className="inline-flex"
+                        >
+                          {Array.from("EKATUNGGAL").map((char, i) => (
+                            <motion.span key={i} variants={letterVariant}>
+                              {char}
+                            </motion.span>
+                          ))}
+                        </motion.span>
+                      </AnimatePresence>
+                    </h2>
+                  </div>
+                )}
               </motion.div>
             ) : null
           )}
@@ -881,7 +882,7 @@ export default function SliderComponent() {
         <button
           aria-label="Previous"
           onClick={prev}
-          className="absolute hidden md:block left-0 top-1/2 transform -translate-y-1/2 opacity-25 hover:opacity-50 z-20"
+          className="absolute hidden lg:block left-0 top-1/2 transform -translate-y-1/2 opacity-25 hover:opacity-50 z-20"
         >
           <Image
             src="/img/produk/arrow-left.png"
@@ -893,7 +894,7 @@ export default function SliderComponent() {
         <button
           aria-label="Next"
           onClick={next}
-          className="absolute hidden md:block right-0 top-1/2 transform -translate-y-1/2 opacity-25 hover:opacity-50 z-20"
+          className="absolute hidden lg:block right-0 top-1/2 transform -translate-y-1/2 opacity-25 hover:opacity-50 z-20"
         >
           <Image
             src="/img/produk/arrow-right.png"
@@ -909,7 +910,7 @@ export default function SliderComponent() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`mx-1 w-6 h-1 rounded cursor-pointer ${
+              className={`mx-1 w-1 sm:w-6 h-1 -mt-23 sm:mt-0 rounded cursor-pointer ${
                 i === current ? "bg-white" : "bg-white/50"
               }`}
             />
@@ -919,7 +920,7 @@ export default function SliderComponent() {
         <FloatingIconComponent />
       </section>
 
-      <div className="w-full h-10 md:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-xs md:text-xl">
+      <div className="w-full h-10 -mt-26 sm:mt-0 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-sm lg:text-xl">
         BEKERJA DAN MELAYANI DENGAN{" "}
         <span className="text-[var(--colorYellow)]">SEJUTA HATI</span>
       </div>

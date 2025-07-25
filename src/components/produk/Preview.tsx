@@ -81,7 +81,7 @@ export default function Preview({ item }: PreviewProps) {
 
   if (!item) {
     return (
-      <div className="flex-1 border flex items-center justify-center text-gray-500 max-w-280 h-120 rounded-2xl font-[lato] text-xl">
+      <div className="flex-1 border flex items-center justify-center text-gray-500 max-w-280 h-120 rounded-2xl font-[lato] text-xs sm:text-xl">
         Pilih Produk Untuk Melihat Detail
       </div>
     );
@@ -91,16 +91,16 @@ export default function Preview({ item }: PreviewProps) {
     <AnimatePresence mode="wait">
       <motion.div
         key={item._id}
-        className="flex-1 flex flex-col gap-x-8 p-4 border max-w-280 h-150 rounded-2xl space-y-4"
+        className="flex-1 flex flex-col gap-x-8 p-2 lg:p-4 border border-gray-200 max-w-280 sm:h-240 lg:h-150 rounded-2xl space-y-4"
         initial="hidden"
         animate="visible"
         exit="exit"
         variants={containerVariants}
       >
         {/* Carousel & Info */}
-        <div className="flex flex-row h-full justify-between gap-x-10">
+        <div className="flex flex-col lg:flex-row h-full justify-between gap-x-10">
           {/* Gambar besar */}
-          <div className="relative w-110 h-110 overflow-hidden rounded-xl">
+          <div className="relative w-45 h-45 sm:w-90 sm:h-90 lg:w-100 lg:h-100 2xl:w-110 2xl:h-110 overflow-hidden rounded-xl">
             <AnimatePresence mode="wait">
               {files[activeIndex] && (
                 <motion.div
@@ -123,11 +123,11 @@ export default function Preview({ item }: PreviewProps) {
             </AnimatePresence>
           </div>
           {/* Detail teks */}
-          <div className="relative flex-1/2 my-8 font-[montserrat]">
-            <h2 className="text-2xl font-bold">{item.nama}</h2>
-            <h4 className="mt-1 font-medium">Detail Produk</h4>
-            <div className="absolute md:left-0 md:top-15 h-[1px] w-100 bg-gray-400 rounded" />
-            <p className="mt-3 text-gray-700 font-medium">{item.deskripsi}</p>
+          <div className="relative flex-1/2 my-8 w-45 sm:w-110 lg:w-100 font-[montserrat]">
+            <h2 className="text-xs sm:text-xl lg:text-2xl font-bold">{item.nama}</h2>
+            <h4 className="mt-1 text-xs sm:text-xl lg:text-2xl font-medium">Detail Produk</h4>
+            <div className="absolute md:left-0 top-10 sm:top-15 lg:top-18 h-[1px] w-30 sm:w-100 bg-gray-400 rounded" />
+            <p className="mt-3 text-[9px] sm:text-xl 2xl:text-2xl text-gray-700 font-medium">{item.deskripsi}</p>
           </div>
         </div>
 
@@ -156,13 +156,13 @@ export default function Preview({ item }: PreviewProps) {
           {/* Container thumbnails */}
           <div
             ref={thumbContainerRef}
-            className="flex justify-start mx-auto gap-x-2 md:gap-x-2 md:max-w-140 2xl:max-w-165 overflow-x-hidden snap-x snap-mandatory scrollbar-none px-4 pb-2"
+            className="flex justify-start mx-auto gap-x-2 md:gap-x-2 max-w-40 sm:max-w-70 lg:max-w-140 2xl:max-w-165 overflow-x-auto snap-x snap-mandatory scrollbar-none px-4 pb-2"
           >
             {files.map((f, idx) => (
               <button
                 key={f._id}
                 onClick={() => setActiveIndex(idx)}
-                className={`snap-center flex-shrink-0 w-10 h-10 md:w-20 md:h-20 2xl:w-25 2xl:h-25 rounded-md overflow-hidden border cursor-pointer ${
+                className={`snap-center flex-shrink-0 w-10 h-10 md:w-20 md:h-20 2xl:w-25 2xl:h-25 rounded-md overflow-hidden cursor-pointer ${
                   idx === activeIndex
                     ? "border-blue-600 ring-2 ring-blue-200"
                     : "border-gray-200"

@@ -120,9 +120,9 @@ export const ProdukComponents = () => {
       </div>
 
       {/* Kategori */}
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-y-8 justify-items-center">
-        <div className="absolute hidden md:block left-0 2xl:left-8 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
-        <div className="absolute hidden md:block right-0 2xl:right-8 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-y-8 justify-items-center">
+        <div className="absolute hidden lg:block left-0 2xl:left-8 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
+        <div className="absolute hidden lg:block right-0 2xl:right-8 top-1/2 -translate-y-1/2 h-[50%] w-1 bg-[var(--colorYellow)]" />
 
         {kategoriOptions.map((kat) => {
           const produk =
@@ -136,7 +136,7 @@ export const ProdukComponents = () => {
                 alt={label}
                 width={540}
                 height={540}
-                className="w-100 2xl:w-115"
+                className="w-100 md:w-115"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-transparent group-hover:bg-[#ffffffad] transition duration-300 ease-in-out">
                 <div className="text-black text-md md:text-lg font-bold group-hover:hidden">

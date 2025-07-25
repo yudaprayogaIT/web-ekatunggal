@@ -302,15 +302,15 @@ export default function JobDetail({ job, onClose }: JobDetailProps) {
   }, [toastMessage]);
 
   return (
-    <main className="container mx-auto py-6 px-10 relative">
+    <main className="container mx-auto lg:py-6 lg:px-10 relative">
       {/* Header */}
       <div className="relative mb-6">
-        <div className="relative h-60 md:h-90 w-full rounded-3xl overflow-hidden">
+        <div className="relative h-60 md:h-90 w-full rounded-none sm:rounded-3xl overflow-hidden">
           <Image
             src="/img/heroKarirGradient.png"
             alt="banner"
             fill
-            className="object-cover object-[60%_30%] h-90 rounded-3xl"
+            className="object-cover object-[60%_30%] h-90 sm:rounded-3xl"
             priority
           />
           <div className="absolute top-1/2 -translate-y-1/2 left-5 md:left-15 uppercase font-bold text-black z-20">
@@ -391,28 +391,30 @@ export default function JobDetail({ job, onClose }: JobDetailProps) {
         <div className="flex items-center mt-4 gap-2">
           <Link
             href="#"
-            className="font-bold font-[montserrat] text-xs md:text-sm uppercase text-black px-4 py-3 bg-[var(--colorYellow)] hover:bg-yellow-500 hover:shadow-md transition cursor-pointer rounded-2xl"
+            className="font-bold font-[montserrat] text-xs md:text-sm uppercase text-black px-3 py-2 lg:px-4 lg:py-2.5 2xl:py-3 bg-[var(--colorYellow)] hover:bg-yellow-500 hover:shadow-md transition cursor-pointer rounded-lg lg:rounded-xl 2xl:rounded-2xl"
           >
             Lamar Sekarang
           </Link>
 
           <button
             onClick={onClose}
-            className="py-2 md:py-2.5 px-4 md:px-5 bg-[var(--colorYellow)] hover:bg-yellow-500 transition cursor-pointer rounded-2xl"
+            className="py-2 lg:py-2.5 px-3 lg:px-5 bg-[var(--colorYellow)] hover:bg-yellow-500 transition cursor-pointer rounded-lg lg:rounded-xl 2xl:rounded-2xl"
           >
-            <Image src="/icons/back.png" alt="Back" width={24} height={24} />
+            <Image src="/icons/back.png" alt="Back" width={24} height={24}
+            className="w-4 lg:w-5 2xl:w-6" />
           </button>
 
           <button
             onClick={handleCopyLink}
             aria-label="Copy Link"
-            className="py-2 md:py-2.5 px-4 md:px-5 bg-[var(--colorYellow)] hover:bg-yellow-500 rounded-2xl cursor-pointer"
+            className="py-2 lg:py-2.5 px-3 lg:px-5 bg-[var(--colorYellow)] hover:bg-yellow-500 rounded-lg lg:rounded-xl 2xl:rounded-2xl cursor-pointer"
           >
             <Image
               src="/icons/share.png"
               alt="share"
               width={24}
               height={24}
+              className="w-4 lg:w-5 2xl:w-6"
               priority
             />
           </button>

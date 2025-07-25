@@ -20,8 +20,8 @@ type ProductType = {
 export default function ProductPage() {
   // 1) State utama
   const [types, setTypes]     = useState<ProductType[]>([
-    { id: CatType.FN, name: "Barang Jadi", categories: [] },
-    { id: CatType.MT, name: "Bahan Baku",  categories: [] },
+    { id: CatType.BJ, name: "Barang Jadi", categories: [] },
+    { id: CatType.BB, name: "Bahan Baku",  categories: [] },
   ]);
   const [selType, setSelType] = useState<CatType | null>(null);
   const [selCat,  setSelCat]  = useState<Category | null>(null);
@@ -54,7 +54,7 @@ export default function ProductPage() {
   }, [selType, selCat]);
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between w-[90vw] gap-0 sm:gap-6 lg:w-[90vw] mx-auto 2xl:w-full">
       <Sidebar
         data={types}
         products={prods}

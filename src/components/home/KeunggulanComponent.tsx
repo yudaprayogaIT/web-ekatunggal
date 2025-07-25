@@ -45,7 +45,7 @@ export const KeunggulanComponent = () => {
       <h2 className="uppercase font-[montserrat] text-[var(--colorBlack)] text-md md:text-2xl 2xl:text-3xl font-bold text-center">
         Keunggulan <span className="text-[var(--colorRed)]">Ekatunggal</span>
       </h2>
-      <div className="container mx-auto px-4 mt-4 flex flex-row flex-wrap justify-center items-center gap-8 md:gap-15">
+      <div className="container mx-auto px-4 mt-4 flex flex-row flex-wrap justify-center items-center gap-8 md:gap-10 2xl:gap-15">
         {items.map(({ key, label, desc, img, imgHover }) => (
           <div
             key={key}
@@ -69,7 +69,7 @@ export const KeunggulanComponent = () => {
               <h3 className="text-base uppercase font-[montserrat] text-[var(--colorBlack)] mb-1 md:mb-2 transition-colors duration-300 group-hover:text-[var(--colorRed)]">
                 {label}
               </h3>
-              <p className="text-[10px] md:text-xs font-bold text-[var(--colorGrey)] transition-colors duration-300 group-hover:text-[var(--colorBlack)]">
+              <p className="text-[10px] sm:text-xs font-bold text-[var(--colorGrey)] transition-colors duration-300 group-hover:text-[var(--colorBlack)]">
                 {desc}
               </p>
             </div>
