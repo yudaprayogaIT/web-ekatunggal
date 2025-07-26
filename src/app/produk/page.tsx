@@ -29,7 +29,7 @@
 import React from "react";
 import HeaderComponent from "@/components/HeaderComponent";
 import ProdukHero from "@/components/produk/ProdukHero";
-import ProductPage from "@/components/produk";
+import ProductPage from "@/components/produk/ProductPage";
 import { FooterComponent } from "@/components/FooterComponent";
 import { Metadata } from "next";
 

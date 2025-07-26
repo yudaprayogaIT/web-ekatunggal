@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: 'width=device-width, initial-scale=1',
+  viewport: 'width=device-width, initial-scale=1.0',
   icons: {
     icon: '/icons/favicon.ico',
     apple: '/icons/apple-touch-icon.png',

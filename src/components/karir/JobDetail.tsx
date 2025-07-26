@@ -232,6 +232,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Job } from "@/data/jobs";
 import Link from "next/link";
+// import { defaultMessage } from "@/utils/contact";
 
 interface JobDetailProps {
   job: Job;
@@ -252,6 +253,14 @@ function Toast({ message }: { message: string; onClose: () => void }) {
     </motion.div>
   );
 }
+
+// Gmail address untuk kontak
+export const gmailAddress = "hr@ekatunggal.com";
+// Helper untuk URL-encode
+// const encode = (str: string) => encodeURIComponent(str);
+// HREF untuk mailto Gmail (subject bisa disesuaikan; body pakai pesan default)
+// export const gmailHref = `mailto:${gmailAddress}?subject=${encode("Permintaan Penawaran")}&body=${encode(defaultMessage)}`;
+export const gmailHref = `mailto:${gmailAddress}`;
 
 export default function JobDetail({ job, onClose }: JobDetailProps) {
   // State untuk toast
@@ -390,7 +399,7 @@ export default function JobDetail({ job, onClose }: JobDetailProps) {
         {/* Tombol Aksi */}
         <div className="flex items-center mt-4 gap-2">
           <Link
-            href="#"
+            href={gmailHref}
             className="font-bold font-[montserrat] text-xs md:text-sm uppercase text-black px-3 py-2 lg:px-4 lg:py-2.5 2xl:py-3 bg-[var(--colorYellow)] hover:bg-yellow-500 hover:shadow-md transition cursor-pointer rounded-lg lg:rounded-xl 2xl:rounded-2xl"
           >
             Lamar Sekarang

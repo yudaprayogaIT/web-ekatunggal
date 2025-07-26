@@ -11,7 +11,8 @@ const islands = [
 type Island = (typeof islands)[number];
 
 export default function BranchByIsland() {
-  const [selectedIsland, setSelectedIsland] = useState<Island | null>(null);
+  // const [selectedIsland, setSelectedIsland] = useState<Island | null>(null);
+  const [selectedIsland, setSelectedIsland] = useState<Island>("sumatera");
 
   const filteredBranches = selectedIsland
     ? branches.filter((b) => b.pulau.toLowerCase() === selectedIsland)

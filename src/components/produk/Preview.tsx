@@ -100,7 +100,7 @@ export default function Preview({ item }: PreviewProps) {
         {/* Carousel & Info */}
         <div className="flex flex-col lg:flex-row h-full justify-between gap-x-10">
           {/* Gambar besar */}
-          <div className="relative w-45 h-45 sm:w-90 sm:h-90 lg:w-100 lg:h-100 2xl:w-110 2xl:h-110 overflow-hidden rounded-xl">
+          <div className="relative mx-auto w-45 h-52 sm:w-90 sm:h-90 lg:w-100 lg:h-100 2xl:w-110 2xl:h-110 overflow-hidden rounded-xl">
             <AnimatePresence mode="wait">
               {files[activeIndex] && (
                 <motion.div
@@ -116,7 +116,7 @@ export default function Preview({ item }: PreviewProps) {
                     alt={`Gambar ${activeIndex + 1}`}
                     fill
                     loading="lazy"
-                    className="object-cover rounded-xl"
+                    className="object-contain rounded-xl"
                   />
                 </motion.div>
               )}
@@ -156,7 +156,7 @@ export default function Preview({ item }: PreviewProps) {
           {/* Container thumbnails */}
           <div
             ref={thumbContainerRef}
-            className="flex justify-start mx-auto gap-x-2 md:gap-x-2 max-w-40 sm:max-w-70 lg:max-w-140 2xl:max-w-165 overflow-x-auto snap-x snap-mandatory scrollbar-none px-4 pb-2"
+            className="flex justify-start mx-auto gap-x-2 md:gap-x-2 max-w-40 sm:max-w-70 lg:max-w-140 2xl:max-w-165 overflow-x-hidden snap-x snap-mandatory scrollbar-none px-4 pb-2"
           >
             {files.map((f, idx) => (
               <button
@@ -175,7 +175,7 @@ export default function Preview({ item }: PreviewProps) {
                   width={500}
                   height={500}
                   loading="lazy"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </button>
             ))}
