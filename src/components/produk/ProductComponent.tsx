@@ -12,11 +12,11 @@ import Category, { CategoryHook } from "@/app/hooks/CategoryHook";
 import MaterialComponent from "./MaterialComponent";
 
 const ProductComponent = () => {
-  const [productMT, setProductMT] = useState<Category[]>([]);
-  const [productFN, setProductFN] = useState<Category[]>([]);
-  // const [isLoading, setLoading] = useState<{ MT: boolean; FN: boolean }>({
-  //   MT: true,
-  //   FN: true,
+  const [productBB, setProductBB] = useState<Category[]>([]);
+  const [productBJ, setProductBJ] = useState<Category[]>([]);
+  // const [isLoading, setLoading] = useState<{ BB: boolean; BJ: boolean }>({
+  //   BB: true,
+  //   BJ: true,
   // });
 
   // const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
@@ -24,25 +24,25 @@ const ProductComponent = () => {
 
   // 1) Fetch semua produk
   useEffect(() => {
-    getProductMT();
-    getProductFN();
+    getProductBB();
+    getProductBJ();
   }, []);
 
-  const getProductMT = async () => {
+  const getProductBB = async () => {
     try {
-      const getProd = await CategoryHook({ limit: 3, type: TypeProduct.MT });
-      setProductMT(getProd);
-      // setLoading((prev) => ({ ...prev, MT: false }));
+      const getProd = await CategoryHook({ limit: 3, type: TypeProduct.BB });
+      setProductBB(getProd);
+      // setLoading((prev) => ({ ...prev, BB: false }));
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getProductFN = async () => {
+  const getProductBJ = async () => {
     try {
-      const getProd = await CategoryHook({ limit: 3, type: TypeProduct.FN });
-      setProductFN(getProd);
-      // setLoading((prev) => ({ ...prev, FN: false }));
+      const getProd = await CategoryHook({ limit: 3, type: TypeProduct.BJ });
+      setProductBJ(getProd);
+      // setLoading((prev) => ({ ...prev, BJ: false }));
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +57,7 @@ const ProductComponent = () => {
           lihatSemuaHref="/produk/furniture"
         >
           <FurnitureComponent
-            kategoriUtama={productFN}
+            kategoriUtama={productBJ}
             lihatSemuaHref="/produk/furniture"
           />
         </CollapsibleSection>
@@ -67,7 +67,7 @@ const ProductComponent = () => {
           lihatSemuaHref="/produk/material"
         >
           <MaterialComponent
-            kategoriUtama={productMT}
+            kategoriUtama={productBB}
             lihatSemuaHref="/produk/material"
           />
         </CollapsibleSection>
