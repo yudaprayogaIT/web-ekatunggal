@@ -24,7 +24,7 @@ export default function Page() {
   const getCategory = async (type: string) => {
     try {
       const data = await CategoryHook({
-        type: type === "material" ? TypeProduct.MT : TypeProduct.FN,
+        type: type === "material" ? TypeProduct.BB : TypeProduct.BJ,
       });
       setCategory(data);
     } catch (error) {
