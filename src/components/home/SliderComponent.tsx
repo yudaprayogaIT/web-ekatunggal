@@ -139,7 +139,7 @@ const slides: Slide[] = [
         link: "https://instagram.com/ekatunggalofficial",
       },
       {
-        icon: "/icons/medsos/facebook.png",
+        icon: "/icons/medsos/fb.png",
         label: "Ekatunggal Tunas Mandiri",
         link: "https://facebook.com/ekatunggaltunasmandiri",
       },
@@ -173,14 +173,16 @@ const slides: Slide[] = [
         width: 1920,
         height: 1920,
         classes:
-          "mx-auto w-60 -ml-30 mt-19 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
+          "mx-auto w-58 -ml-35 mt-18 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
+          // "mx-auto w-58 -ml-35 mt-18 [@media(min-width:400px)]:-ml-30 [@media(min-width:400px)]:mt-19 [@media(min-width:400px)]:w-60 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
       },
       {
         src: "/img/home/homePaket.png",
         alt: "ikon paket",
         width: 200,
         height: 200,
-        classes: "absolute w-18 top-4.5 left-4.5 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 [@media(min-width:1440px)]:w-60 [@media(min-width:1440px)]:top-13 [@media(min-width:1440px)]:left-127 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
+        classes: "absolute w-16 top-6 -left-2 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
+        // classes: "absolute w-16 top-6 -left-2 [@media(min-width:400px)]:w-18 [@media(min-width:400px)]:top-4.5 [@media(min-width:400px)]:left-4.5 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 [@media(min-width:1440px)]:w-60 [@media(min-width:1440px)]:top-13 [@media(min-width:1440px)]:left-127 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
       },
     ],
     textLines: [
@@ -234,7 +236,8 @@ const slides: Slide[] = [
     ],
     style3: {
       container:
-        "absolute top-1/4 left-7/9 transform -translate-x-1/2 sm:top-1/3 sm:left-7/9 lg:left-7/9 lg:transform-none text-center",
+        // "absolute left-9/12 top-1/4 [@media(min-width:400px)]:left-7/9 transform -translate-x-1/2 sm:top-1/3 lg:transform-none text-center",
+        "absolute left-9/12 top-1/4 transform -translate-x-1/2 sm:top-1/3 lg:transform-none text-center",
       line: "font-[montserrat]",
     },
   },
@@ -272,13 +275,13 @@ export default function SliderComponent() {
   const [animatedKey, setAnimatedKey] = useState(0);
 
   // Auto-rotate setiap 15 detik
-  // useEffect(() => {
-  //   const t = setInterval(
-  //     () => setCurrent((prev) => (prev + 1) % slides.length),
-  //     15000
-  //   );
-  //   return () => clearInterval(t);
-  // }, []);
+  useEffect(() => {
+    const t = setInterval(
+      () => setCurrent((prev) => (prev + 1) % slides.length),
+      15000
+    );
+    return () => clearInterval(t);
+  }, []);
 
   // Reset typing animation
   useEffect(() => {
@@ -300,7 +303,8 @@ export default function SliderComponent() {
 
   return (
     <>
-      <section className="relative w-full -mt-3 sm:mt-0 h-74 md:h-100 xl:h-[82vh] overflow-hidden">
+      {/* <section className="relative w-full -mt-6 [@media(min-width:400px)]:-mt-3 sm:mt-0 h-74 md:h-100 xl:h-[82vh] overflow-hidden"> */}
+      <section className="relative w-full -mt-6 sm:mt-0 h-74 md:h-100 xl:h-[82vh] overflow-hidden">
         <AnimatePresence mode="wait">
           {slides.map((slide, idx) =>
             idx === current ? (
@@ -500,7 +504,8 @@ export default function SliderComponent() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`mx-1 w-1 sm:w-6 h-1 -mt-23 sm:mt-0 rounded cursor-pointer ${
+              // className={`mx-1 w-1 sm:w-6 h-1 -mt-26 [@media(min-width:400px)]:-mt-23 sm:mt-0 rounded cursor-pointer ${
+              className={`mx-1 w-1 sm:w-6 h-1 -mt-26 sm:mt-0 rounded cursor-pointer ${
                 i === current ? "bg-white" : "bg-white/50"
               }`}
             />
@@ -510,7 +515,8 @@ export default function SliderComponent() {
         <FloatingIconComponent />
       </section>
 
-      <div className="w-full h-10 -mt-26 sm:mt-0 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-sm lg:text-xl">
+      {/* <div className="w-full h-10 -mt-28 [@media(min-width:400px)]:-mt-19 sm:mt-0 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-xs [@media(min-width:400px)]:text-sm lg:text-xl"> */}
+      <div className="w-full h-10 -mt-28 sm:mt-0 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-xs lg:text-xl">
         BEKERJA DAN MELAYANI DENGAN{" "}
         <span className="text-[var(--colorYellow)]">SEJUTA HATI</span>
       </div>

@@ -1,23 +1,12 @@
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
-// 
-// };
-
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   images: {
-//     domains: ["api-ekatalog.ekatunggal.com"],
-//   },
-// };
-// module.exports = nextConfig;
-
-// next.config.js
+// next.config.ts
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // aktifkan output static export
+  // ini akan membuat Next.js menghasilkan file statis untuk setiap halaman
+  output: 'export',
+
   images: {
+    unoptimized: true,
     domains: ["api-ekatalog.ekatunggal.com"],
     // Jika perlu aturan lebih ketat:
     // remotePatterns: [

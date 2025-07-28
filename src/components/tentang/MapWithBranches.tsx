@@ -30,8 +30,8 @@ const mobileIcon = new L.Icon({
   iconUrl: "/icons/pin-2x.png",
   iconRetinaUrl: "/icons/pin.png",
   // shadowUrl: "/leaflet/images/marker-shadow.png",
-  iconSize: [20, 25],
-  iconAnchor: [10, 20],
+  iconSize: [15, 20],
+  iconAnchor: [11, 18],
   shadowSize: [30, 30],
   shadowAnchor: [9, 30],
 });

@@ -310,7 +310,7 @@ export async function POST(request: Request) {
 
     // 8b) Siapkan mailOptions dengan replyTo = emailStr
     const mailOptions = {
-      from: `"No-Reply Ekatunggal" <${process.env.EMAIL_USER}>`,
+      from: `"WEB Ekatunggal" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO, // email admin
       replyTo: emailStr,        // ketika admin klik “reply”, diarahkan ke email pengunjung
       subject: `Pesan Baru dari ${namaStr}`,
