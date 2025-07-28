@@ -173,28 +173,28 @@ const slides: Slide[] = [
         width: 1920,
         height: 1920,
         classes:
-          "mx-auto w-58 -ml-35 mt-18 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
-          // "mx-auto w-58 -ml-35 mt-18 [@media(min-width:400px)]:-ml-30 [@media(min-width:400px)]:mt-19 [@media(min-width:400px)]:w-60 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
+          // "mx-auto w-58 -ml-35 mt-18 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
+          "mx-auto max-[396px]:w-58 max-[396px]:-ml-35 max-[396px]:mt-18 -ml-30 mt-19 w-60 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
       },
       {
         src: "/img/home/homePaket.png",
         alt: "ikon paket",
         width: 200,
         height: 200,
-        classes: "absolute w-16 top-6 -left-2 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
-        // classes: "absolute w-16 top-6 -left-2 [@media(min-width:400px)]:w-18 [@media(min-width:400px)]:top-4.5 [@media(min-width:400px)]:left-4.5 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 [@media(min-width:1440px)]:w-60 [@media(min-width:1440px)]:top-13 [@media(min-width:1440px)]:left-127 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
+        // classes: "absolute w-16 top-6 -left-2 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
+        classes: "absolute max-[396px]:w-16 max-[396px]:top-6 max-[396px]:-left-1.5 w-18 top-4.5 left-4.5 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 [@media(min-width:1440px) and (max-width:1535px)]:w-60 [@media(min-width:1440px)]:top-13 [@media(min-width:1440px)]:left-127 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
       },
     ],
     textLines: [
       {
         text: "BISA KIRIM",
         classes:
-          "absolute w-20 py-1 top-3 right-35 sm:w-55 lg:w-96 lg:py-4 lg:left-0 xl:w-94 text-[var(--colorYellow)] -rotate-1 bg-[var(--colorRed)] font-black text-center ",
+          "absolute w-20 py-1 max-[396px]:top-5 top-3 right-35 sm:w-55 lg:w-96 lg:py-4 lg:left-0 xl:w-94 text-[var(--colorYellow)] -rotate-1 bg-[var(--colorRed)] font-black text-center ",
       },
       {
         text: "KEMANA SAJA",
         classes:
-          "absolute w-25 py-1 top-6 right-32 sm:w-62 sm:top-11 sm:right-32 lg:w-120 lg:py-4 lg:top-19 lg:-left-12 xl:w-115 xl:top-22 mt-2 text-[var(--colorRed)] rotate-1 bg-[var(--colorYellow)] font-semibold text-center",
+          "absolute w-25 py-1 max-[396px]:top-8 top-6 right-32 sm:w-62 sm:top-11 sm:right-32 lg:w-120 lg:py-4 lg:top-19 lg:-left-12 xl:w-115 xl:top-22 mt-2 text-[var(--colorRed)] rotate-1 bg-[var(--colorYellow)] font-semibold text-center",
       },
     ],
     style3: {
@@ -236,8 +236,7 @@ const slides: Slide[] = [
     ],
     style3: {
       container:
-        // "absolute left-9/12 top-1/4 [@media(min-width:400px)]:left-7/9 transform -translate-x-1/2 sm:top-1/3 lg:transform-none text-center",
-        "absolute left-9/12 top-1/4 transform -translate-x-1/2 sm:top-1/3 lg:transform-none text-center",
+        "absolute max-[396px]:left-9/12 top-1/4 left-7/9 transform -translate-x-1/2 sm:top-1/3 lg:transform-none text-center",
       line: "font-[montserrat]",
     },
   },
@@ -275,13 +274,13 @@ export default function SliderComponent() {
   const [animatedKey, setAnimatedKey] = useState(0);
 
   // Auto-rotate setiap 15 detik
-  useEffect(() => {
-    const t = setInterval(
-      () => setCurrent((prev) => (prev + 1) % slides.length),
-      15000
-    );
-    return () => clearInterval(t);
-  }, []);
+  // useEffect(() => {
+  //   const t = setInterval(
+  //     () => setCurrent((prev) => (prev + 1) % slides.length),
+  //     15000
+  //   );
+  //   return () => clearInterval(t);
+  // }, []);
 
   // Reset typing animation
   useEffect(() => {
@@ -303,8 +302,8 @@ export default function SliderComponent() {
 
   return (
     <>
-      {/* <section className="relative w-full -mt-6 [@media(min-width:400px)]:-mt-3 sm:mt-0 h-74 md:h-100 xl:h-[82vh] overflow-hidden"> */}
-      <section className="relative w-full -mt-6 sm:mt-0 h-74 md:h-100 xl:h-[82vh] overflow-hidden">
+      <section className="relative w-full max-[396px]:-mt-6 -mt-3 sm:mt-0 h-74 md:h-100 xl:h-[82vh] overflow-hidden">
+      {/* <section className="relative w-full -mt-6 sm:mt-0 h-74 md:h-100 xl:h-[82vh] overflow-hidden"> */}
         <AnimatePresence mode="wait">
           {slides.map((slide, idx) =>
             idx === current ? (
@@ -504,8 +503,8 @@ export default function SliderComponent() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              // className={`mx-1 w-1 sm:w-6 h-1 -mt-26 [@media(min-width:400px)]:-mt-23 sm:mt-0 rounded cursor-pointer ${
-              className={`mx-1 w-1 sm:w-6 h-1 -mt-26 sm:mt-0 rounded cursor-pointer ${
+              className={`mx-1 w-1 sm:w-6 h-1 max-[396px]:-mt-26 -mt-23 sm:mt-0 rounded cursor-pointer ${
+              // className={`mx-1 w-1 sm:w-6 h-1 -mt-26 sm:mt-0 rounded cursor-pointer ${
                 i === current ? "bg-white" : "bg-white/50"
               }`}
             />
@@ -515,8 +514,8 @@ export default function SliderComponent() {
         <FloatingIconComponent />
       </section>
 
-      {/* <div className="w-full h-10 -mt-28 [@media(min-width:400px)]:-mt-19 sm:mt-0 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-xs [@media(min-width:400px)]:text-sm lg:text-xl"> */}
-      <div className="w-full h-10 -mt-28 sm:mt-0 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-xs lg:text-xl">
+      <div className="w-full h-10 max-[396px]:-mt-28 -mt-25.5 sm:mt-0 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold max-[396px]:text-xs text-sm lg:text-xl">
+      {/* <div className="w-full h-10 -mt-28 sm:mt-0 lg:h-[10vh] flex items-center justify-center gap-1 font-[montserrat] bg-[var(--colorRed)] text-white font-bold text-xs lg:text-xl"> */}
         BEKERJA DAN MELAYANI DENGAN{" "}
         <span className="text-[var(--colorYellow)]">SEJUTA HATI</span>
       </div>
