@@ -43,19 +43,19 @@ export const BudayaComponent = () => {
           Budaya kerja{" "}
           <span className="text-[var(--colorChilli)]">ekatunggal</span>
         </h2>
-        <h3 className="font-[montserrat] font-bold text-xs md:text-2xl text-[var(--colorWhite)] text-center uppercase w-86 [@media(min-width:400px)]:w-90 sm:w-160 lg:w-260 py-2 mt-1 lg:mt-2 bg-[var(--colorRed)] mx-auto rounded-lg md:rounded-2xl">
+        <h3 className="font-[montserrat] font-bold text-xs md:text-2xl text-[var(--colorWhite)] text-center uppercase max-[396px]:w-86 w-90 sm:w-160 lg:w-260 py-2 mt-1 lg:mt-2 bg-[var(--colorRed)] mx-auto rounded-lg md:rounded-2xl">
           Bekerja dan melayani dengan{" "}
           <span className="text-[var(--colorYellow)]">sejuta hati</span>
         </h3>
       </div>
 
-      <div className="container mx-auto px-4 mt-4 flex flex-row justify-center items-center gap-5 [@media(min-width:400px)]:gap-8 sm:gap-10 2xl:gap-15 flex-wrap">
+      <div className="container mx-auto px-4 mt-4 flex flex-row justify-center items-center max-[396px]:gap-5 gap-8 sm:gap-10 2xl:gap-15 flex-wrap">
         {budaya.map(({ key, label, img, imgHover }) => (
           <div
             key={key}
-            className="group bg-[#FDD10026] hover:bg-[##FFFFFF26] shadow-lg hover:shadow-2xl py-2 md:py-5 w-38 h-40 [@media(min-width:400px)]:w-40 [@media(min-width:400px)]:h-42 md:w-50 md:h-52 overflow-hidden transition-shadow duration-300 ease-in-out rounded-2xl"
+            className="group bg-[#FDD10026] hover:bg-[##FFFFFF26] shadow-lg hover:shadow-2xl py-2 md:py-5 max-[396px]:w-38 max-[396px]:h-40 w-40 h-42 md:w-50 md:h-52 overflow-hidden transition-shadow duration-300 ease-in-out rounded-2xl"
           >
-            <div className="relative h-20 [@media(min-width:400px)]:h-22 md:h-28 mt-2 md:mt-0 w-auto">
+            <div className="relative max-[396px]:h-20 h-22 md:h-28 mt-2 md:mt-0 w-auto">
               <Image
                 src={img}
                 alt={`${key}`}

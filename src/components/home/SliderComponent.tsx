@@ -173,17 +173,15 @@ const slides: Slide[] = [
         width: 1920,
         height: 1920,
         classes:
-          // "mx-auto w-58 -ml-35 mt-18 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
           "mx-auto max-[396px]:w-58 max-[396px]:-ml-35 max-[396px]:mt-18 -ml-30 mt-19 w-60 sm:w-100 sm:-ml-30 sm:mt-30 lg:w-135 lg:-ml-20 lg:mt-50 object-contain",
       },
-      {
-        src: "/img/home/homePaket.png",
-        alt: "ikon paket",
-        width: 200,
-        height: 200,
-        // classes: "absolute w-16 top-6 -left-2 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
-        classes: "absolute max-[396px]:w-16 max-[396px]:top-6 max-[396px]:-left-1.5 w-18 top-4.5 left-4.5 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 [@media(min-width:1440px) and (max-width:1535px)]:w-60 [@media(min-width:1440px)]:top-13 [@media(min-width:1440px)]:left-127 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
-      },
+      // {
+      //   src: "/img/home/.png",
+      //   alt: "ikon paket",
+      //   width: 200,
+      //   height: 200,
+      //   classes: "absolute max-[396px]:w-16 max-[396px]:top-6 max-[396px]:-left-1.5 w-18 top-4.5 left-4.5 sm:w-38 sm:top-11 sm:left-45 lg:top-5 lg:left-124 lg:w-65 xl:w-60 xl:top-17 xl:left-96 [@media(min-width:1440px) and (max-width:1535px)]:w-60 [@media(min-width:1440px)]:top-13 [@media(min-width:1440px)]:left-127 2xl:w-75 2xl:top-17 2xl:left-138 h-auto",
+      // },
     ],
     textLines: [
       {
@@ -274,13 +272,13 @@ export default function SliderComponent() {
   const [animatedKey, setAnimatedKey] = useState(0);
 
   // Auto-rotate setiap 15 detik
-  // useEffect(() => {
-  //   const t = setInterval(
-  //     () => setCurrent((prev) => (prev + 1) % slides.length),
-  //     15000
-  //   );
-  //   return () => clearInterval(t);
-  // }, []);
+  useEffect(() => {
+    const t = setInterval(
+      () => setCurrent((prev) => (prev + 1) % slides.length),
+      15000
+    );
+    return () => clearInterval(t);
+  }, []);
 
   // Reset typing animation
   useEffect(() => {

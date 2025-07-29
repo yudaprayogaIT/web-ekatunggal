@@ -202,23 +202,23 @@ export const Jobs: Job[] = [
   },
   {
     id: 10,
-    title: "Sales Executive",
+    title: "Sales Support",
     level: "Lulusan Baru",
     location: "Kupang",
-    about: "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
+    about: "Sales Support adalah peran pendukung dalam tim penjualan yang bertugas untuk memastikan proses administratif, sistem, dan komunikasi berjalan lancar guna menunjang kinerja tim Sales. Posisi ini menjembatani kebutuhan pelanggan, tim penjualan, serta operasional agar sesuai dengan visi perusahaan untuk menjadi pilihan utama dalam trading material spring bed dan sofa secara nasional, serta misi pelayanan, mutu, dan ketepatan pengiriman.",
     responsibilities: [
-      "Melakukan penawaran dan promosi produk secara aktif kepada pelanggan baru dan lama.",
-      "Menangani proses negosiasi hingga penutupan penjualan sesuai target yang telah ditetapkan.",
-      "Membuat dan mengelola administrasi penjualan, seperti sales order, invoice, dan input ke sistem ERP.",
-      "Membangun dan memelihara hubungan baik dengan pelanggan, serta menindaklanjuti kebutuhan mereka.",
-      "Melaporkan hasil penjualan secara berkala dan memberikan masukan pasar kepada manajemen.",
+      "Memastikan data penjualan, dokumen, dan transaksi tercatat rapi di sistem (ERP dan manual).",
+      "Mengelola dokumen administratif penjualan seperti PO, invoice, dan delivery order.",
+      "Menerapkan SOP Sales Support dalam setiap proses order hingga pengiriman barang.",
+      "Membantu tim sales dalam penyediaan data produk dan stok, serta menjawab pertanyaan pelanggan internal.",
+      "Melakukan pengarsipan dan pelaporan secara berkala untuk keperluan audit dan evaluasi."
     ],
     qualifications: [
-      "Minimal pendidikan SMK/D3/S1, diutamakan dari Manajemen, Pemasaran, atau Bisnis.",
-      "Memiliki pengalaman minimal 1 tahun di bidang penjualan atau marketing.",
-      "Menguasai teknik komunikasi dan negosiasi yang efektif, serta memahami prinsip pelayanan pelanggan.",
-      "Memahami alur penjualan dan penginputan data melalui sistem ERP.",
-      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil."
+      "Pendidikan minimal SMK/D3/S1, diutamakan dari Administrasi Bisnis, Manajemen, atau Sistem Informasi.",
+      "Menguasai Microsoft Office (terutama Excel) dan terbiasa bekerja dengan sistem ERP.",
+      "Memahami produk dan alur distribusi perusahaan, serta SOP yang terkait dengan proses penjualan.",
+      "Teliti, rapi dalam pengarsipan, dan mampu bekerja cepat dalam lingkungan dinamis.",
+      "Memiliki keterampilan komunikasi dan koordinasi yang baik antar divisi (sales, gudang, delivery)."
     ],
   },
   // {

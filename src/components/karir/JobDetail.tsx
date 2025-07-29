@@ -256,10 +256,6 @@ function Toast({ message }: { message: string; onClose: () => void }) {
 
 // Gmail address untuk kontak
 export const gmailAddress = "hr@ekatunggal.com";
-// Helper untuk URL-encode
-// const encode = (str: string) => encodeURIComponent(str);
-// HREF untuk mailto Gmail (subject bisa disesuaikan; body pakai pesan default)
-// export const gmailHref = `mailto:${gmailAddress}?subject=${encode("Permintaan Penawaran")}&body=${encode(defaultMessage)}`;
 export const gmailHref = `mailto:${gmailAddress}`;
 
 export default function JobDetail({ job, onClose }: JobDetailProps) {
@@ -396,7 +392,7 @@ export default function JobDetail({ job, onClose }: JobDetailProps) {
           </motion.ul>
         </div>
 
-        {/* Tombol Aksi */}
+        Tombol Aksi
         <div className="flex items-center mt-4 gap-2">
           <Link
             href={gmailHref}
