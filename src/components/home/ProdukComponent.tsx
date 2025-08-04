@@ -1,45 +1,111 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
+// Data produk unggulan
 const materialUnggulan = [
-  { src: "/img/produk/MaterialUnggulan/aMaterialUnggulan.png", alt: "MaterialUnggulan" },
-  { src: "/img/produk/MaterialUnggulan/Material 1.png", alt: "MaterialUnggulan 1" },
-  { src: "/img/produk/MaterialUnggulan/Material 2.png", alt: "MaterialUnggulan 2" },
-  { src: "/img/produk/MaterialUnggulan/Material 3.png", alt: "MaterialUnggulan 3" },
-  { src: "/img/produk/MaterialUnggulan/Material 4.png", alt: "MaterialUnggulan 4" },
-  { src: "/img/produk/MaterialUnggulan/Material 5.png", alt: "MaterialUnggulan 5" },
-  { src: "/img/produk/MaterialUnggulan/Material 6.png", alt: "MaterialUnggulan 6" },
-  { src: "/img/produk/MaterialUnggulan/Material 7.png", alt: "MaterialUnggulan 7" },
-  { src: "/img/produk/MaterialUnggulan/Material 8.png", alt: "MaterialUnggulan 8" },
-  { src: "/img/produk/MaterialUnggulan/Material 9.png", alt: "MaterialUnggulan 9" },
-  { src: "/img/produk/MaterialUnggulan/Material 10.png", alt: "MaterialUnggulan 10" },
-  { src: "/img/produk/MaterialUnggulan/Material 11.png", alt: "MaterialUnggulan 11" },
-  { src: "/img/produk/MaterialUnggulan/Material 12.png", alt: "MaterialUnggulan 12" },
-  { src: "/img/produk/MaterialUnggulan/Material 13.png", alt: "MaterialUnggulan 13" },
+  {
+    src: "/img/produk/MaterialUnggulan/aMaterialUnggulan.png",
+    alt: "MaterialUnggulan",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 1.png",
+    alt: "MaterialUnggulan 1",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 2.png",
+    alt: "MaterialUnggulan 2",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 3.png",
+    alt: "MaterialUnggulan 3",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 4.png",
+    alt: "MaterialUnggulan 4",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 5.png",
+    alt: "MaterialUnggulan 5",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 6.png",
+    alt: "MaterialUnggulan 6",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 7.png",
+    alt: "MaterialUnggulan 7",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 8.png",
+    alt: "MaterialUnggulan 8",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 9.png",
+    alt: "MaterialUnggulan 9",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 10.png",
+    alt: "MaterialUnggulan 10",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 11.png",
+    alt: "MaterialUnggulan 11",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 12.png",
+    alt: "MaterialUnggulan 12",
+  },
+  {
+    src: "/img/produk/MaterialUnggulan/Material 13.png",
+    alt: "MaterialUnggulan 13",
+  },
 ];
 
 const furnitureUnggulan = [
-  { src: "/img/produk/FurnitureUnggulan/aFurnitureUnggulan.png", alt: "FurnitureUnggulan" },
-  { src: "/img/produk/FurnitureUnggulan/Furniture 1.png", alt: "FurnitureUnggulan 1" },
-  { src: "/img/produk/FurnitureUnggulan/Furniture 2.png", alt: "FurnitureUnggulan 2" },
-  { src: "/img/produk/FurnitureUnggulan/Furniture 3.png", alt: "FurnitureUnggulan 3" },
-  { src: "/img/produk/FurnitureUnggulan/Furniture 4.png", alt: "FurnitureUnggulan 4" },
-  { src: "/img/produk/FurnitureUnggulan/Furniture 5.png", alt: "FurnitureUnggulan 5" },
-  { src: "/img/produk/FurnitureUnggulan/Furniture 6.png", alt: "FurnitureUnggulan 6" },
+  {
+    src: "/img/produk/FurnitureUnggulan/aFurnitureUnggulan.png",
+    alt: "FurnitureUnggulan",
+  },
+  {
+    src: "/img/produk/FurnitureUnggulan/Furniture 1.png",
+    alt: "FurnitureUnggulan 1",
+  },
+  {
+    src: "/img/produk/FurnitureUnggulan/Furniture 2.png",
+    alt: "FurnitureUnggulan 2",
+  },
+  {
+    src: "/img/produk/FurnitureUnggulan/Furniture 3.png",
+    alt: "FurnitureUnggulan 3",
+  },
+  {
+    src: "/img/produk/FurnitureUnggulan/Furniture 4.png",
+    alt: "FurnitureUnggulan 4",
+  },
+  {
+    src: "/img/produk/FurnitureUnggulan/Furniture 5.png",
+    alt: "FurnitureUnggulan 5",
+  },
+  {
+    src: "/img/produk/FurnitureUnggulan/Furniture 6.png",
+    alt: "FurnitureUnggulan 6",
+  },
 ];
 
-// Buat array kategori dengan literal types
 const kategoriOptions = ["MaterialUnggulan", "FurnitureUnggulan"] as const;
 type Kategori = (typeof kategoriOptions)[number];
 
-export const ProdukComponents = () => {
+export const ProdukComponents: React.FC = () => {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
   const [kategoriAktif, setKategoriAktif] = useState<Kategori | null>(null);
-  const [animasiArah, setAnimasiArah] = useState<"kiri" | "kanan" | null>(null);
-  const [transisiAktif, setTransisiAktif] = useState(false);
+  const [direction, setDirection] = useState<1 | -1>(1);
   const [panahAktif, setPanahAktif] = useState<"kiri" | "kanan" | null>(null);
+
+  const scrollYRef = useRef(0);
+  const lockedRef = useRef(false);
 
   const dataAktif =
     kategoriAktif === "MaterialUnggulan"
@@ -52,70 +118,93 @@ export const ProdukComponents = () => {
     setKategoriAktif(kategori);
     setModalIndex(index);
   };
-
   const tutupModal = () => {
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
     setModalIndex(null);
     setKategoriAktif(null);
-    setAnimasiArah(null);
     setPanahAktif(null);
   };
 
-  const nextGambar = () => {
-    if (modalIndex === null) return;
-    setAnimasiArah("kanan");
-    setPanahAktif("kanan");
-    setTransisiAktif(true);
-    setTimeout(() => {
-      setModalIndex((modalIndex + 1) % dataAktif.length);
-      setTransisiAktif(false);
-      setPanahAktif(null);
-    }, 300);
-  };
+  const changeIndex = useCallback(
+    (dir: 1 | -1) => {
+      if (modalIndex === null) return;
+      setDirection(dir);
+      setPanahAktif(dir === 1 ? "kanan" : "kiri");
+      const next = (modalIndex + dir + dataAktif.length) % dataAktif.length;
+      setModalIndex(next);
+    },
+    [modalIndex, dataAktif.length]
+  );
 
-  const prevGambar = () => {
-    if (modalIndex === null) return;
-    setAnimasiArah("kiri");
-    setPanahAktif("kiri");
-    setTransisiAktif(true);
-    setTimeout(() => {
-      setModalIndex(modalIndex === 0 ? dataAktif.length - 1 : modalIndex - 1);
-      setTransisiAktif(false);
-      setPanahAktif(null);
-    }, 300);
-  };
+  const nextGambar = () => changeIndex(1);
+  const prevGambar = () => changeIndex(-1);
 
-  // keyboard & scroll lock
+  // ————— Scroll‐lock dan keyboard nav —————
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (modalIndex !== null) {
-        if (e.key === "ArrowRight") nextGambar();
-        else if (e.key === "ArrowLeft") prevGambar();
-        else if (e.key === "Escape") tutupModal();
+    if (modalIndex !== null && !lockedRef.current) {
+      // pertama kali buka modal → lock scroll ONCE
+      scrollYRef.current = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollYRef.current}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.overflow = "hidden";
+      lockedRef.current = true;
+    } else if (modalIndex === null && lockedRef.current) {
+      // modal ditutup → unlock dan kembalikan posisi scroll
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollYRef.current);
+      lockedRef.current = false;
+    }
+  }, [modalIndex]);
+
+  // add keyboard navigation
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (modalIndex === null) return;
+      if (e.key === "ArrowRight") {
+        nextGambar();
+      } else if (e.key === "ArrowLeft") {
+        prevGambar();
+      } else if (e.key === "Escape") {
+        tutupModal();
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
-    document.body.style.overflow = modalIndex !== null ? "hidden" : "";
-
+    if (modalIndex !== null) {
+      window.addEventListener("keydown", handleKey);
+    }
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKey);
     };
-  }, [modalIndex, dataAktif.length]);
+  }, [modalIndex, nextGambar, prevGambar]);
+
+  // Variants framer‐motion untuk slide
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({
+      x: dir < 0 ? 300 : -300,
+      opacity: 0,
+    }),
+  };
+
+  console.log([modalIndex]);
 
   return (
     <div className="container mx-auto px-4 my-10">
       {/* Judul */}
       <div className="relative text-center my-8 text-md md:text-2xl 2xl:text-3xl font-bold uppercase">
         <h2 className="font-[montserrat] text-[var(--colorBlack)]">
-          Furniture Unggulan{" "}
+          Produk Unggulan{" "}
           <span className="text-[var(--colorRed)]">Ekatunggal</span>
         </h2>
-
         <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 -mt-20 mx-auto md:hidden w-[50%] h-1 bg-[var(--colorYellow)]" />
       </div>
 
@@ -127,7 +216,10 @@ export const ProdukComponents = () => {
         {kategoriOptions.map((kat) => {
           const produk =
             kat === "MaterialUnggulan" ? materialUnggulan : furnitureUnggulan;
-          const label = kat === "MaterialUnggulan" ? "Material Unggulan" : "Furniture Unggulan";
+          const label =
+            kat === "MaterialUnggulan"
+              ? "Material Unggulan"
+              : "Furniture Unggulan";
 
           return (
             <div key={kat} className="relative group">
@@ -171,79 +263,97 @@ export const ProdukComponents = () => {
         })}
       </div>
 
-      {/* Modal */}
-      {modalIndex !== null && (
-        <div
-          className="fixed inset-0 bg-[#000000e8] flex items-center justify-center z-50"
-          onClick={tutupModal}
-        >
-          <div
-            className="relative max-w-xl w-full"
-            onClick={(e) => e.stopPropagation()}
+      {/* Modal Slider */}
+      <AnimatePresence initial={false} custom={direction}>
+        {modalIndex !== null && (
+          <motion.div
+            className="fixed inset-0 bg-[#000000e8] flex items-center justify-center z-50"
+            onClick={tutupModal}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <Image
-              key={modalIndex}
-              src={dataAktif[modalIndex].src}
-              alt={dataAktif[modalIndex].alt}
-              width={700}
-              height={500}
-              className={clsx(
-                "mt-10 mx-auto w-[95%] h-auto rounded-lg transition-all duration-700 ease-in-out",
-                transisiAktif
-                  ? animasiArah === "kanan"
-                    ? "opacity-0 translate-x-10"
-                    : "opacity-0 -translate-x-10"
-                  : "opacity-100 translate-x-0"
-              )}
-            />
-            <div className="absolute bottom-2 right-10 text-[var(--colorBlack)] text-sm bg-transparent">
-              {modalIndex + 1} of {dataAktif.length}
+            <div
+              className="relative max-w-xl w-[95%]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Slide */}
+              <motion.div
+                key={modalIndex}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x < -100) nextGambar();
+                  else if (info.offset.x > 100) prevGambar();
+                }}
+                className="rounded-lg overflow-hidden bg-white"
+              >
+                <Image
+                  src={dataAktif[modalIndex].src}
+                  alt={dataAktif[modalIndex].alt}
+                  width={700}
+                  height={500}
+                  className="w-full h-auto"
+                />
+                <div className="absolute bottom-2 right-2 text-gray-700 text-sm">
+                  {modalIndex + 1} / {dataAktif.length}
+                </div>
+              </motion.div>
+
+              {/* Navigasi Panah */}
+              <button
+                type="button"
+                onClick={prevGambar}
+                className={clsx(
+                  "absolute top-1/2 -translate-y-1/2 left-0 cursor-pointer transition-transform opacity-65 active:scale-90 active:opacity-40 focus:outline-none",
+                  panahAktif === "kiri" && "scale-110"
+                )}
+              >
+                <Image
+                  src="/img/produk/arrow-left.png"
+                  alt="Prev"
+                  width={40}
+                  height={40}
+                />
+              </button>
+              <button
+                type="button"
+                onClick={nextGambar}
+                className={clsx(
+                  "absolute top-1/2 -translate-y-1/2 right-0 cursor-pointer transition-transform opacity-65 active:scale-90 active:opacity-40 focus:outline-none",
+                  panahAktif === "kanan" && "scale-110"
+                )}
+              >
+                <Image
+                  src="/img/produk/arrow-right.png"
+                  alt="Next"
+                  width={40}
+                  height={40}
+                />
+              </button>
+
+              {/* Tombol Tutup */}
+              <button
+                type="button"
+                onClick={tutupModal}
+                className="absolute top-2 right-5 md:right-7 text-black text-2xl cursor-pointer font-bold focus:outline-none"
+              >
+                ×
+              </button>
             </div>
-
-            {/* Panah Navigasi */}
-            <button
-              type="button"
-              onClick={prevGambar}
-              className={clsx(
-                "absolute top-1/2 -translate-y-1/2 left-0 cursor-pointer transition-transform opacity-65 active:scale-90 active:opacity-40 focus:outline-none",
-                panahAktif === "kiri" && "scale-110"
-              )}
-            >
-              <Image
-                src="/img/produk/arrow-left.png"
-                alt="Panah Kiri"
-                width={60}
-                height={60}
-              />
-            </button>
-
-            <button
-              type="button"
-              onClick={nextGambar}
-              className={clsx(
-                "absolute top-1/2 -translate-y-1/2 right-0 cursor-pointer transition-transform opacity-65 active:scale-90 active:opacity-40 focus:outline-none",
-                panahAktif === "kanan" && "scale-110"
-              )}
-            >
-              <Image
-                src="/img/produk/arrow-right.png"
-                alt="Panah Kanan"
-                width={60}
-                height={60}
-              />
-            </button>
-
-            {/* Tombol Tutup */}
-            <button
-              type="button"
-              onClick={tutupModal}
-              className="absolute top-12 right-5 md:right-7 text-black text-xl cursor-pointer font-bold focus:outline-none"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

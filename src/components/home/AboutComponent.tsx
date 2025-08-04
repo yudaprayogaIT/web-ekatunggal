@@ -100,7 +100,7 @@ export const AboutComponent = () => {
             width={1920}
             height={800}
             alt="about"
-            className="h-auto w-full max-h-[70vh] object-cover"
+            className="h-auto w-full lg:max-h-[70vh] object-contain"
           />
         </motion.div>
       </div>

@@ -58,7 +58,8 @@ export const branches: Branch[] = [
   },
   {
     id: 'sidoarjo',
-    name: 'Ekatunggal Timur Mandiri',
+    // name: 'Ekatunggal Timur Mandiri',
+    name: 'Ekatunggal',
     address: 'Jl. Raya Ketimang No.1, Ketimang, Kec. Wonoayu, Kabupaten Sidoarjo, Jawa Timur 61261',
     lat: -7.443013247385045,
     lng: 112.64473915987881,
@@ -74,8 +75,10 @@ export const branches: Branch[] = [
   },
   {
     id: 'samarinda',
-    name: 'Ekatunggal Timur Mahakam',
-    address: 'Samarinda Central Bizpark, Jl. P. Suryanata, Bukit Pinang, Kec. Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75119',
+    // name: 'Ekatunggal Timur Mahakam',
+    // address: 'Samarinda Central Bizpark, Jl. P. Suryanata, Bukit Pinang, Kec. Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75119',
+    name: 'Ekatunggal Samarinda Mahakam',
+    address: 'Pergudangan Surya Bussiness Centre No. 1B, Jl. P. Suryanata Samarinda',
     lat: -0.4480696456948464,
     lng: 117.10140096691917,
     pulau: 'kalimantan',

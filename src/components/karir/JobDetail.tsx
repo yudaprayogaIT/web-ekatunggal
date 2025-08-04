@@ -232,7 +232,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Job } from "@/data/jobs";
 import Link from "next/link";
-// import { defaultMessage } from "@/utils/contact";
 
 interface JobDetailProps {
   job: Job;
@@ -240,7 +239,7 @@ interface JobDetailProps {
 }
 
 // Komponen Toast sederhana
-function Toast({ message }: { message: string; onClose: () => void }) {
+function Toast({ message }: { message: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -254,183 +253,261 @@ function Toast({ message }: { message: string; onClose: () => void }) {
   );
 }
 
-// Gmail address untuk kontak
+// Komponen tombol share modular dengan animasi
+interface ShareButtonProps {
+  icon: string;
+  alt: string;
+  label: string;
+  onClick: () => void;
+}
+const ShareButton: React.FC<ShareButtonProps> = ({ icon, alt, label, onClick }) => (
+  <motion.button
+    onClick={onClick}
+    className="flex flex-col items-center"
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+  >
+    <Image src={icon} alt={alt} width={40} height={40} />
+    <span className="mt-1 text-sm">{label}</span>
+  </motion.button>
+);
+
 export const gmailAddress = "hr@ekatunggal.com";
 export const gmailHref = `mailto:${gmailAddress}`;
 
 export default function JobDetail({ job, onClose }: JobDetailProps) {
-  // State untuk toast
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [showShareModal, setShowShareModal] = useState(false);
 
-  // Fallback copy jika Clipboard API tidak tersedia
+  // URL halaman saat ini
+  const url = typeof window !== "undefined" ? window.location.href : "";
+
+  // Fallback copy-to-clipboard
   const fallbackCopy = (text: string) => {
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.style.position = "fixed";
-    textarea.style.top = "0";
-    textarea.style.left = "0";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.select();
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
     try {
       document.execCommand("copy");
       setToastMessage("Link berhasil disalin ke clipboard!");
     } catch {
       setToastMessage("Gagal menyalin link.");
     }
-    document.body.removeChild(textarea);
+    document.body.removeChild(ta);
   };
 
+  // Handler copy link
   const handleCopyLink = () => {
-    const url = window.location.href;
-    if (
-      typeof navigator !== "undefined" &&
-      navigator.clipboard &&
-      typeof navigator.clipboard.writeText === "function"
-    ) {
-      navigator.clipboard
-        .writeText(url)
-        .then(() => setToastMessage("Link berhasil disalin ke clipboard!"))
-        .catch(() => fallbackCopy(url));
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(url).catch(() => fallbackCopy(url));
     } else {
       fallbackCopy(url);
     }
   };
 
-  // Otomatis sembunyikan toast setelah 3 detik
+  // Share functions
+  const shareViaWhatsApp = () =>
+    window.open(
+      `https://api.whatsapp.com/send?text=${encodeURIComponent(job.title + "\n" + url)}`,
+      "_blank",
+      "noopener"
+    );
+  const shareViaEmail = () =>
+    window.open(
+      `mailto:?subject=${encodeURIComponent(job.title)}&body=${encodeURIComponent(url)}`,
+      "_blank",
+      "noopener"
+    );
+  const shareViaFacebook = () =>
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+      "_blank",
+      "noopener"
+    );
+
+  // Konfigurasi tombol share
+  const shareActions: ShareButtonProps[] = [
+    {
+      icon: "/icons/medsos/whatsapp.png",
+      alt: "WhatsApp",
+      label: "WhatsApp",
+      onClick: shareViaWhatsApp,
+    },
+    {
+      icon: "/icons/medsos/email.png",
+      alt: "Email",
+      label: "Email",
+      onClick: shareViaEmail,
+    },
+    {
+      icon: "/icons/medsos/fb.png",
+      alt: "Facebook",
+      label: "Facebook",
+      onClick: shareViaFacebook,
+    },
+    {
+      icon: "/icons/share.png",
+      alt: "Salin link",
+      label: "Salin link",
+      onClick: handleCopyLink,
+    },
+  ];
+
+  // Auto-hide toast
   useEffect(() => {
     if (!toastMessage) return;
-    const timer = setTimeout(() => {
-      setToastMessage(null);
-    }, 3000);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setToastMessage(null), 3000);
+    return () => clearTimeout(t);
   }, [toastMessage]);
 
   return (
     <main className="container mx-auto lg:py-6 lg:px-10 relative">
       {/* Header */}
       <div className="relative mb-6">
-        <div className="relative h-60 md:h-90 w-full rounded-none sm:rounded-3xl overflow-hidden">
+        <div className="relative h-60 md:h-90 w-full sm:rounded-3xl overflow-hidden">
           <Image
             src="/img/heroKarirGradient.png"
             alt="banner"
             fill
-            className="object-cover object-[60%_30%] h-90 sm:rounded-3xl"
+            className="object-cover object-[60%_30%] sm:rounded-3xl"
             priority
           />
           <div className="absolute top-1/2 -translate-y-1/2 left-5 md:left-15 uppercase font-bold text-black z-20">
-            <h1 className="text-lg md:text-3xl font-[montserrat]">
-              {job.title}
-            </h1>
-            <p className="md:mt-1 text-md md:text-2xl">{job.location}</p>
+            <h1 className="text-lg md:text-3xl font-[montserrat]">{job.title}</h1>
+            <p className="md:mt-1 text-md md:text-2xl text-gray-600 capitalize">
+              {job.location}
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Konten: Tentang, Tanggung Jawab, Kualifikasi */}
+      {/* Konten Posisi */}
       <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col gap-4 md:gap-8 text-start">
-        {/* Tentang Posisi */}
-        <div>
-          <h2 className="font-[montserrat] uppercase underline decoration-[var(--colorChilli)] text-base md:text-xl font-bold md:mb-2">
+        <motion.section
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          <h2 className="uppercase underline decoration-[var(--colorChilli)] text-base md:text-xl font-bold mb-2">
             Tentang Posisi
           </h2>
-          <motion.div
-            key="about"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-          >
-            <p className="text-justify text-sm md:text-lg font-medium">
-              {job.about}
-            </p>
-          </motion.div>
-        </div>
+          <p className="text-justify text-sm md:text-lg font-medium">{job.about}</p>
+        </motion.section>
 
-        {/* Tanggung Jawab */}
-        <div>
-          <h2 className="font-[montserrat] uppercase underline decoration-[var(--colorChilli)] text-base md:text-xl font-bold md:mb-2">
+        <motion.section
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <h2 className="uppercase underline decoration-[var(--colorChilli)] text-base md:text-xl font-bold mb-2">
             Tanggung Jawab
           </h2>
-          <motion.ol
-            key="resp"
-            className="list-decimal list-inside space-y-1"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-          >
+          <ol className="list-decimal list-inside space-y-1">
             {job.responsibilities.map((r, i) => (
-              <li
-                className="text-justify text-sm md:text-lg font-medium"
-                key={i}
-              >
+              <li key={i} className="text-justify text-sm md:text-lg font-medium">
                 {r}
               </li>
             ))}
-          </motion.ol>
-        </div>
+          </ol>
+        </motion.section>
 
-        {/* Kualifikasi */}
-        <div>
-          <h2 className="font-[montserrat] uppercase underline decoration-[var(--colorChilli)] text-base md:text-xl font-bold md:mb-2">
+        <motion.section
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <h2 className="uppercase underline decoration-[var(--colorChilli)] text-base md:text-xl font-bold mb-2">
             Kualifikasi
           </h2>
-          <motion.ul
-            key="qual"
-            className="list-disc list-inside space-y-1"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-          >
+          <ul className="list-disc list-inside space-y-1">
             {job.qualifications.map((q, i) => (
-              <li
-                className="text-justify text-sm md:text-lg font-medium"
-                key={i}
-              >
+              <li key={i} className="text-justify text-sm md:text-lg font-medium">
                 {q}
               </li>
             ))}
-          </motion.ul>
-        </div>
+          </ul>
+        </motion.section>
 
-        Tombol Aksi
+        {/* Tombol Aksi */}
         <div className="flex items-center mt-4 gap-2">
-          <Link
-            href={gmailHref}
-            className="font-bold font-[montserrat] text-xs md:text-sm uppercase text-black px-3 py-2 lg:px-4 lg:py-2.5 2xl:py-3 bg-[var(--colorYellow)] hover:bg-yellow-500 hover:shadow-md transition cursor-pointer rounded-lg lg:rounded-xl 2xl:rounded-2xl"
-          >
-            Lamar Sekarang
-          </Link>
-
-          <button
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href={gmailHref}
+              className="font-bold text-xs md:text-sm uppercase text-black px-3 py-3 bg-[var(--colorYellow)] rounded-lg font-[montserrat]"
+            >
+              Lamar Sekarang
+            </Link>
+          </motion.div>
+          <motion.button
             onClick={onClose}
-            className="py-2 lg:py-2.5 px-3 lg:px-5 bg-[var(--colorYellow)] hover:bg-yellow-500 transition cursor-pointer rounded-lg lg:rounded-xl 2xl:rounded-2xl"
+            className="p-2 bg-yellow-400 rounded-lg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            <Image src="/icons/back.png" alt="Back" width={24} height={24}
-            className="w-4 lg:w-5 2xl:w-6" />
-          </button>
-
-          <button
-            onClick={handleCopyLink}
-            aria-label="Copy Link"
-            className="py-2 lg:py-2.5 px-3 lg:px-5 bg-[var(--colorYellow)] hover:bg-yellow-500 rounded-lg lg:rounded-xl 2xl:rounded-2xl cursor-pointer"
+            <Image src="/icons/arrow-back.png" alt="Back" width={24} height={24} />
+          </motion.button>
+          <motion.button
+            onClick={() => setShowShareModal(true)}
+            className="p-2 bg-yellow-400 rounded-lg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            <Image
-              src="/icons/share.png"
-              alt="share"
-              width={24}
-              height={24}
-              className="w-4 lg:w-5 2xl:w-6"
-              priority
-            />
-          </button>
+            <Image src="/icons/forward.png" alt="Share" width={24} height={24} />
+          </motion.button>
         </div>
       </div>
 
-      {/* AnimatePresence untuk menampilkan Toast */}
+      {/* Share Modal */}
       <AnimatePresence>
-        {toastMessage && (
-          <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
+        {showShareModal && (
+          <motion.div
+            className="fixed inset-0 bg-[#000000af] flex items-end lg:items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowShareModal(false)}
+          >
+            <motion.div
+              className="bg-white rounded-t-2xl lg:rounded-lg w-full lg:w-96 p-6"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="text-lg font-bold mb-4">Bagikan</h3>
+              <div className="flex justify-between mb-4">
+                {shareActions.map((action) => (
+                  <ShareButton
+                    key={action.label}
+                    icon={action.icon}
+                    alt={action.alt}
+                    label={action.label}
+                    onClick={action.onClick}
+                  />
+                ))}
+              </div>
+              <motion.button
+                onClick={() => setShowShareModal(false)}
+                className="w-full py-2 bg-gray-200 rounded-lg"
+                whileHover={{ backgroundColor: "#e2e8f0" }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                Batal
+              </motion.button>
+            </motion.div>
+          </motion.div>
         )}
+      </AnimatePresence>
+
+      {/* Toast */}
+      <AnimatePresence>
+        {toastMessage && <Toast message={toastMessage} />}
       </AnimatePresence>
     </main>
   );

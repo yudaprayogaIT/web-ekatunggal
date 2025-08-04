@@ -122,91 +122,6 @@
 // //   );
 // // }
 
-// import React, { useMemo } from "react";
-// import type { Job } from "@/data/jobs";
-
-// interface GroupedJob {
-//   title: string;
-//   locations: string; // gabungan lokasi, misal "Sidoarjo, Samarinda, Kupang"
-// }
-
-// interface JobListProps {
-//   allFilteredJobs: Job[];
-//   openDetail: (job: Job) => void;
-// }
-
-// export default function JobList({
-//   allFilteredJobs,
-//   openDetail,
-// }: JobListProps) {
-//   // 1) Kumpulkan dan gabungkan lokasi per title
-//   const groupedJobs: GroupedJob[] = useMemo(() => {
-//     const map = allFilteredJobs.reduce((acc, { title, location }) => {
-//       if (!acc[title]) {
-//         acc[title] = new Set<string>();
-//       }
-//       acc[title].add(location);
-//       return acc;
-//     }, {} as Record<string, Set<string>>);
-
-//     return Object.entries(map).map(([title, locSet]) => ({
-//       title,
-//       locations: Array.from(locSet).join(", "),
-//     }));
-//   }, [allFilteredJobs]);
-
-//   return (
-//     <section className="w-[90%] md:w-[86%] mx-auto -mt-105 sm:-mt-70 lg:mt-0 relative">
-//       <div className="bg-white border border-gray-100 rounded-xl md:rounded-4xl p-6 shadow-lg">
-//         <h2 className="text-xl md:text-3xl font-bold mb-4 font-[montserrat]">
-//           Semua Karir
-//         </h2>
-
-//         <div className="overflow-y-auto max-h-79 rounded-lg">
-//           {/* HEADER */}
-//           <div className="flex bg-white sticky top-0 z-10 border-b-4 border-yellow-500 font-bold text-red-600">
-//             <div className="flex-1 md:flex-2 py-2 px-3 whitespace-normal md:whitespace-nowrap">
-//               Posisi yang Dibutuhkan
-//             </div>
-//             <div className="flex-1 py-2 px-3 whitespace-nowrap">
-//               Lokasi
-//             </div>
-//           </div>
-
-//           {/* ROWS */}
-//           {groupedJobs.length > 0 ? (
-//             groupedJobs.map((job, i) => (
-//               <div
-//                 key={job.title}
-//                 onClick={() =>
-//                   // Cari satu contoh Job asli untuk detail, atau sesuaikan openDetail
-//                   openDetail(
-//                     allFilteredJobs.find((j) => j.title === job.title)!
-//                   )
-//                 }
-//                 className={`flex cursor-pointer font-bold text-xs md:text-base hover:bg-[#1E1E1E66] ${
-//                   i % 2 === 1 ? "bg-[#1E1E1E1A]" : ""
-//                 }`}
-//               >
-//                 <div className="flex-1 md:flex-2 py-2 px-3 whitespace-normal md:whitespace-nowrap">
-//                   {job.title}
-//                 </div>
-//                 <div className="flex-1 py-2 px-3 whitespace-nowrap">
-//                   {job.locations}
-//                 </div>
-//               </div>
-//             ))
-//           ) : (
-//             <div className="py-4 text-center text-gray-500 italic">
-//               Tidak ada lowongan yang cocok.
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 import React, { useMemo } from "react";
 import type { Job } from "@/data/jobs";
 
@@ -236,7 +151,7 @@ export default function JobList({
 
     return Object.entries(map).map(([title, locSet]) => ({
       title,
-      locations: Array.from(locSet).join(", "),
+      locations: Array.from(locSet).join(" - "),
     }));
   }, [allFilteredJobs]);
 
@@ -282,7 +197,7 @@ export default function JobList({
                   <div className="flex-1 md:flex-2 py-2 px-3 whitespace-normal md:whitespace-nowrap">
                     {jobGroup.title}
                   </div>
-                  <div className="flex-1 py-2 px-3 whitespace-nowrap">
+                  <div className="flex-1 py-2 px-3 whitespace-nowrap truncate">
                     {jobGroup.locations}
                   </div>
                 </div>

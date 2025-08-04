@@ -45,13 +45,13 @@ export const KeunggulanComponent = () => {
       <h2 className="uppercase font-[montserrat] text-[var(--colorBlack)] text-md md:text-2xl 2xl:text-3xl font-bold text-center">
         Keunggulan <span className="text-[var(--colorRed)]">Ekatunggal</span>
       </h2>
-      <div className="container mx-auto px-4 mt-4 flex flex-row flex-wrap justify-center items-center gap-5 [@media(min-width:400px)]:gap-8 md:gap-10 2xl:gap-15">
+      <div className="container mx-auto px-4 mt-4 flex flex-row flex-wrap justify-center items-center max-[396]:gap-5 gap-8 md:gap-10 2xl:gap-15">
         {items.map(({ key, label, desc, img, imgHover }) => (
           <div
             key={key}
-            className="group bg-[var(--colorWhite)] py-2 md:py-5 w-38 [@media(min-width:400px)]:w-40 h-42 md:w-50 md:h-52 shadow-lg hover:shadow-2xl rounded-2xl transition-shadow duration-300 overflow-hidden"
+            className="group bg-[var(--colorWhite)] py-2 md:py-5 max-[396]:w-38 w-40 h-42 md:w-50 md:h-52 shadow-lg hover:shadow-2xl rounded-2xl transition-shadow duration-300 overflow-hidden"
           >
-            <div className="relative w-full h-16 [@media(min-width:400px)]:h-18 md:h-20">
+            <div className="relative w-full max-[396]:h-16 h-18 md:h-20">
               <Image
                 src={img}
                 alt={key}
