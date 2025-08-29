@@ -50,7 +50,7 @@ export const branches: Branch[] = [
   },
   {
     id: 'klaten',
-    name: 'Ekatunggal Tumbuh mandiri',
+    name: 'Ekatunggal Tumbuh Mandiri',
     address: 'Jl. Pakis - Daleman No.Km 3, Dusun I, Sekaran, Kec. Wonosari, Kabupaten Klaten, Jawa Tengah 57473',
     lat: -7.610808306030121,
     lng: 110.7222597252855,

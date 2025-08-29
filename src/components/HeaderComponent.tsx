@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 interface MenuItem {
   name: string;
   href: string;
+  icon?: string; // Optional icon for the menu item
 }
 
 export default function HeaderComponent() {
@@ -20,6 +21,7 @@ export default function HeaderComponent() {
     { name: "Produk", href: "/produk" },
     { name: "Karir", href: "/karir" },
     { name: "Kontak Kami", href: "/kontak" },
+    { name: "akun", href: "/akun/registrasi", icon: "/img/registrasi/account.png" },
   ];
 
   return (
@@ -67,23 +69,53 @@ export default function HeaderComponent() {
               pathname === item.href || pathname.startsWith(item.href + "/");
 
             return (
-              <div key={item.href} className="relative group">
+              <div key={item.href} className="relative group flex items-center">
                 <Link
                   href={item.href}
-                  className={`hover:text-[var(--colorRed)] transition ${
+                  className={`hover:text-[var(--colorRed)] transition flex items-center ${
                     isActive ? "text-[var(--colorRed)]" : "text-black"
                   }`}
                 >
-                  {item.name}
+                  {item.icon ? (
+                    // Kalau menu pakai icon
+                    <span className="relative inline-block">
+                      <Image
+                        src={item.icon}
+                        alt={item.name}
+                        width={30}
+                        height={30}
+                        className="h-5 w-auto"
+                      />
+                      {isActive && (
+                        <motion.div
+                          layoutId="nav-indicator"
+                          className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[var(--colorRed)]"
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 25,
+                          }}
+                        />
+                      )}
+                    </span>
+                  ) : (
+                    // Kalau menu pakai teks
+                    <span className="relative inline-block">
+                      {item.name}
+                      {isActive && (
+                        <motion.div
+                          layoutId="nav-indicator"
+                          className="absolute bottom-[-6px] left-0 right-0 h-[2px] bg-[var(--colorRed)]"
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 25,
+                          }}
+                        />
+                      )}
+                    </span>
+                  )}
                 </Link>
-
-                {isActive && (
-                  <motion.div
-                    layoutId="nav-indicator"
-                    className="absolute bottom-[-6px] left-0 right-0 h-[2px] bg-[var(--colorRed)]"
-                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  />
-                )}
               </div>
             );
           })}
@@ -110,7 +142,17 @@ export default function HeaderComponent() {
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item.name}
+                {item.icon ? (
+                  <Image
+                    src={item.icon}
+                    alt={item.name}
+                    width={24}
+                    height={24}
+                    className="inline-block h-5 w-auto"
+                  />
+                ) : (
+                  item.name
+                )}
               </Link>
             );
           })}

@@ -312,7 +312,7 @@ export default function JobDetail({ job, onClose }: JobDetailProps) {
   // Share functions
   const shareViaWhatsApp = () =>
     window.open(
-      `https://api.whatsapp.com/send?text=${encodeURIComponent(job.title + "\n" + url)}`,
+      `https://web.whatsapp.com/send?text=Lihat Lowongan ${encodeURIComponent("Posisi: " + job.title + " ini deh..." + "\n" + url)}`,
       "_blank",
       "noopener"
     );

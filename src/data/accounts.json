@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1755509182470,
+    "fullName": "Reno",
+    "phone": "0827171131",
+    "company": "PT Hahahihi",
+    "companyDate": {
+      "day": "10",
+      "month": "11",
+      "year": "1987"
+    },
+    "branchId": "bogor",
+    "ownerDob": {
+      "day": "19",
+      "month": "11",
+      "year": "1984"
+    },
+    "gender": "male",
+    "passwordHash": "$2b$10$rZczotBfNxpSny96Y4v2oeGL8c937sr7ornCvApYPbeVydSNL5sfO",
+    "createdAt": "2025-08-18T09:26:22.470Z",
+    "role": "user",
+    "active": true,
+    "updatedAt": "2025-08-29T02:10:10.546Z"
+  },
+  {
+    "id": 1755751003404,
+    "fullName": "Ervia",
+    "phone": "085770529106",
+    "company": "Jaya abadi",
+    "companyDate": {
+      "day": "03",
+      "month": "01",
+      "year": "2025"
+    },
+    "branchId": "bogor",
+    "ownerDob": {
+      "day": "03",
+      "month": "01",
+      "year": "2003"
+    },
+    "gender": "female",
+    "passwordHash": "$2b$10$d7GJSPFGOv6rzpLB4WCNNeTDeozaQIWXyBH04M.IWGEkj9u.ro78G",
+    "createdAt": "2025-08-21T04:36:43.404Z",
+    "role": "user",
+    "active": true
+  },
+  {
+    "id": 1755762994971,
+    "fullName": "Resa",
+    "phone": "081122334455",
+    "company": "PT Well",
+    "companyDate": {
+      "day": "04",
+      "month": "07",
+      "year": "1980"
+    },
+    "branchId": "makassar",
+    "ownerDob": {
+      "day": "16",
+      "month": "10",
+      "year": "1995"
+    },
+    "gender": "male",
+    "passwordHash": "$2b$10$Faju5vCrvp7JWxvsOl7/ZuTIiYREI0NIz/eX.6DGqnYUzRIFrg.My",
+    "createdAt": "2025-08-21T07:56:34.971Z",
+    "role": "user",
+    "active": true
+  }
+]

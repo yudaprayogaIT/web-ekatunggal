@@ -3,7 +3,7 @@
 const nextConfig = {
   // aktifkan output static export
   // ini akan membuat Next.js menghasilkan file statis untuk setiap halaman
-  output: 'export',
+  // output: 'export',
 
   images: {
     unoptimized: true,

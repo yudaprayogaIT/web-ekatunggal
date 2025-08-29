@@ -117,6 +117,7 @@ export async function POST(request: Request) {
     try {
       await transporter.verify();
       console.log("✅ SMTP Ready:", process.env.EMAIL_HOST);
+      // console.log("✅ SMTP Ready:", process.env.EMAIL_HOST);
     } catch (verifyErr: unknown) {
       const msg = verifyErr instanceof Error ? verifyErr.message : "SMTP error";
       console.error("❌ Verifikasi SMTP gagal:", msg);
@@ -128,7 +129,7 @@ export async function POST(request: Request) {
 
     // 8b) Siapkan mailOptions dengan replyTo = emailStr
     const mailOptions = {
-      from: `"WEB Ekatunggal" <${process.env.EMAIL_USER}>`,
+      from: `"Web Ekatunggal" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO, // email admin
       replyTo: emailStr,        // ketika admin klik “reply”, diarahkan ke email pengunjung
       subject: `Pesan Baru dari ${namaStr}`,
