@@ -107,6 +107,13 @@ export const branches: Branch[] = [
     lng: 123.5440036829938,
     pulau: 'nusa tenggara',
   },
-  // → Tambah objek branch baru di array ini saja
+  {
+    id: 'palu',
+    name: 'Ekatunggal Tunas Maroso',
+    address: 'Pergudangan Palu Indah B-27. JL. Ir. Soekarno Hatta No. 327 Palu. Sulawesi Tengah',
+    lat: -0.8226723810528729,
+    lng: 119.88544690457897,
+    pulau: 'nusa tenggara',
+  },
 ];
 

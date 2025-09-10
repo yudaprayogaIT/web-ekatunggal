@@ -37,28 +37,30 @@ export const Jobs: Job[] = [
     title: "Koordinator Accounting",
     level: "Berpengalaman",
     location: "Bogor",
-    about: "Koordinator Akunting bertanggung jawab dalam mengoordinasikan seluruh aktivitas pencatatan dan pelaporan keuangan, memastikan akurasi data, serta kepatuhan terhadap kebijakan perusahaan dan regulasi. Posisi ini menjadi penghubung antara staf akunting dan manajemen, serta memainkan peran penting dalam menjaga kontrol keuangan perusahaan secara menyeluruh mendukung visi perusahaan menjadi pilihan utama nasional, serta misi menjaga mutu, efisiensi biaya, dan ketepatan operasional.",
+    about:
+      "Koordinator Akunting bertanggung jawab dalam mengoordinasikan seluruh aktivitas pencatatan dan pelaporan keuangan, memastikan akurasi data, serta kepatuhan terhadap kebijakan perusahaan dan regulasi. Posisi ini menjadi penghubung antara staf akunting dan manajemen, serta memainkan peran penting dalam menjaga kontrol keuangan perusahaan secara menyeluruh mendukung visi perusahaan menjadi pilihan utama nasional, serta misi menjaga mutu, efisiensi biaya, dan ketepatan operasional.",
     responsibilities: [
       "Mengkoordinasikan proses pencatatan dan penutupan laporan keuangan bulanan dan tahunan secara akurat dan tepat waktu.",
       "Mereview hasil kerja tim akunting, termasuk jurnal, buku besar, dan laporan keuangan.",
       "Memastikan seluruh transaksi keuangan sesuai SOP dan standar akuntansi (PSAK/IFRS).",
       "Berkoordinasi dengan auditor internal dan eksternal, serta mendukung kelengkapan dokumen saat audit.",
-      "Membuat laporan analisis keuangan dan memberikan insight untuk pengambilan keputusan manajemen."
+      "Membuat laporan analisis keuangan dan memberikan insight untuk pengambilan keputusan manajemen.",
     ],
     qualifications: [
       "Pendidikan minimal S1 Akuntansi, lebih disukai jika memiliki sertifikasi (Brevet A&B, CPA/CMA).",
       "Pengalaman minimal 3 tahun di bidang akuntansi, dengan 1 tahun di posisi koordinator atau supervisi.",
       "Menguasai software akuntansi dan sistem ERP, serta mahir dalam Microsoft Excel.",
       "Mampu memimpin tim, teliti, memiliki kemampuan analisis data keuangan yang kuat.",
-      "Memahami regulasi perpajakan dan prinsip pelaporan keuangan yang berlaku di Indonesia."
+      "Memahami regulasi perpajakan dan prinsip pelaporan keuangan yang berlaku di Indonesia.",
     ],
   },
   {
     id: 3,
     title: "Sales Executive",
-    level: "Lulusan Baru",
+    level: "Berpengalaman",
     location: "Bogor",
-    about: "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
+    about:
+      "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
     responsibilities: [
       "Melakukan penawaran dan promosi produk secara aktif kepada pelanggan baru dan lama.",
       "Menangani proses negosiasi hingga penutupan penjualan sesuai target yang telah ditetapkan.",
@@ -71,49 +73,51 @@ export const Jobs: Job[] = [
       "Memiliki pengalaman minimal 1 tahun di bidang penjualan atau marketing.",
       "Menguasai teknik komunikasi dan negosiasi yang efektif, serta memahami prinsip pelayanan pelanggan.",
       "Memahami alur penjualan dan penginputan data melalui sistem ERP.",
-      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil."
+      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil.",
     ],
   },
   {
     id: 4,
     title: "Sales Support",
-    level: "Lulusan Baru",
+    level: "Berpengalaman/Lulusan Baru",
     location: "Bogor",
-    about: "Sales Support adalah peran pendukung dalam tim penjualan yang bertugas untuk memastikan proses administratif, sistem, dan komunikasi berjalan lancar guna menunjang kinerja tim Sales. Posisi ini menjembatani kebutuhan pelanggan, tim penjualan, serta operasional agar sesuai dengan visi perusahaan untuk menjadi pilihan utama dalam trading material spring bed dan sofa secara nasional, serta misi pelayanan, mutu, dan ketepatan pengiriman.",
+    about:
+      "Sales Support adalah peran pendukung dalam tim penjualan yang bertugas untuk memastikan proses administratif, sistem, dan komunikasi berjalan lancar guna menunjang kinerja tim Sales. Posisi ini menjembatani kebutuhan pelanggan, tim penjualan, serta operasional agar sesuai dengan visi perusahaan untuk menjadi pilihan utama dalam trading material spring bed dan sofa secara nasional, serta misi pelayanan, mutu, dan ketepatan pengiriman.",
     responsibilities: [
       "Memastikan data penjualan, dokumen, dan transaksi tercatat rapi di sistem (ERP dan manual).",
       "Mengelola dokumen administratif penjualan seperti PO, invoice, dan delivery order.",
       "Menerapkan SOP Sales Support dalam setiap proses order hingga pengiriman barang.",
       "Membantu tim sales dalam penyediaan data produk dan stok, serta menjawab pertanyaan pelanggan internal.",
-      "Melakukan pengarsipan dan pelaporan secara berkala untuk keperluan audit dan evaluasi."
+      "Melakukan pengarsipan dan pelaporan secara berkala untuk keperluan audit dan evaluasi.",
     ],
     qualifications: [
       "Pendidikan minimal SMK/D3/S1, diutamakan dari Administrasi Bisnis, Manajemen, atau Sistem Informasi.",
       "Menguasai Microsoft Office (terutama Excel) dan terbiasa bekerja dengan sistem ERP.",
       "Memahami produk dan alur distribusi perusahaan, serta SOP yang terkait dengan proses penjualan.",
       "Teliti, rapi dalam pengarsipan, dan mampu bekerja cepat dalam lingkungan dinamis.",
-      "Memiliki keterampilan komunikasi dan koordinasi yang baik antar divisi (sales, gudang, delivery)."
+      "Memiliki keterampilan komunikasi dan koordinasi yang baik antar divisi (sales, gudang, delivery).",
     ],
   },
   {
     id: 5,
     title: "Staff Audit",
     level: "Berpengalaman",
-    location: "Medan",
-    about: "Staf Audit bertanggung jawab melakukan pemeriksaan terhadap sistem, proses, dan dokumen keuangan maupun operasional perusahaan untuk memastikan kesesuaian terhadap prosedur, efisiensi, dan integritas data. Peran ini membantu memastikan bahwa perusahaan berjalan sesuai standar, mendukung kepercayaan pelanggan, pengendalian biaya, dan kualitas layanan yang konsisten.",
+    location: "Bogor",
+    about:
+      "Staf Audit bertanggung jawab melakukan pemeriksaan terhadap sistem, proses, dan dokumen keuangan maupun operasional perusahaan untuk memastikan kesesuaian terhadap prosedur, efisiensi, dan integritas data. Peran ini membantu memastikan bahwa perusahaan berjalan sesuai standar, mendukung kepercayaan pelanggan, pengendalian biaya, dan kualitas layanan yang konsisten.",
     responsibilities: [
       "Melakukan audit rutin terhadap proses keuangan dan operasional sesuai SOP perusahaan.",
       "Memverifikasi dokumen transaksi dan laporan untuk mencegah penyimpangan atau kesalahan.",
       "Menyusun laporan audit internal beserta rekomendasi perbaikan.",
       "Melakukan audit fisik terhadap aset, stok, dan pengiriman barang, untuk mendukung akurasi pengelolaan barang.",
-      "Berkoordinasi dengan departemen terkait untuk menindaklanjuti hasil temuan dan perbaikan."
+      "Berkoordinasi dengan departemen terkait untuk menindaklanjuti hasil temuan dan perbaikan.",
     ],
     qualifications: [
       "Minimal pendidikan S1 Akuntansi, Audit, atau Keuangan.",
       "Memiliki pemahaman kuat tentang prinsip audit, SOP, dan regulasi perusahaan.",
       "Berpengalaman di bidang audit minimal 1 tahun (fresh graduate dipertimbangkan dengan nilai akademik baik).",
       "Teliti, detail, dan memiliki integritas tinggi dalam menjaga kerahasiaan data.",
-      "Mampu mengoperasikan software akuntansi dan Microsoft Excel, serta membuat laporan audit formal."
+      "Mampu mengoperasikan software akuntansi dan Microsoft Excel, serta membuat laporan audit formal.",
     ],
   },
   {
@@ -121,20 +125,21 @@ export const Jobs: Job[] = [
     title: "Staff PDIC",
     level: "Berpengalaman",
     location: "Bogor",
-    about: "Staf PDIC bertanggung jawab dalam pengendalian proses produksi, distribusi, dan pengelolaan persediaan barang. Posisi ini berperan penting dalam menjaga ketersediaan barang yang optimal, mengatur pengiriman tepat waktu, serta mendukung efisiensi operasional sejalan dengan misi perusahaan menjaga mutu, kepercayaan pelanggan, dan distribusi yang lancar.",
+    about:
+      "Staf PDIC bertanggung jawab dalam pengendalian proses produksi, distribusi, dan pengelolaan persediaan barang. Posisi ini berperan penting dalam menjaga ketersediaan barang yang optimal, mengatur pengiriman tepat waktu, serta mendukung efisiensi operasional sejalan dengan misi perusahaan menjaga mutu, kepercayaan pelanggan, dan distribusi yang lancar.",
     responsibilities: [
       "Mengawasi dan mengontrol stok barang (bahan baku dan barang jadi) secara berkala di gudang dan sistem.",
       "Membuat perencanaan produksi dan distribusi sesuai kebutuhan penjualan dan target pengiriman.",
       "Mengkoordinasikan penjadwalan pengiriman barang agar tepat waktu dan efisien.",
       "Melakukan analisis rotasi stok dan pengendalian persediaan, termasuk pengadaan ulang.",
-      "Bekerja sama dengan tim produksi, sales, dan logistik untuk memastikan kelancaran proses dari hulu ke hilir."
+      "Bekerja sama dengan tim produksi, sales, dan logistik untuk memastikan kelancaran proses dari hulu ke hilir.",
     ],
     qualifications: [
       "Pendidikan minimal D3/S1 di bidang Manajemen Operasional, Teknik Industri, atau Logistik.",
       "Memahami proses produksi, distribusi, dan sistem manajemen inventori (FIFO, safety stock, dsb).",
       "Mampu menggunakan software inventory dan sistem ERP dengan baik.",
       "Memiliki kemampuan analisis data stok dan ketelitian tinggi dalam perhitungan barang.",
-      "Komunikatif dan mampu berkoordinasi lintas divisi secara efektif."
+      "Komunikatif dan mampu berkoordinasi lintas divisi secara efektif.",
     ],
   },
   {
@@ -142,7 +147,8 @@ export const Jobs: Job[] = [
     title: "Sales Executive",
     level: "Berpengalaman",
     location: "Sidoarjo",
-    about: "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
+    about:
+      "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
     responsibilities: [
       "Melakukan penawaran dan promosi produk secara aktif kepada pelanggan baru dan lama.",
       "Menangani proses negosiasi hingga penutupan penjualan sesuai target yang telah ditetapkan.",
@@ -155,7 +161,7 @@ export const Jobs: Job[] = [
       "Memiliki pengalaman minimal 1 tahun di bidang penjualan atau marketing.",
       "Menguasai teknik komunikasi dan negosiasi yang efektif, serta memahami prinsip pelayanan pelanggan.",
       "Memahami alur penjualan dan penginputan data melalui sistem ERP.",
-      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil."
+      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil.",
     ],
   },
   {
@@ -163,7 +169,8 @@ export const Jobs: Job[] = [
     title: "Sales Executive",
     level: "Berpengalaman",
     location: "Samarinda",
-    about: "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
+    about:
+      "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
     responsibilities: [
       "Melakukan penawaran dan promosi produk secara aktif kepada pelanggan baru dan lama.",
       "Menangani proses negosiasi hingga penutupan penjualan sesuai target yang telah ditetapkan.",
@@ -176,7 +183,7 @@ export const Jobs: Job[] = [
       "Memiliki pengalaman minimal 1 tahun di bidang penjualan atau marketing.",
       "Menguasai teknik komunikasi dan negosiasi yang efektif, serta memahami prinsip pelayanan pelanggan.",
       "Memahami alur penjualan dan penginputan data melalui sistem ERP.",
-      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil."
+      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil.",
     ],
   },
   {
@@ -184,7 +191,8 @@ export const Jobs: Job[] = [
     title: "Sales Executive",
     level: "Berpengalaman",
     location: "Kupang",
-    about: "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
+    about:
+      "Sales Executive bertanggung jawab untuk menjalankan proses penjualan secara langsung kepada pelanggan, termasuk promosi produk, negosiasi harga, hingga penutupan transaksi. Posisi ini menjadi ujung tombak pencapaian target perusahaan dalam menjangkau pasar dan membangun hubungan baik dengan pelanggan, sejalan dengan misi menjaga mutu produk, ketepatan pengiriman, dan pelayanan terbaik.",
     responsibilities: [
       "Melakukan penawaran dan promosi produk secara aktif kepada pelanggan baru dan lama.",
       "Menangani proses negosiasi hingga penutupan penjualan sesuai target yang telah ditetapkan.",
@@ -197,15 +205,38 @@ export const Jobs: Job[] = [
       "Memiliki pengalaman minimal 1 tahun di bidang penjualan atau marketing.",
       "Menguasai teknik komunikasi dan negosiasi yang efektif, serta memahami prinsip pelayanan pelanggan.",
       "Memahami alur penjualan dan penginputan data melalui sistem ERP.",
-      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil."
+      "Berorientasi pada target, ulet, dan memiliki motivasi tinggi untuk mencapai hasil.",
     ],
   },
   {
     id: 10,
+    title: "Sales Support",
+    level: "Berpengalaman/Lulusan Baru",
+    location: "Kupang",
+    about:
+      "Sales Support adalah peran pendukung dalam tim penjualan yang bertugas untuk memastikan proses administratif, sistem, dan komunikasi berjalan lancar guna menunjang kinerja tim Sales. Posisi ini menjembatani kebutuhan pelanggan, tim penjualan, serta operasional agar sesuai dengan visi perusahaan untuk menjadi pilihan utama dalam trading material spring bed dan sofa secara nasional, serta misi pelayanan, mutu, dan ketepatan pengiriman.",
+    responsibilities: [
+      "Memastikan data penjualan, dokumen, dan transaksi tercatat rapi di sistem (ERP dan manual).",
+      "Mengelola dokumen administratif penjualan seperti PO, invoice, dan delivery order.",
+      "Menerapkan SOP Sales Support dalam setiap proses order hingga pengiriman barang.",
+      "Membantu tim sales dalam penyediaan data produk dan stok, serta menjawab pertanyaan pelanggan internal.",
+      "Melakukan pengarsipan dan pelaporan secara berkala untuk keperluan audit dan evaluasi.",
+    ],
+    qualifications: [
+      "Pendidikan minimal SMK/D3/S1, diutamakan dari Administrasi Bisnis, Manajemen, atau Sistem Informasi.",
+      "Menguasai Microsoft Office (terutama Excel) dan terbiasa bekerja dengan sistem ERP.",
+      "Memahami produk dan alur distribusi perusahaan, serta SOP yang terkait dengan proses penjualan.",
+      "Teliti, rapi dalam pengarsipan, dan mampu bekerja cepat dalam lingkungan dinamis.",
+      "Memiliki keterampilan komunikasi dan koordinasi yang baik antar divisi (sales, gudang, delivery).",
+    ],
+  },
+  {
+    id: 11,
     title: "IT Support",
     level: "Berpengalaman",
     location: "Bogor",
-    about: "IT Support adalah posisi di perusahaan yang bertugas memberikan dukungan teknis terkait perangkat keras, perangkat lunak, jaringan, dan sistem teknologi informasi agar operasional berjalan lancar, meliputi pemeliharaan dan perbaikan perangkat, instalasi serta konfigurasi software dan hardware, pengaturan sistem jaringan, menjaga keamanan data melalui update dan backup rutin, hingga memberikan bantuan teknis serta panduan kepada karyawan dalam penggunaan teknologi.",
+    about:
+      "IT Support adalah posisi di perusahaan yang bertugas memberikan dukungan teknis terkait perangkat keras, perangkat lunak, jaringan, dan sistem teknologi informasi agar operasional berjalan lancar, meliputi pemeliharaan dan perbaikan perangkat, instalasi serta konfigurasi software dan hardware, pengaturan sistem jaringan, menjaga keamanan data melalui update dan backup rutin, hingga memberikan bantuan teknis serta panduan kepada karyawan dalam penggunaan teknologi.",
     responsibilities: [
       "Melakukan pemeliharaan rutin perangkat keras (hardware) dan perangkat lunak (software) agar berfungsi optimal.",
       "Menangani troubleshooting atas gangguan atau kerusakan pada komputer, printer, jaringan, maupun sistem IT lainnya.",
@@ -214,7 +245,7 @@ export const Jobs: Job[] = [
       "Memberikan bantuan teknis kepada karyawan terkait penggunaan perangkat dan aplikasi.",
       "Memastikan koneksi internet dan jaringan internal berjalan stabil serta aman.",
       "Mencatat dan melaporkan semua gangguan serta tindakan perbaikan yang telah dilakukan.",
-      "Memberikan pelatihan singkat atau panduan penggunaan teknologi kepada karyawan."
+      "Memberikan pelatihan singkat atau panduan penggunaan teknologi kepada karyawan.",
     ],
     qualifications: [
       "Pendidikan minimal SMK/D3/S1 di bidang Teknik Informatika, Sistem Informasi, atau jurusan terkait.",
@@ -225,15 +256,16 @@ export const Jobs: Job[] = [
       "Keterampilan komunikasi yang baik untuk memberikan panduan teknis kepada karyawan non-teknis.",
       "Mampu bekerja di bawah tekanan, cepat tanggap, dan memiliki kemampuan analisis masalah yang baik.",
       "Memiliki sikap proaktif, teliti, dan bertanggung jawab.",
-      "Bersedia bekerja di luar jam kerja jika diperlukan untuk penanganan darurat."
+      "Bersedia bekerja di luar jam kerja jika diperlukan untuk penanganan darurat.",
     ],
   },
   {
-    id: 11,
+    id: 12,
     title: "Admin Purchasing",
     level: "Berpengalaman",
     location: "Bogor",
-    about: "Admin Purchasing adalah posisi di perusahaan yang bertugas mengelola administrasi dan proses pembelian barang atau jasa yang dibutuhkan perusahaan, mulai dari pencatatan kebutuhan, permintaan penawaran harga, pembuatan purchase order, pengarsipan dokumen, hingga memastikan barang atau jasa yang dipesan diterima sesuai spesifikasi, jumlah, dan waktu yang telah ditentukan, serta bekerja sama dengan tim purchasing dan vendor untuk mendukung kelancaran operasional perusahaan.",
+    about:
+      "Admin Purchasing adalah posisi di perusahaan yang bertugas mengelola administrasi dan proses pembelian barang atau jasa yang dibutuhkan perusahaan, mulai dari pencatatan kebutuhan, permintaan penawaran harga, pembuatan purchase order, pengarsipan dokumen, hingga memastikan barang atau jasa yang dipesan diterima sesuai spesifikasi, jumlah, dan waktu yang telah ditentukan, serta bekerja sama dengan tim purchasing dan vendor untuk mendukung kelancaran operasional perusahaan.",
     responsibilities: [
       "Mengelola administrasi pembelian termasuk mencatat, menyimpan, dan mengarsipkan dokumen terkait proses pembelian.",
       "Menerima dan memproses permintaan pembelian dari berbagai divisi sesuai kebutuhan perusahaan.",
@@ -244,7 +276,7 @@ export const Jobs: Job[] = [
       "Berkoordinasi dengan vendor/supplier terkait status pesanan, perubahan, atau kendala yang terjadi.",
       "Melakukan input data pembelian ke dalam sistem atau database perusahaan.",
       "Menjaga hubungan baik dengan vendor untuk kelancaran kerja sama jangka panjang.",
-      "Membuat laporan pembelian secara berkala untuk manajemen."
+      "Membuat laporan pembelian secara berkala untuk manajemen.",
     ],
     qualifications: [
       "Pendidikan minimal SMA/SMK sederajat (diutamakan D3/S1 semua jurusan, khususnya Administrasi atau Manajemen).",
@@ -255,26 +287,74 @@ export const Jobs: Job[] = [
       "Teliti, rapi, dan detail-oriented dalam pengelolaan dokumen dan data.",
       "Mampu bekerja sama dalam tim dan berkoordinasi dengan berbagai divisi.",
       "Memiliki kemampuan negosiasi dasar dengan vendor atau supplier.",
-      "Berintegritas, bertanggung jawab, dan proaktif dalam pekerjaan."
+      "Berintegritas, bertanggung jawab, dan proaktif dalam pekerjaan.",
     ],
   },
-  // {
-  //   id: 12,
-  //   title: "Staff Audit",
-  //   level: "Intermediate",
-  //   location: "Bogor",
-  //   about: "Melakukan audit internal dan memastikan kepatuhan.",
-  //   responsibilities: [
-  //     "Review laporan keuangan",
-  //     "Audit proses bisnis",
-  //     "Membuat rekomendasi perbaikan",
-  //   ],
-  //   qualifications: [
-  //     "Pendidikan minimal S1 Akuntansi",
-  //     "Pengalaman audit minimal 1 tahun",
-  //     "Teliti dan jujur",
-  //   ],
-  // },
+  {
+    id: 13,
+    title: "SPV Accounting & Tax",
+    level: "Berpengalaman",
+    location: "Bogor",
+    about:
+      "SPV Accounting & Tax adalah singkatan dari Supervisor Accounting & Tax. Posisi ini berada di level supervisor, yang berarti bertugas mengawasi, mengarahkan, serta memastikan pelaksanaan pekerjaan tim accounting dan perpajakan berjalan sesuai standar perusahaan dan regulasi pemerintah.",
+    responsibilities: [
+      "Mengawasi pencatatan transaksi keuangan perusahaan.",
+      "Memastikan laporan keuangan (bulanan, triwulan, tahunan) akurat & tepat waktu.",
+      "Mengontrol jurnal, neraca, laba rugi, serta arus kas.",
+      "Mengawasi perhitungan, pelaporan, dan pembayaran pajak (PPN, PPh 21, PPh 23, PPh Badan, dll).",
+      "Memastikan kepatuhan pajak sesuai regulasi yang berlaku.",
+      "Menjadi penghubung dengan konsultan pajak atau kantor pajak saat ada pemeriksaan.",
+      "Membimbing dan mengarahkan tim accounting & tax di bawah supervisinya.",
+      "Berkoordinasi dengan divisi lain (finance, purchasing, sales, dll).",
+      "Memberikan masukan ke manajemen terkait kondisi keuangan dan perpajakan.",
+    ],
+    qualifications: [
+      "Minimal S1 Akuntansi/Perpajakan/Keuangan.",
+      "Pengalaman kerja minimal 3–5 tahun di bidang akuntansi & perpajakan.",
+      "Memiliki pengalaman 1–2 tahun di level supervisor lebih disukai.",
+      "Memiliki sertifikasi Brevet A & B (Brevet C lebih diutamakan).",
+      "Menguasai Standar Akuntansi Keuangan (SAK).",
+      "Memahami regulasi perpajakan yang berlaku dan update dengan aturan terbaru.",
+      "Mampu membuat & menganalisis laporan keuangan (bulanan, triwulan, tahunan).",
+      "Menguasai perhitungan dan pelaporan PPN, PPh 21, PPh 23, PPh 25, dan PPh Badan.",
+      "Terampil menggunakan software akuntansi (Accurate, SAP, Oracle, dll).",
+      "Mahir Microsoft Excel (pivot table, VLOOKUP/HLOOKUP, formula, analisis data).",
+    ],
+  },
+  {
+    id: 14,
+    title: "Manager Operasional",
+    level: "Berpengalaman",
+    location: "Bogor",
+    about:
+"Seorang manajer level menengah-atas yang bertanggung jawab untuk mengawasi, mengendalikan, dan memastikan seluruh aktivitas operasional perusahaan berjalan efisien, efektif, dan sesuai target. Posisi ini biasanya menjadi penghubung antara strategi manajemen puncak dengan pelaksanaan kerja di lapangan.",
+    responsibilities: [
+      "Merencanakan, mengatur, dan mengawasi aktivitas operasional harian perusahaan.",
+      "Memastikan proses operasional berjalan sesuai SOP, target, dan standar kualitas.",
+      "Mengelola penggunaan sumber daya (SDM, mesin, material, waktu) agar efisien.",
+      "Menganalisis masalah operasional dan mencari solusi cepat serta tepat.",
+      "Membuat laporan operasional untuk diberikan kepada manajemen puncak.",
+      "Membina, mengawasi, dan mengevaluasi kinerja tim operasional.",
+      "Berkoordinasi dengan divisi lain (finance, marketing, warehouse, purchasing, dll).",
+      "Mengusulkan perbaikan proses kerja untuk meningkatkan produktivitas."
+    ],
+    qualifications: [
+      "Minimal S1 Manajemen, Teknik Industri, atau bidang terkait.",
+      "Pengalaman kerja minimal 5-7 tahun di bidang operasional/manufaktur/distribusi.",
+      "Minimal 2-3 tahun pengalaman di posisi manager.",
+      "Menguasai manajemen operasional & manajemen proyek.",
+      "Paham SOP, KPI, dan sistem kontrol operasional.",
+      "Memiliki kemampuan analisis data operasional & laporan kinerja.",
+      "Mampu mengelola sumber daya (SDM, material, mesin, waktu, biaya).",
+      "Terampil menggunakan Microsoft Office (Word, Excel, PowerPoint), dan sistem ERP/ software operasional.",
+      "Memahami konsep lean management/continuous improvement lebih diutamakan.",
+      "Leadership yang kuat, mampu membimbing dan mengarahkan tim.",
+      "Disiplin, tegas, dan mampu mengambil keputusan cepat.",
+      "Mampu bekerja di bawah tekanan & deadline ketat.",
+      "Komunikatif, mampu berkoordinasi lintas divisi.",
+      "Problem solver, analitis, dan berpikir strategis."
+    ],
+  },
 ];
 
 export const locations = [
@@ -285,6 +365,7 @@ export const locations = [
   "Manado",
   "Medan",
   "Palembang",
+  "Palu",
   "Pekanbaru",
   "Pontianak",
   "Samarinda",
